@@ -165,7 +165,6 @@ html {
 					}
 				}
 			}
-
 			footer {
 				height: auto;
 				padding: 1rem 0 1rem 0;
@@ -182,6 +181,20 @@ html {
 					}
 				}
 			}
+			//detail_css
+			#detail-header {
+				height: 500px;
+				background: teal;
+				display: flex;
+				align-items: center;
+
+				#detail-image-block{
+					height: 400px;
+					width: 300px;
+					background: pink;
+					margin-left: 200px;
+}
+				
 		}
 	}
 }
@@ -281,4 +294,5 @@ html {
 			}
 		}
 	}
+}
 }

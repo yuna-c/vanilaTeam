@@ -290,76 +290,87 @@ html body #app footer .bind .tit {
   font-weight: 700;
   text-align: right;
 }
-
+html body #app #detail-header {
+  height: 500px;
+  background: teal;
+  display: flex;
+  align-items: center;
+}
+html body #app #detail-header #detail-image-block {
+  height: 400px;
+  width: 300px;
+  background: pink;
+  margin-left: 200px;
+}
 @media (max-width: 500px) and (orientation: portrait) {
-  html {
+  html html {
     font-size: 13px;
   }
-  html body #app header {
+  html html body #app header {
     padding: 0.8rem 0 0.8rem;
   }
-  html body #app header .bind .tit {
+  html html body #app header .bind .tit {
     font-size: 1.2rem;
     font-weight: 900;
     line-height: 1;
   }
-  html body #app header .bind #search {
+  html html body #app header .bind #search {
     display: flex;
     justify-content: flex-end;
   }
-  html body #app header .bind #search .search-input {
+  html html body #app header .bind #search .search-input {
     width: 70%;
   }
-  html body #app header .bind #search .search-button {
+  html html body #app header .bind #search .search-button {
     padding: 0 0.5rem;
   }
-  html body #app section {
+  html html body #app section {
     margin: 1rem auto 1rem;
   }
-  html body #app section ul {
+  html html body #app section ul {
     gap: 0;
   }
-  html body #app section ul li {
+  html html body #app section ul li {
     width: 45%;
     margin: 0.5rem;
   }
-  html body #app section ul li img {
+  html html body #app section ul li img {
     height: 260px;
     min-height: auto;
   }
-  html body #app section ul li .info {
+  html html body #app section ul li .info {
     padding: 0.5rem;
   }
-  html body #app section ul li .info h3 {
+  html html body #app section ul li .info h3 {
     width: auto;
     margin-bottom: 0;
     font-size: 1rem;
   }
-  html body #app section ul li .info span {
+  html html body #app section ul li .info span {
     font-size: 0.8rem;
   }
-  html body #app section ul li .overview {
+  html html body #app section ul li .overview {
     padding: 0.8rem;
   }
-  html body #app section ul li .overview h3 {
+  html html body #app section ul li .overview h3 {
     font-size: 1rem;
     margin-bottom: 0;
   }
-  html body #app section ul li .overview strong {
+  html html body #app section ul li .overview strong {
     display: none;
   }
-  html body #app section ul li .overview p {
+  html html body #app section ul li .overview p {
     font-size: 0.8rem;
   }
-  html body #app footer {
+  html html body #app footer {
     padding: 0.8rem 0 0.8rem;
   }
-  html body #app footer .bind .tit {
+  html html body #app footer .bind .tit {
     font-size: 1rem;
   }
 }
 @media (max-width: 320px) and (orientation: portrait) {
-  html body #app section ul li img {
+  html html body #app section ul li img {
     height: 180px;
     min-height: auto;
   }

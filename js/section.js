@@ -64,7 +64,8 @@ const createCard = (movies) => {
 		`;
 
 		movieli.addEventListener('click', () => {
-			window.alert(`id : ${id}`);
+			// window.alert(`id : ${id}`);
+			window.location.href = `detail.html?id=${id}`;
 		});
 
 		movieUl.appendChild(movieli);
