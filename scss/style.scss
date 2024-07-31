@@ -1,0 +1,284 @@
+@import 'reset';
+@import 'variables.scss';
+
+html {
+	font-size: 16px;
+
+	body {
+		background: var(--bgColor);
+		font-size: var(--baseSize);
+		font-family: var(--baseFont);
+		#app {
+			header {
+				height: auto;
+				padding: 1rem 0 1rem 0;
+				border-bottom: 1px solid var(--baseColor);
+				.bind {
+					width: 95%;
+					margin: auto;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					a {
+						color: var(--baseColor);
+						.tit {
+							font-size: 1.5rem;
+							font-weight: 700;
+						}
+					}
+					#search {
+						.search-input {
+							padding: 5px 0;
+							border-bottom: 1px solid var(--baseColor);
+						}
+						> * {
+							font-size: 1rem;
+						}
+						.search-button {
+							padding: 5px 10px;
+							border: 1px solid var(--baseColor);
+							border-top-left-radius: 5px;
+							border-top-right-radius: 5px;
+							transition: all 1s ease;
+
+							&:hover {
+								background-color: var(--baseColor);
+								color: var(--bgColor);
+							}
+						}
+					}
+				}
+			}
+			section {
+				min-height: calc(100vh - 33vh);
+				margin: 5rem auto 5rem;
+				ul {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					gap: 10px;
+					li {
+						width: 300px;
+						margin: 1rem;
+						background: var(--bgColor);
+						border: 1px solid var(--baseColor);
+						box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+						position: relative;
+						overflow: hidden;
+						border-radius: 3px;
+						cursor: pointer;
+						img {
+							width: 100%;
+							height: 420px;
+							object-fit: cover;
+						}
+						.info {
+							padding: 1.5em;
+							h3 {
+								width: 250px;
+								margin-bottom: 10px;
+								font-size: 1.1rem;
+								white-space: nowrap;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+								overflow: hidden;
+							}
+						}
+						.overview {
+							max-height: 70%;
+							min-height: 50%;
+							padding: 1.5em;
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							right: 0;
+							box-shadow: -6px -3px 11px rgba(0, 0, 0, 0.2);
+							border-top-left-radius: 5px;
+							border-top-right-radius: 5px;
+							transform: translateY(100%);
+							transition: transform 0.5s ease;
+							overflow-y: hidden;
+							background-color: var(--bgColor);
+
+							h3 {
+								margin-bottom: 0.3em;
+								font-size: 1.5rem;
+								font-weight: 900;
+							}
+							strong {
+								margin-bottom: 0.6em;
+								display: block;
+							}
+							p {
+								height: 190px;
+								overflow-x: hidden;
+								overflow-y: scroll;
+								background-color: var(--bgColor);
+
+								&::-webkit-scrollbar {
+									width: 1px;
+									padding-left: 5px;
+									background-color: transparent;
+								}
+								&::-webkit-scrollbar-thumb {
+									border-radius: 3px;
+									background-color: var(--baseColor);
+								}
+								span {
+									display: block;
+									width: 95%;
+								}
+							}
+						}
+						&:hover .overview {
+							transform: translateY(0);
+						}
+					}
+				}
+				.pagination {
+					margin-top: 80px;
+					display: flex;
+					justify-content: center;
+					gap: 10px;
+
+					span {
+						min-width: 30px;
+						font-size: 1.1rem;
+						padding: 2px 5px;
+						display: flex;
+						justify-content: center;
+						border: 1px solid var(--baseColor);
+						border-radius: 3px;
+
+						&:hover {
+							cursor: pointer;
+							background-color: #19191942;
+							border: 1px solid transparent;
+							color: #fff;
+
+							&.on {
+								cursor: pointer;
+								color: var(--baseColor);
+								font-weight: 500;
+							}
+						}
+					}
+				}
+			}
+
+			footer {
+				height: auto;
+				padding: 1rem 0 1rem 0;
+				border-top: 1px solid var(--baseColor);
+				.bind {
+					width: 95%;
+					margin: auto;
+					display: flex;
+					.tit {
+						width: 100%;
+						font-size: 1.5rem;
+						font-weight: 700;
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+}
+
+// mobile
+@media (max-width: 500px) and (orientation: portrait) {
+	html {
+		font-size: 13px;
+		body {
+			#app {
+				header {
+					padding: 0.8rem 0 0.8rem;
+					.bind {
+						.tit {
+							font-size: 1.2rem;
+							font-weight: 900;
+							line-height: 1;
+						}
+						#search {
+							display: flex;
+							justify-content: flex-end;
+							.search-input {
+								width: 70%;
+							}
+							.search-button {
+								padding: 0 0.5rem;
+							}
+						}
+					}
+				}
+				section {
+					margin: 1rem auto 1rem;
+					ul {
+						gap: 0;
+						li {
+							width: 45%;
+							margin: 0.5rem;
+							img {
+								height: 260px;
+								min-height: auto;
+							}
+							.info {
+								padding: 0.5rem;
+
+								h3 {
+									width: auto;
+									margin-bottom: 0;
+									font-size: 1rem;
+								}
+								span {
+									font-size: 0.8rem;
+								}
+							}
+							.overview {
+								padding: 0.8rem;
+								h3 {
+									font-size: 1rem;
+									margin-bottom: 0;
+								}
+								strong {
+									display: none;
+								}
+								p {
+									font-size: 0.8rem;
+								}
+							}
+						}
+					}
+				}
+				footer {
+					padding: 0.8rem 0 0.8rem;
+					.bind {
+						.tit {
+							font-size: 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 320px) and (orientation: portrait) {
+	html {
+		body {
+			#app {
+				section {
+					ul {
+						li {
+							img {
+								height: 180px;
+								min-height: auto;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
