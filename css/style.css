@@ -161,7 +161,7 @@ html body #app header .bind #search .search-button:hover {
   color: var(--bgColor);
 }
 html body #app section {
-  min-height: 67vh;
+  min-height: calc(100vh - 19rem);
   margin: 5rem auto 5rem;
 }
 html body #app section #movie-list {
@@ -183,7 +183,8 @@ html body #app section #movie-list li {
 }
 html body #app section #movie-list li img {
   width: 100%;
-  height: 420px;
+  max-height: 420px;
+  height: auto;
   object-fit: cover;
 }
 html body #app section #movie-list li .info {
@@ -245,6 +246,40 @@ html body #app section #movie-list li .overview p span {
 html body #app section #movie-list li:hover .overview {
   transform: translateY(0);
 }
+html body #app section #movie-list li.nonData {
+  width: 95%;
+  min-height: 39vh;
+  border: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: auto;
+}
+html body #app section #movie-list li.nonData a {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+html body #app section #movie-list li.nonData a:hover i {
+  color: red;
+}
+html body #app section #movie-list li.nonData a i {
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+html body #app section #movie-list li.nonData a span {
+  display: inline-block;
+}
+html body #app section #movie-list li.nonData .non-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 2;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 html body #app section #pagination-list {
   margin-top: 80px;
   display: flex;
@@ -288,45 +323,35 @@ html body #app footer .bind .tit {
   font-weight: 700;
   text-align: right;
 }
-html body #app #detail-header {
-  height: 500px;
-  background: teal;
-  display: flex;
-  align-items: center;
-}
-html body #app #detail-header #detail-image-block {
-  height: 400px;
-  width: 300px;
-  background: pink;
-  margin-left: 200px;
-}
-@media (max-width: 500px) and (orientation: portrait) {
-  html html {
+
+@media (max-width: 800px) and (orientation: portrait) {
+  html {
     font-size: 13px;
   }
-  html html body #app header {
+  html body #app header {
     padding: 0.8rem 0 0.8rem;
   }
   html body #app header .bind {
     align-items: end;
   }
   html body #app header .bind .tit {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 900;
     line-height: 1;
   }
-  html html body #app header .bind #search {
+  html body #app header .bind #search {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
-  html html body #app header .bind #search .search-input {
+  html body #app header .bind #search .search-input {
     width: 70%;
   }
-  html html body #app header .bind #search .search-button {
+  html body #app header .bind #search .search-button {
     padding: 0 0.5rem;
   }
-  html html body #app section {
+  html body #app section {
     margin: 1rem auto 1rem;
+    min-height: calc(100vh - 10rem);
   }
   html body #app section #movie-list {
     gap: 0;
@@ -336,8 +361,8 @@ html body #app #detail-header #detail-image-block {
     margin: 0.5rem;
   }
   html body #app section #movie-list li img {
-    height: 260px;
-    min-height: auto;
+    min-height: 250px;
+    height: auto;
   }
   html body #app section #movie-list li .info {
     padding: 0.5rem;
@@ -373,20 +398,23 @@ html body #app #detail-header #detail-image-block {
   html body #app footer {
     padding: 0.8rem 0 0.8rem;
   }
-  html html body #app footer .bind .tit {
-    font-size: 1rem;
+  html body #app footer .bind .tit {
+    font-size: 1.5rem;
   }
 }
-@media (max-width: 320px) and (orientation: portrait) {
+@media (max-width: 400px) and (orientation: portrait) {
   html body #app header {
     padding: 0.5rem 0 0.5rem;
   }
   html body #app header .bind a .tit {
     font-size: 1.3rem;
   }
+  html body #app section {
+    min-height: calc(100vh - 10rem);
+  }
   html body #app section #movie-list li img {
-    height: 180px;
-    min-height: auto;
+    max-height: 180px;
+    height: auto;
   }
   html body #app section #pagination-list {
     margin-top: 40px;

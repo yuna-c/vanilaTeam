@@ -51,7 +51,7 @@ html {
       }
 
       section {
-        min-height: calc(100vh - 33vh);
+        min-height: calc(100vh - 19rem);
         margin: 5rem auto 5rem;
         #movie-list {
           display: flex;
@@ -70,7 +70,8 @@ html {
             cursor: pointer;
             img {
               width: 100%;
-              height: 420px;
+              max-height: 420px;
+              height: auto;
               object-fit: cover;
             }
             .info {
@@ -135,6 +136,43 @@ html {
               transform: translateY(0);
             }
           }
+          li.nonData {
+            width: 95%;
+            min-height: 39vh;
+            border: 0;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: auto;
+
+            a {
+              display: flex;
+              align-items: center;
+              font-size: 1.2rem;
+              font-weight: 600;
+              &:hover {
+                i {
+                  color: red;
+                }
+              }
+              i {
+                font-size: 1.5rem;
+                margin-right: 15px;
+              }
+              span {
+                display: inline-block;
+              }
+            }
+            .non-list {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              line-height: 2;
+              font-size: 1.2rem;
+              font-weight: 500;
+            }
+          }
         }
         #pagination-list {
           margin-top: 80px;
@@ -185,8 +223,8 @@ html {
   }
 }
 
-// mobile
-@media (max-width: 500px) and (orientation: portrait) {
+// tablet
+@media (max-width: 800px) and (orientation: portrait) {
   html {
     font-size: 13px;
     body {
@@ -196,13 +234,13 @@ html {
           .bind {
             align-items: end;
             .tit {
-              font-size: 1.2rem;
+              font-size: 1.5rem;
               font-weight: 900;
               line-height: 1;
             }
             #search {
               display: flex;
-              justify-content: flex-end;
+              justify-content: center;
               .search-input {
                 width: 70%;
               }
@@ -215,14 +253,15 @@ html {
 
         section {
           margin: 1rem auto 1rem;
+          min-height: calc(100vh - 10rem);
           #movie-list {
             gap: 0;
             li {
               width: 45%;
               margin: 0.5rem;
               img {
-                height: 260px;
-                min-height: auto;
+                min-height: 250px;
+                height: auto;
               }
               .info {
                 padding: 0.5rem;
@@ -250,6 +289,16 @@ html {
                 }
               }
             }
+            li.nonData {
+              a {
+                i {
+                }
+                span {
+                }
+              }
+              .non-list {
+              }
+            }
           }
           #pagination-list {
             margin-top: 50px;
@@ -264,7 +313,7 @@ html {
           padding: 0.8rem 0 0.8rem;
           .bind {
             .tit {
-              font-size: 1rem;
+              font-size: 1.5rem;
             }
           }
         }
@@ -273,7 +322,8 @@ html {
   }
 }
 
-@media (max-width: 320px) and (orientation: portrait) {
+// mobile
+@media (max-width: 400px) and (orientation: portrait) {
   html {
     body {
       #app {
@@ -289,12 +339,15 @@ html {
         }
 
         section {
+          min-height: calc(100vh - 10rem);
           #movie-list {
             li {
               img {
-                height: 180px;
-                min-height: auto;
+                max-height: 180px;
+                height: auto;
               }
+            }
+            li.nonData {
             }
           }
           #pagination-list {

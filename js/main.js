@@ -32,7 +32,7 @@ export const createSection = async () => {
 };
 
 // id event
-const handleClick = (e) => {
+export const handleClick = (e) => {
   e.preventDefault();
   const target = e.target;
   const list = document.getElementById('movie-list');
@@ -45,7 +45,7 @@ const handleClick = (e) => {
 };
 
 // cardlist
-const cardList = (data) => {
+export const cardList = (data) => {
   const dataResult = data.results;
   let cardTemp = dataResult
     .map((movie) => {

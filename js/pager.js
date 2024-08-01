@@ -2,8 +2,8 @@ import { handlePagerClick } from './main.js';
 
 // pagination
 const pagination = (pageTotal, pageStart) => {
-  let pageTemp = '';
   const pageGroup = 8;
+  let pageTemp = '';
   const pageEnd = Math.min(pageStart + pageGroup - 1);
   for (let i = pageStart; i <= pageEnd; i++) {
     const active = i === pageStart ? 'on' : '';
@@ -14,8 +14,8 @@ const pagination = (pageTotal, pageStart) => {
 
 export const createPagination = (pageTotal, pageStart) => {
   const paginationList = document.createElement('ul');
-  paginationList.innerHTML = pagination(pageTotal, pageStart);
   paginationList.id = 'pagination-list';
+  paginationList.innerHTML = pagination(pageTotal, pageStart);
   return paginationList;
 };
 
