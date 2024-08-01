@@ -1,7 +1,6 @@
-import createHeader from './header.js';
-import { createCard } from './section.js';
-// import createFooter from './footer.js';
+import { createHeader } from './header.js';
+import { createSection } from './main.js';
+import { createFooter } from './footer.js';
 
 createHeader();
-createCard;
-// createFooter();
+createSection().then(() => createFooter());
