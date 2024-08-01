@@ -118,9 +118,6 @@ a {
   --baseSize: 1rem;
 }
 
-html {
-  font-size: 16px;
-}
 html body {
   background: var(--bgColor);
   font-size: var(--baseSize);
@@ -167,13 +164,13 @@ html body #app section {
   min-height: 67vh;
   margin: 5rem auto 5rem;
 }
-html body #app section ul {
+html body #app section #movie-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
 }
-html body #app section ul li {
+html body #app section #movie-list li {
   width: 300px;
   margin: 1rem;
   background: var(--bgColor);
@@ -184,15 +181,15 @@ html body #app section ul li {
   border-radius: 3px;
   cursor: pointer;
 }
-html body #app section ul li img {
+html body #app section #movie-list li img {
   width: 100%;
   height: 420px;
   object-fit: cover;
 }
-html body #app section ul li .info {
+html body #app section #movie-list li .info {
   padding: 1.5em;
 }
-html body #app section ul li .info h3 {
+html body #app section #movie-list li .info h3 {
   width: 250px;
   margin-bottom: 10px;
   font-size: 1.1rem;
@@ -201,7 +198,7 @@ html body #app section ul li .info h3 {
   white-space: nowrap;
   overflow: hidden;
 }
-html body #app section ul li .overview {
+html body #app section #movie-list li .overview {
   max-height: 70%;
   min-height: 50%;
   padding: 1.5em;
@@ -217,44 +214,44 @@ html body #app section ul li .overview {
   overflow-y: hidden;
   background-color: var(--bgColor);
 }
-html body #app section ul li .overview h3 {
+html body #app section #movie-list li .overview h3 {
   margin-bottom: 0.3em;
   font-size: 1.5rem;
   font-weight: 900;
 }
-html body #app section ul li .overview strong {
+html body #app section #movie-list li .overview strong {
   margin-bottom: 0.6em;
   display: block;
 }
-html body #app section ul li .overview p {
+html body #app section #movie-list li .overview p {
   height: 190px;
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: var(--bgColor);
 }
-html body #app section ul li .overview p::-webkit-scrollbar {
+html body #app section #movie-list li .overview p::-webkit-scrollbar {
   width: 1px;
   padding-left: 5px;
   background-color: transparent;
 }
-html body #app section ul li .overview p::-webkit-scrollbar-thumb {
+html body #app section #movie-list li .overview p::-webkit-scrollbar-thumb {
   border-radius: 3px;
   background-color: var(--baseColor);
 }
-html body #app section ul li .overview p span {
+html body #app section #movie-list li .overview p span {
   display: block;
   width: 95%;
 }
-html body #app section ul li:hover .overview {
+html body #app section #movie-list li:hover .overview {
   transform: translateY(0);
 }
-html body #app section .pagination {
+html body #app section #pagination-list {
   margin-top: 80px;
   display: flex;
   justify-content: center;
   gap: 10px;
 }
-html body #app section .pagination span {
+html body #app section #pagination-list li {
   min-width: 30px;
   font-size: 1.1rem;
   padding: 2px 5px;
@@ -263,16 +260,17 @@ html body #app section .pagination span {
   border: 1px solid var(--baseColor);
   border-radius: 3px;
 }
-html body #app section .pagination span:hover {
+html body #app section #pagination-list li:hover {
   cursor: pointer;
   background-color: rgba(25, 25, 25, 0.2588235294);
   border: 1px solid transparent;
   color: #fff;
 }
-html body #app section .pagination span:hover.on {
+html body #app section #pagination-list li.on {
   cursor: pointer;
-  color: var(--baseColor);
-  font-weight: 500;
+  background-color: rgba(25, 25, 25, 0.2588235294);
+  border: 1px solid transparent;
+  color: #fff;
 }
 html body #app footer {
   height: auto;
@@ -298,6 +296,9 @@ html body #app footer .bind .tit {
   html body #app header {
     padding: 0.8rem 0 0.8rem;
   }
+  html body #app header .bind {
+    align-items: end;
+  }
   html body #app header .bind .tit {
     font-size: 1.2rem;
     font-weight: 900;
@@ -316,40 +317,47 @@ html body #app footer .bind .tit {
   html body #app section {
     margin: 1rem auto 1rem;
   }
-  html body #app section ul {
+  html body #app section #movie-list {
     gap: 0;
   }
-  html body #app section ul li {
+  html body #app section #movie-list li {
     width: 45%;
     margin: 0.5rem;
   }
-  html body #app section ul li img {
+  html body #app section #movie-list li img {
     height: 260px;
     min-height: auto;
   }
-  html body #app section ul li .info {
+  html body #app section #movie-list li .info {
     padding: 0.5rem;
   }
-  html body #app section ul li .info h3 {
+  html body #app section #movie-list li .info h3 {
     width: auto;
     margin-bottom: 0;
     font-size: 1rem;
   }
-  html body #app section ul li .info span {
+  html body #app section #movie-list li .info span {
     font-size: 0.8rem;
   }
-  html body #app section ul li .overview {
+  html body #app section #movie-list li .overview {
     padding: 0.8rem;
   }
-  html body #app section ul li .overview h3 {
+  html body #app section #movie-list li .overview h3 {
     font-size: 1rem;
     margin-bottom: 0;
   }
-  html body #app section ul li .overview strong {
+  html body #app section #movie-list li .overview strong {
     display: none;
   }
-  html body #app section ul li .overview p {
+  html body #app section #movie-list li .overview p {
     font-size: 0.8rem;
+  }
+  html body #app section #pagination-list {
+    margin-top: 50px;
+  }
+  html body #app section #pagination-list li {
+    min-width: 25px;
+    font-size: 1rem;
   }
   html body #app footer {
     padding: 0.8rem 0 0.8rem;
@@ -359,9 +367,30 @@ html body #app footer .bind .tit {
   }
 }
 @media (max-width: 320px) and (orientation: portrait) {
-  html body #app section ul li img {
+  html body #app header {
+    padding: 0.5rem 0 0.5rem;
+  }
+  html body #app header .bind a .tit {
+    font-size: 1.3rem;
+  }
+  html body #app section #movie-list li img {
     height: 180px;
     min-height: auto;
+  }
+  html body #app section #pagination-list {
+    margin-top: 40px;
+    gap: 5px;
+  }
+  html body #app section #pagination-list li {
+    min-width: 25px;
+    font-size: 0.8rem;
+    padding: 2px 3px;
+  }
+  html body #app footer {
+    padding: 0.5rem 0 0.5rem;
+  }
+  html body #app footer .bind .tit {
+    font-size: 1.3rem;
   }
 }
 
