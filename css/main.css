@@ -1,0 +1,451 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+address,
+em,
+img,
+b,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+footer,
+header,
+menu,
+nav,
+section {
+  line-height: inherit;
+  border: 0;
+  vertical-align: baseline;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+select,
+input,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  outline: none;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: inherit;
+  vertical-align: middle;
+}
+
+button {
+  background: transparent;
+  border-radius: 0;
+  appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+}
+
+input[type=button],
+button,
+select {
+  cursor: pointer;
+}
+
+select {
+  -o-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+textarea {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  overflow: auto;
+  resize: none;
+}
+
+a {
+  outline: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  color: inherit;
+  line-height: inherit;
+}
+
+:root {
+  --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
+  --baseColor: #191919;
+  --bgColor: #fdfbf5;
+  --baseSize: 1rem;
+}
+
+html {
+  font-size: 16px;
+}
+html body {
+  background: var(--bgColor);
+  font-size: var(--baseSize);
+  font-family: var(--baseFont);
+}
+@media (max-width: 800px) and (orientation: portrait) {
+  html {
+    font-size: 13px;
+  }
+}
+#header {
+  height: auto;
+  padding: 1rem 0 1rem 0;
+  border-bottom: 1px solid var(--baseColor);
+}
+#header .bind {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .bind a {
+  color: var(--baseColor);
+}
+#header .bind a .tit {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+#header .bind #search .search-input {
+  padding: 5px 0;
+  border-bottom: 1px solid var(--baseColor);
+}
+#header .bind #search > * {
+  font-size: 1rem;
+}
+#header .bind #search .search-button {
+  padding: 5px 10px;
+  border: 1px solid var(--baseColor);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all 1s ease;
+}
+#header .bind #search .search-button:hover {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+
+@media (max-width: 800px) and (orientation: portrait) {
+  #header {
+    padding: 0.8rem 0 0.8rem;
+  }
+  #header .bind {
+    align-items: end;
+  }
+  #header .bind .tit {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+  #header .bind #search {
+    display: flex;
+    justify-content: center;
+  }
+  #header .bind #search .search-input {
+    width: 70%;
+  }
+  #header .bind #search .search-button {
+    padding: 0 0.5rem;
+  }
+}
+@media (max-width: 400px) and (orientation: portrait) {
+  #header {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #header .bind a .tit {
+    font-size: 1.3rem;
+  }
+}
+#footer {
+  height: auto;
+  padding: 1rem 0 1rem 0;
+  border-top: 1px solid var(--baseColor);
+}
+#footer .bind {
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+#footer .bind .tit {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (max-width: 800px) and (orientation: portrait) {
+  #footer {
+    padding: 0.8rem 0 0.8rem;
+  }
+  #footer .bind .tit {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 400px) and (orientation: portrait) {
+  #footer {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #footer .bind .tit {
+    font-size: 1.3rem;
+  }
+}
+#section {
+  min-height: calc(100vh - 19rem);
+  margin: 5rem auto 5rem;
+}
+#section #movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+#section #movie-list li {
+  width: 300px;
+  margin: 1rem;
+  background: var(--bgColor);
+  border: 1px solid var(--baseColor);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#section #movie-list li img {
+  width: 100%;
+  max-height: 420px;
+  height: auto;
+  object-fit: cover;
+}
+#section #movie-list li .info {
+  padding: 1.5em;
+}
+#section #movie-list li .info h3 {
+  width: 250px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#section #movie-list li .overview {
+  max-height: 70%;
+  min-height: 50%;
+  padding: 1.5em;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-shadow: -6px -3px 11px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  overflow-y: hidden;
+  background-color: var(--bgColor);
+}
+#section #movie-list li .overview h3 {
+  margin-bottom: 0.3em;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+#section #movie-list li .overview strong {
+  margin-bottom: 0.6em;
+  display: block;
+}
+#section #movie-list li .overview p {
+  height: 190px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: var(--bgColor);
+}
+#section #movie-list li .overview p::-webkit-scrollbar {
+  width: 1px;
+  padding-left: 5px;
+  background-color: transparent;
+}
+#section #movie-list li .overview p::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: var(--baseColor);
+}
+#section #movie-list li .overview p span {
+  display: block;
+  width: 95%;
+}
+#section #movie-list li:hover .overview {
+  transform: translateY(0);
+}
+#section #movie-list li.nonData {
+  width: 95%;
+  min-height: 39vh;
+  border: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: auto;
+}
+#section #movie-list li.nonData a {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#section #movie-list li.nonData a:hover i {
+  color: red;
+}
+#section #movie-list li.nonData a i {
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+#section #movie-list li.nonData a span {
+  display: inline-block;
+}
+#section #movie-list li.nonData .non-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 2;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+#section #pagination-list {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+#section #pagination-list li {
+  min-width: 30px;
+  font-size: 1.1rem;
+  padding: 2px 5px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid var(--baseColor);
+  border-radius: 3px;
+}
+#section #pagination-list li:hover {
+  cursor: pointer;
+  background-color: rgba(25, 25, 25, 0.2588235294);
+  border: 1px solid transparent;
+  color: #fff;
+}
+#section #pagination-list li.on {
+  cursor: pointer;
+  background-color: rgba(25, 25, 25, 0.2588235294);
+  border: 1px solid transparent;
+  color: #fff;
+}
+
+@media (max-width: 800px) and (orientation: portrait) {
+  #section {
+    margin: 1rem auto 1rem;
+    min-height: calc(100vh - 10rem);
+  }
+  #section #movie-list {
+    gap: 0;
+  }
+  #section #movie-list li {
+    width: 45%;
+    margin: 0.5rem;
+  }
+  #section #movie-list li img {
+    min-height: 250px;
+    height: auto;
+  }
+  #section #movie-list li .info {
+    padding: 0.5rem;
+  }
+  #section #movie-list li .info h3 {
+    width: auto;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+  #section #movie-list li .info span {
+    font-size: 0.8rem;
+  }
+  #section #movie-list li .overview {
+    padding: 0.8rem;
+  }
+  #section #movie-list li .overview h3 {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  #section #movie-list li .overview strong {
+    display: none;
+  }
+  #section #movie-list li .overview p {
+    font-size: 0.8rem;
+  }
+  #section #pagination-list {
+    margin-top: 50px;
+  }
+  #section #pagination-list li {
+    min-width: 25px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400px) and (orientation: portrait) {
+  #section {
+    min-height: calc(100vh - 10rem);
+  }
+  #section #movie-list li img {
+    max-height: 180px;
+    height: auto;
+  }
+  #section #pagination-list {
+    margin-top: 40px;
+    gap: 5px;
+  }
+  #section #pagination-list li {
+    min-width: 25px;
+    font-size: 0.8rem;
+    padding: 2px 3px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
