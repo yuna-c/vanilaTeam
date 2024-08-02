@@ -1,0 +1,24 @@
+.banner{
+    display: flex;
+    justify-content: center;
+    .slide_wrap{
+        margin: auto;
+        position: relative;
+        width: 100%;
+        .slide_list{
+            position: relative;
+            overflow: hidden;
+            width: 500px;
+            height: 280px;
+            .slide_item{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: all 0.3s;
+            }
+        }
+    }
+}
