@@ -40,16 +40,22 @@ async function fetchData() {
 		// err시 실행 중지를 처리할 로직
 		console.error(err, '중지');
 		// throw Error('중지');
+		alert(err)
 	}
 }
+
+
+
 
 // 헤더
 const createHeader = (data) => {
 
+	const title = data.title
+	const description = data.overview
 	const app = document.getElementById('app');
 	const header = document.createElement('header');
 	const headerDiv = document.createElement('div');
-	const headerTitle = document.createElement('h1');
+	// const headerTitle = document.createElement('h1');
 	const headerA = document.createElement('a');
 	const searchForm = document.createElement('form');
 	const searchInput = document.createElement('input');
@@ -58,7 +64,20 @@ const createHeader = (data) => {
     //디테일 페이지 추가
     const detailHeader = document.createElement('div')
     const detailImgHeader = document.createElement('div')
-	
+
+
+	// detail-info 요소 생성 및 콘텐츠 추가
+	const detailInfo = document.createElement('div');
+	detailInfo.id = 'detail-info';
+
+	const detailTitle = document.createElement('h1');
+	detailTitle.textContent = title;
+
+	const detailDescription = document.createElement('p');
+	detailDescription.textContent = description;
+
+	detailInfo.appendChild(detailTitle);
+	detailInfo.appendChild(detailDescription);
 
 
 	header.id = 'header';
@@ -68,14 +87,26 @@ const createHeader = (data) => {
 
     //디테일 페이지 추가
     detailHeader.id = 'detail-header';
+
+
     detailImgHeader.id = 'detail-image-block';
+	// 스타일 설정을 통해 백그라운드 이미지 추가
+	detailImgHeader.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}.jpg')`;
+
+	// 추가적인 스타일 설정
+	detailImgHeader.style.backgroundSize = 'cover';
+	detailImgHeader.style.backgroundPosition = 'center';
+	detailImgHeader.style.width = '240px'; // 예시 너비
+	detailImgHeader.style.height = '350px'; // 예시 높이
+
+	
 
 
 
 	searchInput.classList = 'search-input';
 	searchButton.classList = 'search-button';
 	headerDiv.classList = 'bind';
-	headerTitle.classList = 'tit';
+	// headerTitle.classList = 'tit';
 
 	headerA.setAttribute('href', 'index.html');
 	// headerA.appendChild(headerTitle);
@@ -87,7 +118,9 @@ const createHeader = (data) => {
 	searchInput.autofocus = true;
 	searchInput.placeholder = '영화를 검색해 보세요';
 	searchInput.required = true;
-	headerTitle.innerText = data.title // 영화 제목 데이터를 바인딩 한 곳.
+	// headerTitle.innerText = data.title // 영화 제목 데이터를 바인딩 한 곳.
+
+
 	searchButton.innerText = '검색';
 
 
@@ -107,8 +140,9 @@ const createHeader = (data) => {
 
 	//detail
     app.appendChild(detailHeader)
-	detailHeader.appendChild(headerTitle)
+	// detailHeader.appendChild(headerTitle)
     detailHeader.appendChild(detailImgHeader)
+	detailHeader.appendChild(detailInfo)
     
 };
 
@@ -138,3 +172,13 @@ const handleSearch = () => {
 };
 
 export default createHeader;
+
+
+//포스터 이미지
+const poster_path = '/your-image-path.jpg'; // 예시 이미지 경로
+
+function setBackgroundImage(poster_path) {
+    document.documentElement.style.setProperty('--poster-path', `url('https://image.tmdb.org/t/p/w500${poster_path}')`);
+}
+
+setBackgroundImage(poster_path);
