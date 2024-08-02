@@ -235,3 +235,12 @@ html body {
 }
 
 /*# sourceMappingURL=detail.css.map */
+
+
+#detailH{
+  width: 200px;
+  height: 200px;
+  margin-top: 200px;
+  background-color: aquamarine;
+  
+}

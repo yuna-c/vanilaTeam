@@ -1,6 +1,6 @@
 //push test
 
-import { config } from './config.js';
+import { config } from '../config.js';
 // import createFooter from './footer.js';
 
 let movieId = 0;
@@ -54,6 +54,7 @@ const createHeader = (data) => {
 	const searchForm = document.createElement('form');
 	const searchInput = document.createElement('input');
 	const searchButton = document.createElement('button');
+
     //디테일 페이지 추가
     const detailHeader = document.createElement('div')
     const detailImgHeader = document.createElement('div')
@@ -64,6 +65,7 @@ const createHeader = (data) => {
 	searchForm.id = 'search';
 	searchInput.id = 'search-input';
 	searchButton.id = 'search-button';
+
     //디테일 페이지 추가
     detailHeader.id = 'detail-header';
     detailImgHeader.id = 'detail-image-block';
@@ -108,11 +110,6 @@ const createHeader = (data) => {
     detailHeader.appendChild(detailImgHeader)
     
 };
-
-
-//index.html로 돌아가기 
-
-
 
 
 
