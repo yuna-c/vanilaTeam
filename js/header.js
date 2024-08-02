@@ -47,6 +47,7 @@ export const createHeader = () => {
   searchButton.addEventListener('click', handleSearch);
 };
 
+
 // search
 const handleSearch = async () => {
   // e.preventDefault;
@@ -91,3 +92,5 @@ const handleSearch = async () => {
     }
   }
 };
+
+// export default createHeader;

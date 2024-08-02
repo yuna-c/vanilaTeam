@@ -1,15 +1,6 @@
 
-// import { createHeader } from '../header.js';
-
-// import { createSection } from './main.js';
-
-import createHeader from './detailHeader.js';
-import { createFooter } from '../footer.js';
+import { createHeader } from '../header.js';
+import './detailHeader.js';
 
 
-
-
-createHeader();
-
-// createSection().then(() => createFooter());
-createFooter();
+createHeader()

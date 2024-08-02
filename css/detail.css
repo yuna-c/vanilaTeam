@@ -233,14 +233,16 @@ html body {
     font-size: 1.3rem;
   }
 }
+#detail-header {
+  width: 100%;
+  height: 300px;
+  background-color: yellow;
+}
 
-/*# sourceMappingURL=detail.css.map */
-
-
-#detailH{
+#detail-image-block {
   width: 200px;
   height: 200px;
-  margin-top: 200px;
   background-color: aquamarine;
-  
 }
+
+/*# sourceMappingURL=detail.css.map */

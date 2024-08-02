@@ -13,6 +13,7 @@ const SEARCH_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_
 
 // 현재 URL에서 쿼리 스트링을 가져옴
 const urlParams = new URLSearchParams(window.location.search);
+
 // 'id' 쿼리 스트링 값 가져오기
 movieId = urlParams.get('id');
 const options = {
@@ -29,10 +30,11 @@ fetchData();
 async function fetchData() {
 	try {
 		// 예외 발생 가능성 있는 데이터(await로 대기시켰다가 실행 준비)
-		const SEARCH_DETAIL_URL = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=${API_KEY}&language=ko-KR"
+		const SEARCH_DETAIL_URL = "https://api.themoviedb.org/3/movie/" + movieId + `?api_key=${API_KEY}&language=ko-KR`
 		console.log(SEARCH_DETAIL_URL)
 		const res = await fetch(SEARCH_DETAIL_URL, options);
 		const data = await res.json();
+		console.log(data)
 		return createHeader(data);
 	} catch (err) {
 		// err시 실행 중지를 처리할 로직
@@ -44,8 +46,6 @@ async function fetchData() {
 // 헤더
 const createHeader = (data) => {
 
-	console.log(data)
-	console.log(data.title)
 	const app = document.getElementById('app');
 	const header = document.createElement('header');
 	const headerDiv = document.createElement('div');
@@ -78,7 +78,7 @@ const createHeader = (data) => {
 	headerTitle.classList = 'tit';
 
 	headerA.setAttribute('href', 'index.html');
-	headerA.appendChild(headerTitle);
+	// headerA.appendChild(headerTitle);
 
 
 	searchInput.type = 'text';
@@ -87,15 +87,15 @@ const createHeader = (data) => {
 	searchInput.autofocus = true;
 	searchInput.placeholder = '영화를 검색해 보세요';
 	searchInput.required = true;
-	headerTitle.innerText = 'SEARCH MOVIES';
+	headerTitle.innerText = data.title // 영화 제목 데이터를 바인딩 한 곳.
 	searchButton.innerText = '검색';
 
 
 
-	app.appendChild(header);
-	header.appendChild(headerDiv);
-	headerA.appendChild(headerTitle);
-	headerDiv.appendChild(headerA);
+	// app.appendChild(header);
+	// header.appendChild(headerDiv);
+	// headerA.appendChild(headerTitle);
+	// headerDiv.appendChild(headerA);
 	headerDiv.appendChild(searchForm);
 	// searchForm.appendChild(searchInput);
 	// searchForm.appendChild(searchButton);
@@ -107,6 +107,7 @@ const createHeader = (data) => {
 
 	//detail
     app.appendChild(detailHeader)
+	detailHeader.appendChild(headerTitle)
     detailHeader.appendChild(detailImgHeader)
     
 };
