@@ -53,7 +53,7 @@ export const cardList = (data) => {
       const { title, poster_path, vote_average, overview, release_date, id } = movie;
       return `
         <li class="movie-item" id=${id}>
-          <a href="/page/detail.html?${id}">
+          <a href="/page/detail.html?id=${id}">
             <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}">
             <div class="info">
               <h3 class="movie-title">${title}</h3>
