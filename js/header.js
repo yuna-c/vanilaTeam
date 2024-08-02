@@ -1,6 +1,6 @@
 import { getChangeData } from './fetchData.js';
 import { createPagination, handlePagination } from './pager.js';
-import { cardList, handleClick } from './main.js';
+import { cardList } from './main.js';
 
 // header
 export const createHeader = () => {
@@ -83,11 +83,11 @@ const handleSearch = async () => {
 
     if (searchCard === '') {
       pagination.style = 'display:none;';
-      movieUl.removeEventListener('click', handleClick); // 이벤트 삭제
+      // movieUl.removeEventListener('click', handleClick); // 이벤트 삭제
       movieUl.appendChild(historyBack);
     } else {
       pagination.style = 'display:flex;';
-      movieUl.addEventListener('click', handleClick); // 이벤트 재사용
+      // movieUl.addEventListener('click', handleClick); // 이벤트 재사용
     }
   }
 };

@@ -28,42 +28,45 @@ export const createSection = async () => {
   handlePagination(pageTotal, pageStart);
   activePagenation(pageStart);
 
-  movieUl.addEventListener('click', handleClick);
+  // movieUl.addEventListener('click', handleClick);
 };
 
 // id event
-export const handleClick = (e) => {
-  e.preventDefault();
-  const target = e.target;
-  const list = document.getElementById('movie-list');
+// export const handleClick = (e) => {
+//   e.preventDefault();
+//   const target = e.target;
+//   const list = document.getElementById('movie-list');
 
-  if (target === list) {
-    return false;
-  } else if (target !== list.childNodes) {
-    alert(`id : ${target.parentNode.id}`);
-  }
-};
+//   if (target === list) {
+//     return false;
+//   } else if (target !== list.childNodes) {
+//     alert(`id : ${target.parentNode.id}`);
+//   }
+// };
 
 // cardlist
 export const cardList = (data) => {
   const dataResult = data.results;
+  console.log(dataResult);
   let cardTemp = dataResult
     .map((movie) => {
       const { title, poster_path, vote_average, overview, release_date, id } = movie;
       return `
         <li class="movie-item" id=${id}>
-        <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}">
-        <div class="info">
-          <h3 class="movie-title">${title}</h3>
-          <p>⭐${vote_average}</p>
-        </div>
-        <div class="overview">
-          <h3>overview</h3>
-          <strong>${title}</strong>
-          <p class="movie-content">
-            <span>${overview}</span>
-          </p>
-        </div>
+          <a href="/page/detail.html?${id}">
+            <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}">
+            <div class="info">
+              <h3 class="movie-title">${title}</h3>
+              <p>⭐${vote_average}</p>
+            </div>
+            <div class="overview">
+              <h3>overview</h3>
+              <strong>${title}</strong>
+              <p class="movie-content">
+                <span>${overview}</span>
+              </p>
+            </div>
+          </a>
         </li>
       `;
     })
