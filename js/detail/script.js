@@ -4,7 +4,6 @@ import { createDetailHeader } from './detailHeader.js';
 // import './createReview.js';
 import { createReview } from './review.js';
 
-
 createHeader();
 createDetailHeader().then(() => createReview());
 

@@ -13,14 +13,17 @@ const createReviewSection = () => {
   const section = document.createElement('section');
   section.className = 'review-container';
   section.innerHTML = `
+  <div class="w-60">
     <h3>감상평</h3>
     <form class="review-form">
-      <input class="" type="text" placeholder="감상평을 자유롭게 작성해주세요." required>
-      <div>
-      <input type="text" placeholder="이름" required>
-      <input type="password" placeholder="비밀번호" required>
-      <button>등록</button>
+      <input class="review-content" type="text" placeholder="감상평을 자유롭게 작성해주세요." required>
+      <div class="form-info">
+        <input class="m-l-10" type="text" placeholder="이름" required>
+        <input class="m-l-10" type="password" placeholder="비밀번호" required>
+        <button class="m-l-10">등록</button>
+      </div>
     </form>
+    </div>
   `;
 
   return section;
@@ -69,16 +72,16 @@ const setupEventListeners = () => {
 
 const createReviewItem = (data) => {
   return `
-    <li data-movieId=${data['movieId']}>
-      <span id="review-content">${data['content']}</span>
+    <li class="review-item" data-movieId=${data['movieId']}>
       <span id="user-name">${data['userName']}</span>
+      <span id="review-content">${data['content']}</span>
     </li>
   `;
 };
 
 const renderReviews = async () => {
   let docs = await getReviewData(movieId);
-  let reviewList = '<ul class="review-list">';
+  let reviewList = '<div class="w-60"> <ul class="review-list">';
 
   docs.forEach((doc) => {
     let data = doc.data();
@@ -86,7 +89,7 @@ const renderReviews = async () => {
     reviewList += reviewItem;
   });
 
-  reviewList += '</ul>';
+  reviewList += '</ul></div>';
   document.querySelector('.review-container').innerHTML += reviewList;
 };
 
