@@ -1,7 +1,6 @@
 import { createHeader } from '../header.js';
 import { createDetailHeader } from './detailHeader.js';
 // import './detailHeader.js';
-// import './createReview.js';
 import { createReview } from './review.js';
 
 
