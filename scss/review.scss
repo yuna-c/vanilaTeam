@@ -1,0 +1,43 @@
+@import 'reset';
+@import 'variables.scss';
+@import 'header.scss';
+@import 'footer.scss';
+
+// $main-color: #2a4cb2;
+
+.review-container {
+  background-color: gray;
+  padding: 50px;
+
+  .review {
+    width: 80%;
+  }
+
+  input {
+    margin: 10px;
+    padding: 5px;
+  }
+
+  button {
+    background-color: red;
+  }
+}
+
+.review-form {
+  background-color: green;
+}
+
+.review-list {
+  background-color: wheat;
+}
+
+// tablet
+@media (max-width: 800px) and (orientation: portrait) {
+  #section {
+  }
+}
+// mobile
+@media (max-width: 400px) and (orientation: portrait) {
+  #section {
+  }
+}
