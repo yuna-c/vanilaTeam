@@ -1,0 +1,23 @@
+@import 'reset';
+@import 'variables.scss';
+@import 'header.scss';
+@import 'footer.scss';
+
+#section {
+}
+
+// tablet
+@media (max-width: 1200px) {
+  #section {
+  }
+}
+
+// mobile
+@media (max-width: 600px) {
+  #section {
+  }
+}
+@media (max-width: 300px) {
+  #section {
+  }
+}

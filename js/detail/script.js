@@ -1,7 +1,7 @@
-import { createHeader } from '../header.js';
-// import { createSection } from './main.js';
+import { createHeader } from '../Header.js';
+import { createDetail } from './detail.js';
 import { createFooter } from '../footer.js';
 
 createHeader();
-// createSection().then(() => createFooter());
-createFooter();
+createDetail().then(() => createFooter());
+// createFooter();
