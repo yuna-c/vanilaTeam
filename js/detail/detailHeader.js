@@ -24,7 +24,12 @@ const options = {
 	}
   };
 
-fetchData();
+// fetchData();
+export function createDetailHeader() {
+    return fetchData();
+}
+
+
 
 // 데이터
 async function fetchData() {

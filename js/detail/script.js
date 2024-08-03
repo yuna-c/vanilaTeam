@@ -1,8 +1,12 @@
 import { createHeader } from '../header.js';
-import './detailHeader.js';
-// import './timeSpan.js';
+import { createDetailHeader } from './detailHeader.js';
+// import './detailHeader.js';
+// import './createReview.js';
 import { createReview } from './review.js';
 
 
 createHeader();
-createReview();
+createDetailHeader().then(() => createReview());
+
+// createDetailHeader();
+// createReview();
