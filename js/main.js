@@ -52,21 +52,21 @@ export const cardList = (data) => {
     .map((movie) => {
       const { title, poster_path, vote_average, overview, release_date, id } = movie;
       return `
-        <li class="movie-item" id=${id}>
-          <a href="/page/detail.html?${id}">
+        <li class="movie-item">
+          <a href="/page/detail.html?id=${id}">
             <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}">
-            <div class="info">
-              <h3 class="movie-title">${title}</h3>
-              <p>⭐${vote_average}</p>
-            </div>
-            <div class="overview">
-              <h3>overview</h3>
-              <strong>${title}</strong>
-              <p class="movie-content">
-                <span>${overview}</span>
-              </p>
-            </div>
           </a>
+          <div class="info">
+            <h3 class="movie-title">${title}</h3>
+            <p>⭐${vote_average}</p>
+          </div>
+          <div class="overview">
+            <h3>overview</h3>
+            <strong>${title}</strong>
+            <p class="movie-content">
+              <span>${overview}</span>
+            </p>
+          </div>
         </li>
       `;
     })

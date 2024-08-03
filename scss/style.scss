@@ -8,12 +8,17 @@
 }
 
 // tablet
-@media (max-width: 800px) and (orientation: portrait) {
+@media (max-width: 1200px) {
   #section {
   }
 }
+
 // mobile
-@media (max-width: 400px) and (orientation: portrait) {
+@media (max-width: 600px) {
+  #section {
+  }
+}
+@media (max-width: 300px) {
   #section {
   }
 }
