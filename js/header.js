@@ -1,6 +1,7 @@
 import { getChangeData } from './fetchData.js';
 import { createPagination, handlePagination } from './pager.js';
 import { cardList } from './main.js';
+import { creatSlideBox } from './mainSlide.js';
 
 // header
 export const createHeader = () => {
@@ -51,6 +52,7 @@ export const createHeader = () => {
 // search
 const handleSearch = async () => {
   // e.preventDefault;
+  const mainSlider = document.querySelector('.content');
   const movieUl = document.querySelector('#movie-list');
   // document.querySelectorAll로 가져오면 1개 이상의 dom 객체가 존재할 경우, 노드의 콜렉션으로 리턴
   // NodeList는 .map, .reduce, .filter 함수 사용이 불가능, 이 경우에는 NodeList를 Array 로 변환 후 작업
@@ -65,6 +67,7 @@ const handleSearch = async () => {
   if (searchInput === '') {
     alert('검색어를 입력하세요.');
   } else {
+    mainSlider.style = 'display:none';
     // 검색 API에서 값을 받아와야 하기 때문에 searchInput의 값을 가져온다.
     const data = await getChangeData(searchInput, searchPage, window.scrollTo(0, 0));
     const dataResult = data.total_page;

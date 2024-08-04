@@ -1,11 +1,9 @@
 import { createHeader } from '../header.js';
-import { createDetailHeader } from './detailHeader.js';
-// import './detailHeader.js';
+import { createDetail } from './detail.js';
 import { createReview } from './review.js';
-
+import { createFooter } from '../footer.js';
 
 createHeader();
-createDetailHeader().then(() => createReview());
-
-// createDetailHeader();
-// createReview();
+createDetail()
+  .then(() => createReview())
+  .then(() => createFooter());

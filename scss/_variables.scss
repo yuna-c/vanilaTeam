@@ -13,12 +13,14 @@
 
 html {
   font-size: 16px;
+
   body {
     background: var(--bgColor);
     font-size: var(--baseSize);
     font-family: var(--baseFont);
 
     #app {
+      position: relative;
     }
   }
 }
@@ -27,7 +29,10 @@ html {
 @media (max-width: 800px) and (orientation: portrait) {
   html {
     font-size: 13px;
+
     body {
+      #app {
+      }
     }
   }
 }

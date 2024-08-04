@@ -1,0 +1,93 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap');
+:root {
+  --baseFont: 'Satoshi', 'Noto Sans KR', 'Nanum Gothic', '맑은 고딕';
+  --baseColor: #191919;
+  --bgColor: #fdfbf5;
+  --baseSize: 1rem;
+}
+
+html {
+  font-size: 16px;
+}
+html body {
+  background: var(--bgColor);
+  font-size: var(--baseSize);
+  font-family: var(--baseFont);
+}
+html body #app {
+  position: relative;
+}
+
+@media (max-width: 800px) and (orientation: portrait) {
+  html {
+    font-size: 13px;
+  }
+}
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#modal .modal-wraper {
+  width: 400px;
+  min-height: 350px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bgColor);
+  border-radius: 5px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+#modal .modal-wraper > div {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+#modal .modal-wraper > div.modal-footer {
+  padding: 0;
+}
+#modal .modal-wraper .modal-header {
+  min-height: 50px;
+  border-bottom: 1px solid #777;
+}
+#modal .modal-wraper .modal-header .tit {
+  width: 95%;
+  height: 100%;
+}
+#modal .modal-wraper .modal-header .btn {
+  font-size: 0;
+}
+#modal .modal-wraper .modal-header .btn i {
+  color: #000;
+  font-size: 20px;
+}
+#modal .modal-wraper .modal-header .btn:hover i {
+  color: red;
+}
+#modal .modal-wraper .modal-content {
+  min-height: 260px;
+  border-bottom: 1px solid #777;
+}
+#modal .modal-wraper .modal-footer {
+  min-height: 40px;
+}
+#modal .modal-wraper .modal-footer > .btn {
+  width: 50%;
+  min-height: 40px;
+  height: 100%;
+  font-size: 1rem;
+}
+#modal .modal-wraper .modal-footer > .btn:nth-child(even) {
+  background-color: var(--baseColor);
+  color: #fff;
+}
+
+/*# sourceMappingURL=modal.css.map */

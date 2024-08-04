@@ -1,13 +1,13 @@
 * {
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	scroll-behavior: smooth;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
 }
 
 html,
@@ -38,73 +38,73 @@ header,
 menu,
 nav,
 section {
-	line-height: inherit;
-	border: 0;
-	vertical-align: baseline;
+  line-height: inherit;
+  border: 0;
+  vertical-align: baseline;
 }
 
 ul,
 ol,
 li {
-	list-style: none;
+  list-style: none;
 }
 
 select,
 input,
 textarea,
 button {
-	margin: 0;
-	padding: 0;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0;
-	outline: none;
-	border: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	font-family: inherit;
-	vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  outline: none;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: inherit;
+  vertical-align: middle;
 }
 
 button {
-	background: transparent;
-	border-radius: 0;
-	appearance: none;
-	-webkit-border-radius: 0;
-	-webkit-appearance: none;
+  background: transparent;
+  border-radius: 0;
+  appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
 }
 
 input[type='button'],
 button,
 select {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 select {
-	-o-appearance: none;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
+  -o-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 select::-ms-expand {
-	display: none;
+  display: none;
 }
 
 textarea {
-	padding: 0;
-	background: transparent;
-	border: 0;
-	overflow: auto;
-	resize: none;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  overflow: auto;
+  resize: none;
 }
 
 a {
-	outline: 0;
-	font-family: inherit;
-	font-weight: inherit;
-	text-decoration: none;
-	color: inherit;
-	line-height: inherit;
+  outline: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  color: inherit;
+  line-height: inherit;
 }

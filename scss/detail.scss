@@ -1,9 +1,16 @@
 @import 'reset';
 @import 'variables.scss';
 @import 'header.scss';
+@import 'review.scss';
 @import 'footer.scss';
 
-#section {
+#detail {
+  width: 100%;
+  height: 500px;
+  background-color: var(--baseColor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #detail-header {
@@ -58,12 +65,16 @@
 
 
 // tablet
-@media (max-width: 800px) and (orientation: portrait) {
+@media (max-width: 1200px) {
   #section {
   }
 }
 // mobile
-@media (max-width: 400px) and (orientation: portrait) {
+@media (max-width: 600px) {
+  #section {
+  }
+}
+@media (max-width: 300px) {
   #section {
   }
 }
