@@ -7,6 +7,7 @@
 #section {
   min-height: calc(100vh - 19rem);
   margin: 5rem auto 5rem;
+
   .bind {
     width: 95%;
     min-height: 45vh;
@@ -14,57 +15,69 @@
     display: flex;
     flex-direction: column;
     cursor: auto;
+
     .history {
       margin-bottom: 100px;
+
       a {
         height: auto;
         display: flex;
         align-items: center;
         font-size: 1.2rem;
         font-weight: 600;
+
         &:hover {
           i {
             color: red;
           }
         }
+
         i {
           font-size: 1.5rem;
           margin-right: 15px;
         }
+
         span {
           display: inline-block;
         }
       }
     }
+
     #login {
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       > * {
         width: 300px;
         font-size: 1rem;
         margin-bottom: 1rem;
       }
+
       .tit {
         font-size: 2rem;
         margin-bottom: 2rem;
       }
+
       .login-id,
       .login-password {
         padding: 5px 0;
         border-bottom: 1px solid var(--baseColor);
       }
+
       .submit-buttons {
         margin-top: 20px;
         display: flex;
         justify-content: space-between;
+
         > * {
           width: 48%;
           font-size: 1rem;
           margin-bottom: 1rem;
         }
+
         .join-button {
           padding: 5px 10px;
           border: 1px solid var(--baseColor);
@@ -79,11 +92,13 @@
             color: var(--baseColor);
           }
         }
+
         .login-button {
           padding: 5px 10px;
           border: 1px solid var(--baseColor);
           border-radius: 5px;
           transition: all 1s ease;
+
           &:hover {
             background-color: var(--baseColor);
             color: var(--bgColor);
@@ -98,6 +113,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       > * {
         width: 300px;
         font-size: 1rem;
@@ -114,6 +130,7 @@
         font-size: 2rem;
         margin-bottom: 2rem;
       }
+
       .join-id,
       .join-password,
       .join-strong {
@@ -129,6 +146,7 @@
         color: red;
         display: none;
       }
+
       .join-button {
         margin-top: 20px;
         padding: 5px 10px;
@@ -144,6 +162,7 @@
           color: var(--baseColor);
         }
       }
+
       .submit-button {
         padding: 5px 10px;
         border: 1px solid var(--baseColor);
@@ -173,6 +192,7 @@
     min-height: calc(100vh - 13rem);
   }
 }
+
 @media (max-width: 300px) {
   #section {
   }

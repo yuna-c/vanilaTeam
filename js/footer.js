@@ -14,3 +14,4 @@ export const createFooter = () => {
   footer.appendChild(footerDiv);
   app.insertAdjacentElement('beforeend', footer);
 };
+

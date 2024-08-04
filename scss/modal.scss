@@ -21,14 +21,17 @@
     border-radius: 5px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+
     > div {
       display: flex;
       align-items: center;
       padding: 0 20px;
     }
+
     > div.modal-footer {
       padding: 0;
     }
+
     .modal-header {
       min-height: 50px;
       border-bottom: 1px solid #777;
@@ -39,10 +42,12 @@
       }
       .btn {
         font-size: 0;
+
         i {
           color: #000;
           font-size: 20px;
         }
+
         &:hover {
           i {
             color: red;
@@ -50,12 +55,15 @@
         }
       }
     }
+
     .modal-content {
       min-height: 260px;
       border-bottom: 1px solid #777;
     }
+
     .modal-footer {
       min-height: 40px;
+
       > .btn {
         width: 50%;
         min-height: 40px;
@@ -68,10 +76,6 @@
       }
     }
   }
-
-  // &.on {
-  //   display: block;
-  // }
 }
 
 // tablet
@@ -85,6 +89,7 @@
   #modal {
   }
 }
+
 @media (max-width: 300px) {
   #modal {
   }
