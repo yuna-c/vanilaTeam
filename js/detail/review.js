@@ -11,7 +11,7 @@ const movieId = getMovieIdFromUrl();
 
 const createReviewSection = () => {
   const section = document.createElement('section');
-  section.className = 'review-container';
+  section.className = 'review';
   section.innerHTML = `
   <div class="w-60">
     <h3>감상평</h3>
@@ -90,7 +90,7 @@ const renderReviews = async () => {
   });
 
   reviewList += '</ul></div>';
-  document.querySelector('.review-container').innerHTML += reviewList;
+  document.querySelector('.review').innerHTML += reviewList;
 };
 
 export const createReview = async () => {

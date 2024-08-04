@@ -181,8 +181,73 @@
 // tablet
 @media (max-width: 1200px) {
   #section {
-    min-height: calc(100vh - 14rem);
+    min-height: calc(100vh - 13rem);
     margin: 3rem auto 3rem;
+
+    .bind {
+      .history {
+        a {
+          i {
+          }
+
+          span {
+          }
+        }
+      }
+
+      #login {
+        > * {
+        }
+
+        .tit {
+        }
+
+        .login-id,
+        .login-password {
+        }
+
+        .submit-buttons {
+          > * {
+          }
+
+          .join-button {
+          }
+
+          .login-button {
+          }
+        }
+      }
+
+      #join {
+        > * {
+          > input {
+          }
+        }
+
+        .tit {
+        }
+
+        .join-id,
+        .join-password,
+        .join-strong {
+        }
+
+        .error-id,
+        .error-password,
+        .error-strong {
+        }
+
+        .join-button {
+          &:hover {
+          }
+        }
+
+        .submit-button {
+          &:hover {
+          }
+        }
+      }
+    }
   }
 }
 
@@ -190,10 +255,82 @@
 @media (max-width: 600px) {
   #section {
     min-height: calc(100vh - 13rem);
+
+    .bind {
+      width: 90%;
+
+      .history {
+        margin-bottom: 50px;
+
+        a {
+          i {
+          }
+
+          span {
+          }
+        }
+      }
+
+      #login {
+        > * {
+          width: 100%;
+        }
+
+        .tit {
+          font-size: 1.5rem;
+        }
+
+        .login-id,
+        .login-password {
+        }
+
+        .submit-buttons {
+          > * {
+          }
+
+          .join-button {
+          }
+
+          .login-button {
+          }
+        }
+      }
+
+      #join {
+        > * {
+          width: 100%;
+
+          > input {
+          }
+        }
+
+        .tit {
+          font-size: 1.5rem;
+        }
+
+        .join-id,
+        .join-password,
+        .join-strong {
+        }
+
+        .error-id,
+        .error-password,
+        .error-strong {
+        }
+
+        .join-button {
+        }
+
+        .submit-button {
+          &:hover {
+          }
+        }
+      }
+    }
   }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 400px) {
   #section {
   }
 }

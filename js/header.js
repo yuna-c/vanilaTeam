@@ -1,7 +1,7 @@
 import { getChangeData } from './fetchData.js';
 import { createPagination, handlePagination } from './pager.js';
 import { cardList } from './main.js';
-import { creatSlideBox } from './mainSlide.js';
+import { createNav } from './nav.js';
 
 // header
 export const createHeader = () => {
@@ -9,7 +9,8 @@ export const createHeader = () => {
   const header = document.createElement('header');
   const headerDiv = document.createElement('div');
   const headerTitle = document.createElement('h1');
-  const headerA = document.createElement('a');
+  const headerLogo = document.createElement('a');
+  const formDiv = document.createElement('div');
   const searchForm = document.createElement('form');
   const searchInput = document.createElement('input');
   const searchButton = document.createElement('button');
@@ -21,10 +22,11 @@ export const createHeader = () => {
 
   searchInput.classList = 'search-input';
   searchButton.classList = 'search-button';
+  formDiv.classList = 'form';
   headerDiv.classList = 'bind';
   headerTitle.classList = 'tit';
 
-  headerA.setAttribute('href', '/index.html');
+  headerLogo.setAttribute('href', '/index.html');
   searchForm.setAttribute('onsubmit', 'return false');
   searchInput.type = 'text';
   searchButton.type = 'button';
@@ -37,17 +39,16 @@ export const createHeader = () => {
 
   app.appendChild(header);
   header.appendChild(headerDiv);
-  headerA.appendChild(headerTitle);
-  headerDiv.appendChild(headerA);
-  headerDiv.appendChild(searchForm);
-  searchForm.appendChild(searchInput);
-  searchForm.appendChild(searchButton);
+  headerLogo.appendChild(headerTitle);
+  headerDiv.append(headerLogo, formDiv);
+  formDiv.append(searchForm);
+  createNav();
+  searchForm.append(searchInput, searchButton);
   searchForm.addEventListener('submit', () => {
     handleSearch();
   });
   searchButton.addEventListener('click', handleSearch);
 };
-
 
 // search
 const handleSearch = async () => {
@@ -75,8 +76,9 @@ const handleSearch = async () => {
     createPagination(dataResult, searchPage);
     handlePagination(dataResult);
     movieUl.innerHTML = searchCard;
+    // location.href = '/';
     historyBack.innerHTML += `
-    <a href="/" onClikc="location.href = '/'">
+    <a href="/" onClikc="history.back();">
       <i class="fa-solid fa-arrow-left fa-1x"></i>
       <span>뒤로가기</span>
     </a>

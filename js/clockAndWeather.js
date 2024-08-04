@@ -5,7 +5,7 @@ export const createClockAndWeather = () => {
   // const clockContainer = document.createElement('div');
   // const clockTitle = document.createElement('h2');
 
-  const clockAndWeatherHeader = document.createElement('div');
+  const clockAndWeatherHeader = document.createElement('section');
   const clockTitle = document.createElement('h4');
   const weatherTitle = document.createElement('h4');
 
@@ -14,7 +14,7 @@ export const createClockAndWeather = () => {
   // clockTitle.id = 'clock-title';
   // clockTitle.classList.add('clock-title');
 
-  clockAndWeatherHeader.id = 'clockAndWeather-header';
+  clockAndWeatherHeader.id = 'weather';
   clockTitle.id = 'clock-title';
   weatherTitle.id = 'weather-city';
 

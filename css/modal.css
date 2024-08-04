@@ -1,9 +1,9 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap");
 :root {
-  --baseFont: 'Satoshi', 'Noto Sans KR', 'Nanum Gothic', '맑은 고딕';
+  --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
   --baseColor: #191919;
-  --bgColor: #fdfbf5;
+  --bgColor: #ffffff;
   --baseSize: 1rem;
 }
 
@@ -19,9 +19,12 @@ html body #app {
   position: relative;
 }
 
-@media (max-width: 800px) and (orientation: portrait) {
+html {
+  font-size: 15px;
+}
+@media (max-width: 600px) {
   html {
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 #modal {

@@ -114,7 +114,7 @@ a {
 :root {
   --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
   --baseColor: #191919;
-  --bgColor: #fdfbf5;
+  --bgColor: #ffffff;
   --baseSize: 1rem;
 }
 
@@ -130,9 +130,12 @@ html body #app {
   position: relative;
 }
 
-@media (max-width: 800px) and (orientation: portrait) {
+html {
+  font-size: 15px;
+}
+@media (max-width: 600px) {
   html {
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 #header {
@@ -142,6 +145,7 @@ html body #app {
 }
 #header .bind {
   width: 95%;
+  min-height: 35px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -154,23 +158,77 @@ html body #app {
   font-size: 1.5rem;
   font-weight: 700;
 }
-#header .bind #search .search-input {
+#header .bind .form {
+  display: flex;
+}
+#header .bind .form #search .search-input {
   padding: 5px 0;
   border-bottom: 1px solid var(--baseColor);
 }
-#header .bind #search > * {
+#header .bind .form #search > * {
   font-size: 1rem;
 }
-#header .bind #search .search-button {
+#header .bind .form #search .search-button {
   padding: 5px 10px;
   border: 1px solid var(--baseColor);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   transition: all 1s ease;
 }
-#header .bind #search .search-button:hover {
+#header .bind .form #search .search-button:hover {
   background-color: var(--baseColor);
   color: var(--bgColor);
+}
+#header .bind .form #nav {
+  margin-left: 15px;
+}
+#header .bind .form #nav .menu i {
+  display: none;
+}
+#header .bind .form #nav .menu .sign-btn {
+  display: flex;
+  align-items: flex-end;
+}
+#header .bind .form #nav .menu .sign-btn li {
+  margin-right: 5px;
+}
+#header .bind .form #nav .menu .sign-btn li > a,
+#header .bind .form #nav .menu .sign-btn li button {
+  width: 90px;
+  min-height: 30px;
+  padding: 6px 10px;
+  display: block;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 1s;
+  cursor: pointer;
+}
+#header .bind .form #nav .menu .sign-btn li .login {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
+#header .bind .form #nav .menu .sign-btn li .login:hover {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#header .bind .form #nav .menu .sign-btn li .logout {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+  display: none;
+}
+#header .bind .form #nav .menu .sign-btn li .logout:hover {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
+#header .bind .form #nav .menu .sign-btn li a {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#header .bind .form #nav .menu .sign-btn li a:hover {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
 }
 
 @media (max-width: 1200px) {
@@ -197,8 +255,57 @@ html body #app {
   #header {
     padding: 0.5rem 0 0.5rem;
   }
+  #header .bind a {
+    padding: 10px;
+  }
   #header .bind a .tit {
     font-size: 1.3rem;
+  }
+  #header .bind .form #search .search-button {
+    padding: 0px 8px;
+  }
+  #header .bind .form #nav {
+    margin-left: 8px;
+    margin-top: 3px;
+  }
+  #header .bind .form #nav .menu {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  #header .bind .form #nav .menu i {
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #header .bind .form #nav .menu .sign-btn {
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: 1;
+    padding: 10px;
+    background: var(--bgColor);
+    border-radius: 5px;
+    border: 1px solid var(--baseColor);
+  }
+  #header .bind .form #nav .menu .sign-btn li {
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+  #header .bind .form #nav .menu .sign-btn li:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 400px) {
+  #header .bind .form #nav .menu .sign-btn {
+    top: 37px;
   }
 }
 .content {
@@ -249,15 +356,15 @@ html body #app {
   height: 100%;
 }
 
-#clockAndWeather-header {
+#weather {
   width: 95%;
   margin: auto auto 20px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#clockAndWeather-header #clock-title,
-#clockAndWeather-header #weather-city {
+#weather #clock-title,
+#weather #weather-city {
   color: #c3c0bc;
   font-weight: 500;
   font-style: italic;
@@ -323,6 +430,7 @@ html body #app {
   width: 100%;
   height: 420px;
   display: block;
+  overflow: hidden;
 }
 #section #movie-list li a img {
   width: 100%;
@@ -462,22 +570,20 @@ html body #app {
     gap: 0;
   }
   #section #movie-list li {
-    width: 30%;
-    margin: 0.5rem;
+    width: 28%;
+    margin: 1rem;
   }
   #section #movie-list li a {
+    max-height: 340px;
     height: auto;
-  }
-  #section #movie-list li .info {
-    padding: 0.5rem;
   }
   #section #movie-list li .info h3 {
     width: auto;
     margin-bottom: 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   #section #movie-list li .info span {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   #section #movie-list li .overview {
     padding: 0.8rem;
@@ -486,11 +592,8 @@ html body #app {
     font-size: 1rem;
     margin-bottom: 0;
   }
-  #section #movie-list li .overview strong {
-    display: none;
-  }
   #section #movie-list li .overview p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   #section #pagination-list {
     margin-top: 50px;
@@ -505,7 +608,31 @@ html body #app {
     min-height: calc(100vh - 13rem);
   }
   #section #movie-list li {
-    width: 45%;
+    width: 48%;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  #section #movie-list li:nth-child(odd) {
+    margin-right: 10px;
+  }
+  #section #movie-list li a {
+    height: auto;
+  }
+  #section #movie-list li .info {
+    padding: 1rem;
+  }
+  #section #movie-list li .info h3 {
+    font-size: 1rem;
+  }
+  #section #movie-list li .overview h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  #section #movie-list li .overview strong {
+    display: block;
+  }
+  #section #movie-list li .overview p span {
+    font-size: 1rem;
   }
   #section #pagination-list {
     margin-top: 40px;
@@ -517,9 +644,19 @@ html body #app {
     padding: 2px 3px;
   }
 }
-@media (max-width: 300px) {
+@media (max-width: 400px) {
   #section #movie-list li {
-    width: 90%;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #section #movie-list li:nth-child(odd) {
+    margin-right: 0;
+  }
+  #section #movie-list li a {
+    max-width: 100%;
+  }
+  #section #movie-list li .info {
+    padding: 1rem;
   }
 }
 

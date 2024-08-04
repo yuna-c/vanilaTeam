@@ -2,10 +2,12 @@
   height: auto;
   padding: 1rem 0 1rem 0;
   border-top: 1px solid var(--baseColor);
+
   .bind {
     width: 95%;
     margin: auto;
     display: flex;
+
     .tit {
       width: 100%;
       font-size: 1.5rem;
@@ -19,6 +21,7 @@
 @media (max-width: 1200px) {
   #footer {
     padding: 0.8rem 0 0.8rem;
+
     .bind {
       .tit {
         font-size: 1.5rem;
@@ -31,6 +34,7 @@
 @media (max-width: 600px) {
   #footer {
     padding: 0.5rem 0 0.5rem;
+
     .bind {
       .tit {
         font-size: 1.3rem;
@@ -39,5 +43,5 @@
   }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 400px) {
 }

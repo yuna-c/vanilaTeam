@@ -10,8 +10,8 @@ export const createSection = async () => {
   const movieUl = document.createElement('ul');
   const data = await getPopularData(pageStart);
   const pageTotal = data.total_pages;
-  console.log(data.results);
-  console.log(data.total_pages);
+  // console.log(data.results);
+  // console.log(data.total_pages);
 
   section.id = 'section';
   movieUl.id = 'movie-list';

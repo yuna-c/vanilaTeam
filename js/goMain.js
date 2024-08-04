@@ -1,5 +1,3 @@
-function goMain() {
+export function goIndex() {
   window.location.href = '/index.html';
 }
-
-export default goMain;
