@@ -19,8 +19,8 @@ export const creatSlideBox = async () => {
 
   text.innerHTML = `영화 리뷰 페이지<br>리뷰, 줄거리, 평점까지 한번에 다<br>여기서 확인하세요`;
 
-  console.log('mainbanner');
-  console.log(slideItem);
+  // console.log('mainbanner');
+  // console.log(slideItem);
 
   app.appendChild(contentBox).appendChild(text);
   contentBox.appendChild(slideWrap).appendChild(slideBox).appendChild(slideList);

@@ -5,8 +5,13 @@ import { createClockAndWeather } from './clockAndWeather.js';
 import { createFooter } from './footer.js';
 
 createHeader();
-creatSlideBox();
-createSection().then(() => {
-  createClockAndWeather();
-  createFooter();
+creatSlideBox().then(() => {
+  createSection().then(() => {
+    createClockAndWeather();
+    createFooter();
+  });
 });
+// createSection().then(() => {
+//   createClockAndWeather();
+//   createFooter();
+// });

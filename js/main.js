@@ -47,7 +47,7 @@ export const createSection = async () => {
 // cardlist
 export const cardList = (data) => {
   const dataResult = data.results;
-  console.log(dataResult);
+  // console.log(dataResult);
   let cardTemp = dataResult
     .map((movie) => {
       const { title, poster_path, vote_average, overview, release_date, id } = movie;
