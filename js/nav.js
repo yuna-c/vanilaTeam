@@ -17,9 +17,9 @@ export const createNav = () => {
   // loginHeaderButton.style.backgroundColor = 'red';
 
   userInfo.innerHTML += `
-  <li><button class="login" onClick="location.href='/page/login.html'">로그인</button></li>
+  <li><button class="login" onClick="location.href='./page/login.html'">로그인</button></li>
   <li><button class="logout">로그아웃</button></li>
-  <li><a href="/page/mypage.html">마이페이지</a></li>
+  <li><a href="./page/mypage.html">마이페이지</a></li>
   `;
   menuButton.innerHTML += `<i class="fa-solid fa-bars fa-2x"></i>`;
 

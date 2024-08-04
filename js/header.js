@@ -78,7 +78,7 @@ const handleSearch = async () => {
     movieUl.innerHTML = searchCard;
     // location.href = '/';
     historyBack.innerHTML += `
-    <a href="/" onClikc="history.back();">
+    <a href="./">
       <i class="fa-solid fa-arrow-left fa-1x"></i>
       <span>뒤로가기</span>
     </a>
