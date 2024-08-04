@@ -39,11 +39,10 @@
 }
 
 // tablet
-@media (max-width: 800px) and (orientation: portrait) {
+@media (max-width: 1200px) {
   #header {
     padding: 0.8rem 0 0.8rem;
     .bind {
-      align-items: end;
       .tit {
         font-size: 1.5rem;
         font-weight: 900;
@@ -51,7 +50,7 @@
       }
       #search {
         display: flex;
-        justify-content: center;
+        justify-content: end;
         .search-input {
           width: 70%;
         }
@@ -64,7 +63,7 @@
 }
 
 // mobile
-@media (max-width: 400px) and (orientation: portrait) {
+@media (max-width: 600px) {
   #header {
     padding: 0.5rem 0 0.5rem;
     .bind {
@@ -75,4 +74,7 @@
       }
     }
   }
+}
+
+@media (max-width: 300px) {
 }

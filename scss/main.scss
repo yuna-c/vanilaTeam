@@ -8,6 +8,8 @@
   min-height: calc(100vh - 19rem);
   margin: 5rem auto 5rem;
   #movie-list {
+    width: 95%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -96,8 +98,9 @@
       }
     }
     li.nonData {
-      width: 95%;
+      width: 100%;
       min-height: 39vh;
+      margin: 0;
       border: 0;
       box-shadow: none;
       display: flex;
@@ -106,6 +109,7 @@
       cursor: auto;
 
       a {
+        height: auto;
         display: flex;
         align-items: center;
         font-size: 1.2rem;
@@ -165,8 +169,8 @@
 // tablet
 @media (max-width: 1200px) {
   #section {
-    margin: 1rem auto 1rem;
-    min-height: calc(100vh - 10rem);
+    min-height: calc(100vh - 14rem);
+    margin: 3rem auto 3rem;
     #movie-list {
       gap: 0;
       li {
@@ -227,7 +231,7 @@
 // mobile
 @media (max-width: 600px) {
   #section {
-    min-height: calc(100vh - 10rem);
+    min-height: calc(100vh - 13rem);
     #movie-list {
       li {
         width: 45%;

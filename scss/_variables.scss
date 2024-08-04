@@ -19,6 +19,7 @@ html {
     font-family: var(--baseFont);
 
     #app {
+      position: relative;
     }
   }
 }
@@ -28,6 +29,8 @@ html {
   html {
     font-size: 13px;
     body {
+      #app {
+      }
     }
   }
 }

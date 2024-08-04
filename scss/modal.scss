@@ -1,0 +1,91 @@
+@import 'variables.scss';
+
+#modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  .modal-wraper {
+    width: 400px;
+    min-height: 350px;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bgColor);
+    border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    > div {
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+    > div.modal-footer {
+      padding: 0;
+    }
+    .modal-header {
+      min-height: 50px;
+      border-bottom: 1px solid #777;
+
+      .tit {
+        width: 95%;
+        height: 100%;
+      }
+      .btn {
+        font-size: 0;
+        i {
+          color: #000;
+          font-size: 20px;
+        }
+        &:hover {
+          i {
+            color: red;
+          }
+        }
+      }
+    }
+    .modal-content {
+      min-height: 260px;
+      border-bottom: 1px solid #777;
+    }
+    .modal-footer {
+      min-height: 40px;
+      > .btn {
+        width: 50%;
+        min-height: 40px;
+        height: 100%;
+        font-size: 1rem;
+        &:nth-child(even) {
+          background-color: var(--baseColor);
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  // &.on {
+  //   display: block;
+  // }
+}
+
+// tablet
+@media (max-width: 1200px) {
+  #modal {
+  }
+}
+
+// mobile
+@media (max-width: 600px) {
+  #modal {
+  }
+}
+@media (max-width: 300px) {
+  #modal {
+  }
+}
