@@ -34,7 +34,7 @@ export const createHeader = () => {
   searchInput.autofocus = true;
   searchInput.placeholder = '영화를 검색하세요';
   searchInput.required = true;
-  headerTitle.innerText = 'SEARCH MOVIES';
+  headerTitle.innerText = 'CineSpot.8';
   searchButton.innerText = '검색';
 
   app.appendChild(header);
@@ -78,7 +78,7 @@ const handleSearch = async () => {
     movieUl.innerHTML = searchCard;
     // location.href = '/';
     historyBack.innerHTML += `
-    <a href="/" onClikc="history.back();">
+    <a href="./">
       <i class="fa-solid fa-arrow-left fa-1x"></i>
       <span>뒤로가기</span>
     </a>

@@ -19,11 +19,13 @@ export const createJoin = () => {
   const passwordError = document.createElement('p');
   const passwordStrongError = document.createElement('p');
   const historyBack = document.createElement('div');
+  const search = document.querySelector('#search');
 
   historyBack.setAttribute('class', 'history');
   idError.setAttribute('class', 'error-id');
   passwordError.setAttribute('class', 'error-password');
   passwordStrongError.setAttribute('class', 'error-strong');
+  search.style = 'display:none';
 
   section.id = 'section';
   joinForm.id = 'join';
@@ -50,7 +52,7 @@ export const createJoin = () => {
 
   joinButton.innerText = '회원가입하기';
   historyBack.innerHTML = `
-  <a href="/" onClikc="location.href = '/'">
+  <a href="./">
     <i class="fa-solid fa-arrow-left fa-1x"></i>
     <span>뒤로가기</span>
   </a>`;
@@ -211,5 +213,5 @@ function JoinInfo(idValue, pswValue) {
 `
   );
 
-  window.location.href = '/page/login.html';
+  window.location.href = './page/login.html';
 }
