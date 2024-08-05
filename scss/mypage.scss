@@ -1,0 +1,25 @@
+@import 'reset';
+@import 'variables.scss';
+@import 'header.scss';
+@import 'footer.scss';
+
+// 예시 페이지
+#section {
+}
+
+// tablet
+@media (max-width: 1200px) {
+  #section {
+  }
+}
+
+// mobile
+@media (max-width: 600px) {
+  #section {
+  }
+}
+
+@media (max-width: 400px) {
+  #section {
+  }
+}

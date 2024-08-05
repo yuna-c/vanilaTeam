@@ -1,0 +1,345 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+address,
+em,
+img,
+b,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+footer,
+header,
+menu,
+nav,
+section {
+  line-height: inherit;
+  border: 0;
+  vertical-align: baseline;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+select,
+input,
+textarea,
+button {
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  outline: none;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: inherit;
+  vertical-align: middle;
+}
+
+button {
+  background: transparent;
+  border-radius: 0;
+  appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-appearance: none;
+}
+
+input[type=button],
+button,
+select {
+  cursor: pointer;
+}
+
+select {
+  -o-appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+textarea {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  overflow: auto;
+  resize: none;
+}
+
+a {
+  outline: 0;
+  font-family: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  color: inherit;
+  line-height: inherit;
+}
+
+:root {
+  --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
+  --baseColor: #191919;
+  --bgColor: #ffffff;
+  --baseSize: 1rem;
+}
+
+html {
+  font-size: 16px;
+}
+html body {
+  background: var(--bgColor);
+  font-size: var(--baseSize);
+  font-family: var(--baseFont);
+}
+html body #app {
+  position: relative;
+}
+
+html {
+  font-size: 15px;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+}
+#header {
+  height: auto;
+  padding: 1rem 0 1rem 0;
+  border-bottom: 1px solid var(--baseColor);
+}
+#header .bind {
+  width: 95%;
+  min-height: 35px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .bind a {
+  color: var(--baseColor);
+}
+#header .bind a .tit {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+#header .bind .form {
+  display: flex;
+}
+#header .bind .form #search .search-input {
+  padding: 5px 0;
+  border-bottom: 1px solid var(--baseColor);
+}
+#header .bind .form #search > * {
+  font-size: 1rem;
+}
+#header .bind .form #search .search-button {
+  padding: 5px 10px;
+  border: 1px solid var(--baseColor);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: all 1s ease;
+}
+#header .bind .form #search .search-button:hover {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#header .bind .form #nav {
+  margin-left: 15px;
+}
+#header .bind .form #nav .menu i {
+  display: none;
+}
+#header .bind .form #nav .menu .sign-btn {
+  display: flex;
+  align-items: flex-end;
+}
+#header .bind .form #nav .menu .sign-btn li {
+  margin-right: 5px;
+}
+#header .bind .form #nav .menu .sign-btn li > a,
+#header .bind .form #nav .menu .sign-btn li button {
+  width: 90px;
+  min-height: 30px;
+  padding: 6px 10px;
+  display: block;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 1s;
+  cursor: pointer;
+}
+#header .bind .form #nav .menu .sign-btn li .login {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
+#header .bind .form #nav .menu .sign-btn li .login:hover {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#header .bind .form #nav .menu .sign-btn li .logout {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+  display: none;
+}
+#header .bind .form #nav .menu .sign-btn li .logout:hover {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
+#header .bind .form #nav .menu .sign-btn li a {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#header .bind .form #nav .menu .sign-btn li a:hover {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
+
+@media (max-width: 1200px) {
+  #header {
+    padding: 0.8rem 0 0.8rem;
+  }
+  #header .bind .tit {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+  #header .bind #search {
+    display: flex;
+    justify-content: end;
+  }
+  #header .bind #search .search-input {
+    width: 70%;
+  }
+  #header .bind #search .search-button {
+    padding: 0 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #header {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #header .bind a {
+    padding: 10px;
+  }
+  #header .bind a .tit {
+    font-size: 1.3rem;
+  }
+  #header .bind .form #search .search-button {
+    padding: 0px 8px;
+  }
+  #header .bind .form #nav {
+    margin-left: 8px;
+    margin-top: 3px;
+  }
+  #header .bind .form #nav .menu {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  #header .bind .form #nav .menu i {
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #header .bind .form #nav .menu .sign-btn {
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: 1;
+    padding: 10px;
+    background: var(--bgColor);
+    border-radius: 5px;
+    border: 1px solid var(--baseColor);
+  }
+  #header .bind .form #nav .menu .sign-btn li {
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+  #header .bind .form #nav .menu .sign-btn li:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 400px) {
+  #header .bind .form #nav .menu .sign-btn {
+    top: 37px;
+  }
+}
+#footer {
+  height: auto;
+  padding: 1rem 0 1rem 0;
+  border-top: 1px solid var(--baseColor);
+}
+#footer .bind {
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+#footer .bind .tit {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (max-width: 1200px) {
+  #footer {
+    padding: 0.8rem 0 0.8rem;
+  }
+  #footer .bind .tit {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #footer {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #footer .bind .tit {
+    font-size: 1.3rem;
+  }
+}
+
+/*# sourceMappingURL=mypage.css.map */

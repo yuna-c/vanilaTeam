@@ -1,6 +1,7 @@
 import { getChangeData } from './fetchData.js';
 import { createPagination, handlePagination } from './pager.js';
 import { cardList } from './main.js';
+import { createNav } from './nav.js';
 
 // header
 export const createHeader = () => {
@@ -8,7 +9,8 @@ export const createHeader = () => {
   const header = document.createElement('header');
   const headerDiv = document.createElement('div');
   const headerTitle = document.createElement('h1');
-  const headerA = document.createElement('a');
+  const headerLogo = document.createElement('a');
+  const formDiv = document.createElement('div');
   const searchForm = document.createElement('form');
   const searchInput = document.createElement('input');
   const searchButton = document.createElement('button');
@@ -20,10 +22,11 @@ export const createHeader = () => {
 
   searchInput.classList = 'search-input';
   searchButton.classList = 'search-button';
+  formDiv.classList = 'form';
   headerDiv.classList = 'bind';
   headerTitle.classList = 'tit';
 
-  headerA.setAttribute('href', '/index.html');
+  headerLogo.setAttribute('href', '/index.html');
   searchForm.setAttribute('onsubmit', 'return false');
   searchInput.type = 'text';
   searchButton.type = 'button';
@@ -36,11 +39,11 @@ export const createHeader = () => {
 
   app.appendChild(header);
   header.appendChild(headerDiv);
-  headerA.appendChild(headerTitle);
-  headerDiv.appendChild(headerA);
-  headerDiv.appendChild(searchForm);
-  searchForm.appendChild(searchInput);
-  searchForm.appendChild(searchButton);
+  headerLogo.appendChild(headerTitle);
+  headerDiv.append(headerLogo, formDiv);
+  formDiv.append(searchForm);
+  createNav();
+  searchForm.append(searchInput, searchButton);
   searchForm.addEventListener('submit', () => {
     handleSearch();
   });
@@ -50,6 +53,7 @@ export const createHeader = () => {
 // search
 const handleSearch = async () => {
   // e.preventDefault;
+  const mainSlider = document.querySelector('.content');
   const movieUl = document.querySelector('#movie-list');
   // document.querySelectorAll로 가져오면 1개 이상의 dom 객체가 존재할 경우, 노드의 콜렉션으로 리턴
   // NodeList는 .map, .reduce, .filter 함수 사용이 불가능, 이 경우에는 NodeList를 Array 로 변환 후 작업
@@ -64,6 +68,7 @@ const handleSearch = async () => {
   if (searchInput === '') {
     alert('검색어를 입력하세요.');
   } else {
+    mainSlider.style = 'display:none';
     // 검색 API에서 값을 받아와야 하기 때문에 searchInput의 값을 가져온다.
     const data = await getChangeData(searchInput, searchPage, window.scrollTo(0, 0));
     const dataResult = data.total_page;
@@ -71,8 +76,9 @@ const handleSearch = async () => {
     createPagination(dataResult, searchPage);
     handlePagination(dataResult);
     movieUl.innerHTML = searchCard;
+    // location.href = '/';
     historyBack.innerHTML += `
-    <a href="/" onClikc="location.href = '/'">
+    <a href="./">
       <i class="fa-solid fa-arrow-left fa-1x"></i>
       <span>뒤로가기</span>
     </a>
@@ -91,3 +97,5 @@ const handleSearch = async () => {
     }
   }
 };
+
+// export default createHeader;
