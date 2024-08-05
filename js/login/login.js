@@ -27,6 +27,7 @@ export const createLogin = () => {
   joinButton.classList = 'join-button';
   historyBack.setAttribute('class', 'history');
   search.style = 'display:none';
+  search.autofocus = false;
 
   loginTitle.innerText = 'Login';
   loginId.placeholder = '아이디를 입력하세요';

@@ -36,6 +36,7 @@ export const createJoin = () => {
   joinPasswordStrong.classList = 'join-strong';
   joinButton.classList = 'join-button';
   search.style = 'display:none';
+  search.autofocus = false;
 
   joinTitle.innerText = 'Join Us';
   joinId.type = 'text';

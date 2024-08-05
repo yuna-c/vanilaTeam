@@ -19,25 +19,38 @@
         font-weight: 700;
       }
     }
-    .form {
+
+    .gnb {
+      .toggle {
+        display: none;
+      }
+    }
+
+    .nav {
       display: flex;
 
       #search {
+        position: relative;
+
         .search-input {
+          width: 100%;
           padding: 5px 0;
           border-bottom: 1px solid var(--baseColor);
         }
+
         > * {
           font-size: 1rem;
         }
 
         .search-button {
-          padding: 5px 10px;
+          padding: 4px 10px 5px;
           border: 1px solid var(--baseColor);
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
           color: var(--baseColor);
           transition: all 1s ease;
+          position: absolute;
+          right: 0;
 
           &:hover {
             background-color: var(--baseColor);
@@ -46,62 +59,58 @@
         }
       }
 
-      #nav {
-        margin-left: 15px;
-        .menu {
-          i {
-            display: none;
-            color: var(--baseColor);
-          }
+      #menu {
+        .sign-btn {
+          display: flex;
 
-          .sign-btn {
-            display: flex;
-            align-items: flex-end;
+          li {
+            display: block;
 
-            li {
-              margin-right: 5px;
-              > a,
-              button {
-                width: 90px;
-                min-height: 30px;
-                padding: 5px 10px;
-                display: block;
-                border: 1px solid var(--baseColor);
-                border-radius: 5px;
-                font-size: 0.9rem;
-                text-align: center;
-                transition: all 1s;
-                cursor: pointer;
+            &:nth-child(odd) {
+              margin-left: 15px;
+            }
+
+            > button {
+              width: 90px;
+              min-height: 30px;
+              padding: 5px 10px;
+              display: block;
+              border: 1px solid var(--baseColor);
+              border-radius: 5px;
+              font-size: 0.9rem;
+              text-align: center;
+              transition: all 1s;
+              cursor: pointer;
+            }
+
+            .login {
+              background-color: var(--bgColor);
+              color: var(--baseColor);
+
+              &:hover {
+                background-color: var(--baseColor);
+                color: var(--bgColor);
               }
+            }
 
-              .login {
+            .logout {
+              background-color: var(--baseColor);
+              color: var(--bgColor);
+              display: none;
+
+              &:hover {
                 background-color: var(--bgColor);
                 color: var(--baseColor);
-
-                &:hover {
-                  background-color: var(--baseColor);
-                  color: var(--bgColor);
-                }
               }
+            }
 
-              .logout {
-                background-color: var(--baseColor);
-                color: var(--bgColor);
-                display: none;
+            .mypage {
+              background-color: var(--baseColor);
+              color: var(--bgColor);
 
-                &:hover {
-                  background-color: var(--bgColor);
-                  color: var(--baseColor);
-                }
-              }
-              a {
-                background-color: var(--baseColor);
-                color: var(--bgColor);
-
-                &:hover {
-                  background-color: var(--bgColor);
-                  color: var(--baseColor);
-                }
+              &:hover {
+                background-color: var(--bgColor);
+                color: var(--baseColor);
               }
             }
           }
@@ -117,26 +126,176 @@
     padding: 0.8rem 0 0.8rem;
 
     .bind {
-      .tit {
-        font-size: 1.5rem;
-        font-weight: 900;
-        line-height: 1;
+      a {
+        .tit {
+        }
       }
 
-      #search {
-        display: flex;
+      .gnb {
+        .toggle {
+        }
+      }
+      .nav {
+        #search {
+          .search-input {
+          }
+          > * {
+          }
 
-        .search-input {
-          width: 70%;
+          .search-button {
+            &:hover {
+            }
+          }
         }
 
-        .search-button {
-          padding: 0 0.5rem;
+        #menu {
+          .sign-btn {
+            li {
+              &:nth-child(odd) {
+                > button {
+                }
+              }
+
+              .login {
+                &:hover {
+                }
+              }
+
+              .logout {
+                &:hover {
+                }
+              }
+
+              .mypage {
+                &:hover {
+                }
+              }
+            }
+          }
         }
       }
     }
   }
 }
+
+@media (max-width: 800px) {
+  #header {
+    padding: 0.8rem 0 0.8rem;
+
+    .bind {
+      flex-direction: column;
+      position: relative;
+
+      a {
+        .tit {
+        }
+      }
+
+      .gnb {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        a {
+          .tit {
+          }
+        }
+
+        .toggle {
+          display: block;
+        }
+      }
+
+      .nav {
+        padding: 0;
+        display: none;
+        flex-direction: column-reverse;
+        position: absolute;
+        top: 3.2rem;
+        left: -2.5%;
+        right: -2.5%;
+        z-index: 60;
+        background-color: var(--bgColor);
+
+        &.on {
+          display: flex;
+        }
+
+        #search {
+          width: 100%;
+          margin: 0 auto;
+          padding: 15px 0 50px;
+          border-bottom: 1px solid var(--baseColor);
+
+          .search-input {
+            width: 90%;
+            position: absolute;
+            left: 15px;
+          }
+
+          > * {
+          }
+
+          .search-button {
+            right: 15px;
+
+            &:hover {
+            }
+          }
+        }
+
+        #menu {
+          .sign-btn {
+            flex-direction: column;
+
+            li {
+              &:nth-child(odd) {
+                margin-left: 0;
+              }
+
+              &:nth-of-type(1) {
+                padding-top: 0;
+              }
+
+              > button {
+                width: 100%;
+                padding: 10px 0;
+                border: 0;
+                border-bottom: 1px solid var(--baseColor);
+                border-radius: 0;
+                background-color: var(--bgColor) !important;
+                color: var(--baseColor) !important;
+                font-size: 1.2rem;
+                font-weight: 500;
+                font-size: 1rem;
+
+                &:hover {
+                  color: red !important;
+                }
+              }
+
+              .login {
+                &:hover {
+                }
+              }
+
+              .logout {
+                &:hover {
+                }
+              }
+              .mypage {
+                &:hover {
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 // mobile
 @media (max-width: 600px) {
   #header {
@@ -144,55 +303,61 @@
 
     .bind {
       a {
-        padding: 10px;
-
         .tit {
-          font-size: 1.3rem;
         }
       }
-      .form {
-        #search {
-          .search-button {
-            padding: 0px 8px;
+
+      .gnb {
+        a {
+          .tit {
           }
         }
-        #nav {
-          margin-left: 8px;
-          margin-top: 3px;
 
-          .menu {
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+        .toggle {
+        }
+      }
 
-            i {
-              width: 100%;
-              height: 100%;
-              font-size: 1.8rem;
-              display: flex;
-              justify-content: center;
-              align-items: center;
+      .nav {
+        top: 2.9rem;
+
+        #search {
+          .search-input {
+          }
+
+          > * {
+          }
+
+          .search-button {
+            &:hover {
             }
+          }
+        }
 
-            .sign-btn {
-              display: block;
-              position: absolute;
-              top: 40px;
-              right: 0;
-              z-index: 1;
-              padding: 10px;
-              background: var(--bgColor);
-              border-radius: 5px;
-              border: 1px solid var(--baseColor);
-              li {
-                margin-bottom: 5px;
-                margin-right: 0;
+        #menu {
+          .sign-btn {
+            li {
+              &:nth-child(odd) {
+              }
 
-                &:nth-last-child(1) {
-                  margin-bottom: 0;
+              &:nth-of-type(1) {
+              }
+
+              > button {
+                &:hover {
+                }
+              }
+
+              .login {
+                &:hover {
+                }
+              }
+
+              .logout {
+                &:hover {
+                }
+              }
+              .mypage {
+                &:hover {
                 }
               }
             }
@@ -204,26 +369,65 @@
 }
 @media (max-width: 400px) {
   #header {
+    padding: 0.5rem 0 0.5rem;
+
     .bind {
       a {
         .tit {
         }
       }
-      .form {
-        #search {
-          .search-button {
+
+      .gnb {
+        a {
+          .tit {
           }
         }
-        #nav {
-          .menu {
-            i {
+
+        .toggle {
+        }
+      }
+
+      .nav {
+        top: 2.9rem;
+
+        #search {
+          .search-input {
+          }
+
+          > * {
+          }
+
+          .search-button {
+            &:hover {
             }
+          }
+        }
 
-            .sign-btn {
-              top: 37px;
+        #menu {
+          .sign-btn {
+            li {
+              &:nth-child(odd) {
+              }
 
-              li {
-                &:nth-last-child(1) {
+              &:nth-of-type(1) {
+              }
+
+              > button {
+                &:hover {
+                }
+              }
+
+              .login {
+                &:hover {
+                }
+              }
+
+              .logout {
+                &:hover {
+                }
+              }
+              .mypage {
+                &:hover {
                 }
               }
             }

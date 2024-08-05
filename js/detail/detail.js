@@ -50,6 +50,7 @@ const createDetailSetcion = (data) => {
   const detailDescription = document.createElement('p');
   detailDescription.textContent = description;
   search.style = 'display:none';
+  search.autofocus = false;
 
   //디테일 페이지 추가
   detail.id = 'detail';

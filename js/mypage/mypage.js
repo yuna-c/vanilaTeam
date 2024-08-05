@@ -26,6 +26,7 @@ export const createJoin = () => {
   passwordError.setAttribute('class', 'error-password');
   passwordStrongError.setAttribute('class', 'error-strong');
   search.style = 'display:none';
+  search.autofocus = false;
 
   section.id = 'section';
   joinForm.id = 'join';
