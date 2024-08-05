@@ -34,7 +34,7 @@ export const createHeader = () => {
   searchInput.autofocus = true;
   searchInput.placeholder = '영화를 검색하세요';
   searchInput.required = true;
-  headerTitle.innerText = 'SEARCH MOVIES';
+  headerTitle.innerText = 'CineSpot.8';
   searchButton.innerText = '검색';
 
   app.appendChild(header);
