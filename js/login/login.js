@@ -13,6 +13,7 @@ export const createLogin = () => {
   const loginButton = document.createElement('button');
   const joinButton = document.createElement('a');
   const historyBack = document.createElement('div');
+  const search = document.querySelector('#search');
 
   section.id = 'section';
   loginForm.id = 'login';
@@ -25,6 +26,7 @@ export const createLogin = () => {
   loginButton.classList = 'login-button';
   joinButton.classList = 'join-button';
   historyBack.setAttribute('class', 'history');
+  search.style = 'display:none';
 
   loginTitle.innerText = 'Login';
   loginId.placeholder = '아이디를 입력하세요';

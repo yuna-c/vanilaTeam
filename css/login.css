@@ -174,6 +174,7 @@ html {
   border: 1px solid var(--baseColor);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  color: var(--baseColor);
   transition: all 1s ease;
 }
 #header .bind .form #search .search-button:hover {
@@ -185,6 +186,7 @@ html {
 }
 #header .bind .form #nav .menu i {
   display: none;
+  color: var(--baseColor);
 }
 #header .bind .form #nav .menu .sign-btn {
   display: flex;
@@ -197,7 +199,7 @@ html {
 #header .bind .form #nav .menu .sign-btn li button {
   width: 90px;
   min-height: 30px;
-  padding: 6px 10px;
+  padding: 5px 10px;
   display: block;
   border: 1px solid var(--baseColor);
   border-radius: 5px;
@@ -243,7 +245,6 @@ html {
   }
   #header .bind #search {
     display: flex;
-    justify-content: end;
   }
   #header .bind #search .search-input {
     width: 70%;
@@ -280,7 +281,7 @@ html {
   #header .bind .form #nav .menu i {
     width: 100%;
     height: 100%;
-    font-size: 2rem;
+    font-size: 1.8rem;
     display: flex;
     justify-content: center;
     align-items: center;

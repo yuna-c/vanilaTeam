@@ -19,6 +19,7 @@ export const createJoin = () => {
   const passwordError = document.createElement('p');
   const passwordStrongError = document.createElement('p');
   const historyBack = document.createElement('div');
+  const search = document.querySelector('#search');
 
   historyBack.setAttribute('class', 'history');
   idError.setAttribute('class', 'error-id');
@@ -34,6 +35,7 @@ export const createJoin = () => {
   joinPassword.classList = 'join-password';
   joinPasswordStrong.classList = 'join-strong';
   joinButton.classList = 'join-button';
+  search.style = 'display:none';
 
   joinTitle.innerText = 'Join Us';
   joinId.type = 'text';
