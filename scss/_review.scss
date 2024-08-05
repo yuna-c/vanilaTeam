@@ -1,6 +1,8 @@
 @import 'reset';
 @import 'variables.scss';
 
+// TODO 스타일 중복제거
+
 .review {
   width: 100%;
   display: flex;
@@ -13,29 +15,17 @@
     width: 60%;
   }
 
-  input {
-    border: 2px solid black;
-  }
-
   h3 {
     margin-bottom: 20px;
     font-size: 1.8rem;
   }
 
   .review-content {
-    height: 100px;
+    height: 150px;
     width: 100%;
   }
 
-  // 리뷰 중복제거
-  input {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  button {
-    // background-color: gray;
+  .save-button {
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
@@ -45,8 +35,6 @@
 
 // 리뷰 작성 form
 .review-form {
-  // background-color: green;
-
   .form-info {
     width: 100%;
     display: flex;
@@ -66,9 +54,24 @@
   }
 }
 
-// 리뷰 목록
-.review-list {
-  // background-color: wheat;
+.border {
+  border: 2px solid black;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.review-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    margin-left: 5px;
+    color: gray;
+    font-size: 15px;
+  }
 }
 
 .review-item {
@@ -95,6 +98,11 @@
 
 .review-form .m-l-10 {
   margin-left: 10px;
+}
+
+.update-content {
+  margin: 10px 0;
+  padding: 10px 0;
 }
 
 // tablet

@@ -7,26 +7,50 @@ import { createNav } from './nav.js';
 export const createHeader = () => {
   const app = document.getElementById('app');
   const header = document.createElement('header');
-  const headerDiv = document.createElement('div');
+  const headerBind = document.createElement('div');
   const headerTitle = document.createElement('h1');
-  const headerLogo = document.createElement('a');
-  const formDiv = document.createElement('div');
+  const moHeader = document.createElement('div');
+  const headerHref = document.createElement('a');
+  const toggleButton = document.createElement('button');
+
+  // nav
+  const nav = document.createElement('nav');
   const searchForm = document.createElement('form');
   const searchInput = document.createElement('input');
   const searchButton = document.createElement('button');
+
+  // menu
+  const menu = document.createElement('div');
+  const userInfo = document.createElement('ul');
+  const loginButton = document.createElement('button');
+  const logoutButton = document.createElement('button');
+
+  userInfo.innerHTML += `
+  <li><button class="login" onClick="location.href='/page/login.html'">로그인</button></li>
+  <li><button class="logout">로그아웃</button></li>
+  <li><button class="mypage" onclick="location.href='/page/mypage.html'" >마이페이지</button></li>
+  `;
+
+  menu.id = 'menu';
+  moHeader.classList = 'gnb';
+  userInfo.classList = 'sign-btn';
+  loginButton.classList = 'login';
+  logoutButton.classList = 'logout';
 
   header.id = 'header';
   searchForm.id = 'search';
   searchInput.id = 'search-input';
   searchButton.id = 'search-button';
 
+  toggleButton.classList = 'toggle';
+  nav.classList = 'nav';
+
   searchInput.classList = 'search-input';
   searchButton.classList = 'search-button';
-  formDiv.classList = 'form';
-  headerDiv.classList = 'bind';
+  headerBind.classList = 'bind';
   headerTitle.classList = 'tit';
 
-  headerLogo.setAttribute('href', '/index.html');
+  headerHref.setAttribute('href', '/index.html');
   searchForm.setAttribute('onsubmit', 'return false');
   searchInput.type = 'text';
   searchButton.type = 'button';
@@ -36,18 +60,29 @@ export const createHeader = () => {
   searchInput.required = true;
   headerTitle.innerText = 'CineSpot.8';
   searchButton.innerText = '검색';
+  toggleButton.innerHTML += `<i class="fa-solid fa-bars fa-2x"></i>`;
 
   app.appendChild(header);
-  header.appendChild(headerDiv);
-  headerLogo.appendChild(headerTitle);
-  headerDiv.append(headerLogo, formDiv);
-  formDiv.append(searchForm);
+  header.append(headerBind);
+  headerBind.append(moHeader, nav);
+  moHeader.append(headerHref, toggleButton);
+  headerHref.append(headerTitle);
+  nav.append(searchForm, menu);
+  menu.append(userInfo);
+
   createNav();
   searchForm.append(searchInput, searchButton);
   searchForm.addEventListener('submit', () => {
     handleSearch();
   });
   searchButton.addEventListener('click', handleSearch);
+  toggleButton.addEventListener('click', handleToggle);
+};
+
+// toggle nav
+const handleToggle = () => {
+  const nav = document.querySelector('.nav');
+  nav.classList.toggle('on');
 };
 
 // search
@@ -71,6 +106,7 @@ const handleSearch = async () => {
     mainSlider.style = 'display:none';
     // 검색 API에서 값을 받아와야 하기 때문에 searchInput의 값을 가져온다.
     const data = await getChangeData(searchInput, searchPage, window.scrollTo(0, 0));
+    console.log(data);
     const dataResult = data.total_page;
     const searchCard = cardList(data, searchInput);
     createPagination(dataResult, searchPage);
@@ -78,7 +114,7 @@ const handleSearch = async () => {
     movieUl.innerHTML = searchCard;
     // location.href = '/';
     historyBack.innerHTML += `
-    <a href="./">
+    <a href="/index.html">
       <i class="fa-solid fa-arrow-left fa-1x"></i>
       <span>뒤로가기</span>
     </a>

@@ -1,25 +1,21 @@
 export const createClockAndWeather = () => {
   const app = document.getElementById('app');
-
-  // const clockHeader = document.createElement('header');
-  // const clockContainer = document.createElement('div');
-  // const clockTitle = document.createElement('h2');
-
   const clockAndWeatherHeader = document.createElement('section');
   const clockTitle = document.createElement('h4');
   const weatherTitle = document.createElement('h4');
-
-  // clockHeader.id = 'clock-header';
-  // clockContainer.id = 'clock';
-  // clockTitle.id = 'clock-title';
-  // clockTitle.classList.add('clock-title');
 
   clockAndWeatherHeader.id = 'weather';
   clockTitle.id = 'clock-title';
   weatherTitle.id = 'weather-city';
 
-  // app.appendChild(clockContainer);
-  // clockContainer.appendChild(clockTitle);
+  clockAndWeatherHeader.style.marginBottom ='3px';
+  clockAndWeatherHeader.style.display = 'flex';
+  clockAndWeatherHeader.style.flexDirection = 'column';
+  clockAndWeatherHeader.style.alignItems = 'flex-end';
+  clockTitle.style.color ='var(--baseColor)';
+  clockTitle.style.fontStyle ='normal';
+  weatherTitle.style.color ='var(--baseColor)';
+  weatherTitle.style.fontStyle ='normal';
 
   clockAndWeatherHeader.appendChild(clockTitle);
   clockAndWeatherHeader.appendChild(weatherTitle);
@@ -35,18 +31,6 @@ export const createClockAndWeather = () => {
 
   getClock();
   setInterval(getClock, 1000);
-
-  //날씨
-  // const weatherContainer = document.createElement('div');
-  // const weatherCity = document.createElement('h3');
-  // const weatherDescription = document.createElement('h5');
-
-  // weatherContainer.id = 'weather-container';
-  // weatherCity.id = 'weather-city';
-  // weatherDescription.id = 'weather-discription';
-  // weatherContainer.appendChild(weatherCity);
-  // weatherContainer.appendChild(weatherDescription);
-  // app.appendChild(weatherContainer);
 
   const WHEATHER_API_KEY = '7ac5dfc70abe627b5afa653a690ff111';
 

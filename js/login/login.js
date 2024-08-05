@@ -27,6 +27,7 @@ export const createLogin = () => {
   joinButton.classList = 'join-button';
   historyBack.setAttribute('class', 'history');
   search.style = 'display:none';
+  search.autofocus = false;
 
   loginTitle.innerText = 'Login';
   loginId.placeholder = '아이디를 입력하세요';
@@ -39,7 +40,7 @@ export const createLogin = () => {
   joinButton.setAttribute('href', './join.html');
 
   historyBack.innerHTML = `
-  <a href="./">
+  <a href="/index.html">
     <i class="fa-solid fa-arrow-left fa-1x"></i>
     <span>뒤로가기</span>
   </a>`;
