@@ -456,23 +456,15 @@ html {
 .review .w-60 {
   width: 60%;
 }
-.review input {
-  border: 2px solid black;
-}
 .review h3 {
   margin-bottom: 20px;
   font-size: 1.8rem;
 }
 .review .review-content {
-  height: 100px;
+  height: 150px;
   width: 100%;
 }
-.review input {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-}
-.review button {
+.review .save-button {
   margin: 10px 0;
   padding: 10px;
   border-radius: 5px;
@@ -491,6 +483,25 @@ html {
 .review-form .form-info .m-l-10:nth-child(3):hover {
   background-color: var(--bgColor);
   color: var(--baseColor);
+}
+
+.border {
+  border: 2px solid black;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.review-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.review-header button {
+  margin-left: 5px;
+  color: gray;
+  font-size: 15px;
 }
 
 .review-item {
@@ -514,6 +525,11 @@ html {
 
 .review-form .m-l-10 {
   margin-left: 10px;
+}
+
+.update-content {
+  margin: 10px 0;
+  padding: 10px 0;
 }
 
 @media (max-width: 1200px) {
@@ -580,33 +596,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#detail-image-block {
-  width: 240px;
-  height: 350px;
-  display: flex;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
-}
-
-#detail-info {
-  width: 50%;
-  padding: 20px;
-}
-
-#detail-info h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
-  padding-left: 25px;
-  color: var(--bgColor);
-}
-
-#detail-info p {
-  font-size: 1em;
-  line-height: 1.5;
-  text-align: justify;
-  padding-left: 25px;
-  color: var(--bgColor);
 }
 
 #detail-header {
