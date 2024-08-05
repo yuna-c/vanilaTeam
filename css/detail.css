@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -78,7 +78,7 @@ button {
   -webkit-appearance: none;
 }
 
-input[type='button'],
+input[type=button],
 button,
 select {
   cursor: pointer;
@@ -113,7 +113,7 @@ a {
 }
 
 :root {
-  --baseFont: 'Satoshi', 'Noto Sans KR', 'Nanum Gothic', '맑은 고딕';
+  --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
   --baseColor: #191919;
   --bgColor: #ffffff;
   --baseSize: 1rem;
@@ -182,6 +182,7 @@ html {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   color: var(--baseColor);
+  color: var(--baseColor);
   transition: all 1s ease;
   position: absolute;
   right: 0;
@@ -190,13 +191,7 @@ html {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
-#header .bind .form #nav {
-  margin-left: 15px;
-}
-#header .bind .form #nav .menu i {
-  display: none;
-}
-#header .bind .form #nav .menu .sign-btn {
+#header .bind .nav #menu .sign-btn {
   display: flex;
 }
 #header .bind .nav #menu .sign-btn li {
@@ -278,7 +273,12 @@ html {
   }
   #header .bind .nav.on {
     display: flex;
-    justify-content: end;
+  }
+  #header .bind .nav #search {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px 0 50px;
+    border-bottom: 1px solid var(--baseColor);
   }
   #header .bind .nav #search .search-input {
     width: 90%;
@@ -317,52 +317,8 @@ html {
   #header {
     padding: 0.5rem 0 0.5rem;
   }
-  #header .bind a {
-    padding: 10px;
-  }
-  #header .bind a .tit {
-    font-size: 1.3rem;
-  }
-  #header .bind .form #search .search-button {
-    padding: 0px 8px;
-  }
-  #header .bind .form #nav {
-    margin-left: 8px;
-    margin-top: 3px;
-  }
-  #header .bind .form #nav .menu {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  #header .bind .form #nav .menu i {
-    width: 100%;
-    height: 100%;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #header .bind .form #nav .menu .sign-btn {
-    display: block;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    z-index: 1;
-    padding: 10px;
-    background: var(--bgColor);
-    border-radius: 5px;
-    border: 1px solid var(--baseColor);
-  }
-  #header .bind .form #nav .menu .sign-btn li {
-    margin-bottom: 5px;
-    margin-right: 0;
-  }
-  #header .bind .form #nav .menu .sign-btn li:nth-last-child(1) {
-    margin-bottom: 0;
+  #header .bind .nav {
+    top: 2.9rem;
   }
 }
 @media (max-width: 400px) {
@@ -450,7 +406,7 @@ button {
   -webkit-appearance: none;
 }
 
-input[type='button'],
+input[type=button],
 button,
 select {
   cursor: pointer;
@@ -485,7 +441,7 @@ a {
 }
 
 :root {
-  --baseFont: 'Satoshi', 'Noto Sans KR', 'Nanum Gothic', '맑은 고딕';
+  --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
   --baseColor: #191919;
   --bgColor: #ffffff;
   --baseSize: 1rem;
@@ -667,85 +623,110 @@ html {
 }
 #detail {
   width: 100%;
-  height: 500px;
-  background-color: var(--baseColor);
+  height: auto;
+  padding: 50px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#detail-header {
-  width: 100%;
-  height: 500px;
   background-color: var(--baseColor);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-
-#detail-image-block {
-  width: 240px;
-  height: 350px;
+#detail #detail-image-block {
+  width: 280px;
+  height: 400px;
   display: flex;
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
 }
-
-#detail-info {
-  width: 50%;
+#detail #detail-info {
+  width: 60%;
   padding: 20px;
 }
-
-#detail-info h1 {
-  font-size: 2em;
+#detail #detail-info h1 {
   margin-bottom: 10px;
   padding-left: 25px;
+  font-size: 2em;
   color: var(--bgColor);
 }
-
-#detail-info p {
+#detail #detail-info p {
+  padding-left: 25px;
   font-size: 1em;
   line-height: 1.5;
   text-align: justify;
-  padding-left: 25px;
   color: var(--bgColor);
 }
-
-#recommended-title {
+#detail #detail-info #recommended-title {
   padding-left: 25px;
-  margin-top: 20px;
+  margin: 20px 0 15px;
   color: var(--bgColor);
+  font-size: 1rem;
+  font-weight: 500;
 }
-
-#detail-Recommended-poster {
+#detail #detail-info #detail-Recommended-poster {
   display: flex;
   justify-content: left;
   margin-top: 6px;
   padding-left: 25px;
-  flex-wrap: wrap;
   overflow: hidden;
 }
-
-.box {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+#detail #detail-info #detail-Recommended-poster .box {
   margin-right: 8px;
   border-radius: 6px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  width: 166px;
+  height: 250px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   #detail {
-    height: auto;
-    padding-top: 50px;
     flex-direction: column;
   }
   #detail #detail-info {
     width: 95%;
-    padding: 30px 20px;
+    padding: 0;
+    margin-top: 40px;
   }
   #detail #detail-info h1 {
     padding-left: 0;
+    margin-bottom: 20px;
   }
   #detail #detail-info p {
-    padding-top: 20px;
+    padding-left: 0;
+  }
+  #detail #detail-info #recommended-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-left: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  #detail #detail-info #detail-Recommended-poster {
+    padding-left: 0;
+  }
+}
+@media (max-width: 600px) {
+  #detail {
+    flex-direction: column;
+  }
+  #detail #detail-info #detail-Recommended-poster {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #detail #detail-info #detail-Recommended-poster .box {
+    width: 190px;
+    height: 260px;
+    margin-right: 0;
+    margin: 10px;
+  }
+}
+@media (max-width: 400px) {
+  #detail #detail-info #detail-Recommended-poster .box {
+    width: 170px;
+    height: 250px;
   }
 }
 

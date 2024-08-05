@@ -31,7 +31,7 @@ async function fetchData() {
   } catch (err) {
     console.error(err, '중지');
     // alert(">>" + err);
-    window.location.href="/"
+    window.location.href = '/';
   }
 }
 
@@ -48,8 +48,8 @@ async function fetchSimilarMovies() {
   }
 }
 
- // 유사한 영화 데이터를 가져와서 박스 생성
- const similarMovies = await fetchSimilarMovies();
+// 유사한 영화 데이터를 가져와서 박스 생성
+const similarMovies = await fetchSimilarMovies();
 
 // detail
 const createDetailSetcion = (data) => {
@@ -71,10 +71,9 @@ const createDetailSetcion = (data) => {
   const detailDescription = document.createElement('p');
   detailDescription.textContent = description;
   search.style = 'display:none';
-  search.autofocus = false;
 
   const recommededTitle = document.createElement('h5');
-  recommededTitle.id ='recommended-title';
+  recommededTitle.id = 'recommended-title';
   detailRecommendedPoster.id = 'detail-Recommended-poster';
 
   //디테일 페이지 추가
@@ -89,8 +88,7 @@ const createDetailSetcion = (data) => {
   detailImgHeader.style.backgroundPosition = 'center';
   detailImgHeader.style.width = '240px'; // 예시 너비
   detailImgHeader.style.height = '350px'; // 예시 높이
-  recommededTitle.innerText ='비슷한 영화 추천 ▾';
-
+  recommededTitle.innerText = '비슷한 영화 추천 ▾';
 
   //append
   app.appendChild(detail);
@@ -100,24 +98,16 @@ const createDetailSetcion = (data) => {
   detail.appendChild(detailInfo);
   detailInfo.appendChild(recommededTitle);
 
-
-
-
-//4개 박스추가
-for (let i = 0; i < 4; i++) {
-  const box = document.createElement('div');
-  box.classList.add('box');
-  // box.style.backgroundColor = 'teal';
-  box.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${similarMovies[i].poster_path}')`;
-  box.style.backgroundSize = 'contain';
-  box.style.width = '150px';
-  box.style.height = '220px';
-  // box.innerText = `Box ${i + 1}`;
-  detailRecommendedPoster.appendChild(box);
-}
-detailInfo.appendChild(detailRecommendedPoster);
+  //4개 박스추가
+  for (let i = 0; i < 4; i++) {
+    const box = document.createElement('div');
+    box.classList.add('box');
+    box.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${similarMovies[i].poster_path}')`;
+    // box.innerText = `Box ${i + 1}`;
+    detailRecommendedPoster.appendChild(box);
+  }
+  detailInfo.appendChild(detailRecommendedPoster);
 };
-
 
 //포스터 이미지, 예시 이미지 경로
 const poster_path = 'data.poster_path.jpg';

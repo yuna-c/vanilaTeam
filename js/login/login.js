@@ -14,7 +14,6 @@ export const createLogin = () => {
   const joinButton = document.createElement('a');
   const historyBack = document.createElement('div');
   const search = document.querySelector('#search');
-  const search = document.querySelector('#search');
 
   section.id = 'section';
   loginForm.id = 'login';
