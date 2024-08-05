@@ -6,6 +6,7 @@ const urlParams = new URLSearchParams(window.location.search); // 현재 URL에�
 
 // 'id' 쿼리 스트링 값 가져오기
 movieId = urlParams.get('id');
+
 const options = {
   method: 'GET',
   headers: {
@@ -29,11 +30,10 @@ async function fetchData() {
     return createDetailSetcion(data);
   } catch (err) {
     console.error(err, '중지');
-    alert(err);
+    // alert(">>" + err);
+    window.location.href="/"
   }
 }
-
-
 
 // 유사한 영화를 가져오는 함수
 async function fetchSimilarMovies() {
@@ -47,11 +47,9 @@ async function fetchSimilarMovies() {
     return [];
   }
 }
-  // 유사한 영화 데이터를 가져와서 박스 생성
-  const similarMovies = await fetchSimilarMovies();
 
-
-
+ // 유사한 영화 데이터를 가져와서 박스 생성
+ const similarMovies = await fetchSimilarMovies();
 
 // detail
 const createDetailSetcion = (data) => {
@@ -103,6 +101,7 @@ const createDetailSetcion = (data) => {
 
 
 
+
 //4개 박스추가
 for (let i = 0; i < 4; i++) {
   const box = document.createElement('div');
@@ -120,9 +119,8 @@ detailInfo.appendChild(detailRecommendedPoster);
 
 
 //포스터 이미지, 예시 이미지 경로
-const poster_path = '/your-image-path.jpg';
+const poster_path = 'data.poster_path.jpg';
 function setBackgroundImage(poster_path) {
   document.documentElement.style.setProperty('--poster-path', `url('https://image.tmdb.org/t/p/w500${poster_path}')`);
 }
 setBackgroundImage(poster_path);
-

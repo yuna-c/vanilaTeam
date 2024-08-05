@@ -59,12 +59,14 @@
   justify-content: left;
   margin-top: 20px;
   padding-left: 25px;
+  flex-wrap: wrap;
+  overflow: hidden; 
 }
 .box {
    // display: flex;
   // // justify-content: center;
   // align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   margin-right: 8px;
 }
 
@@ -99,3 +101,4 @@
   #section {
   }
 }
+
