@@ -138,230 +138,96 @@ html {
     font-size: 15px;
   }
 }
-#header {
-  height: auto;
-  padding: 1rem 0 1rem 0;
-  border-bottom: 1px solid var(--baseColor);
-}
-#header .bind {
-  width: 95%;
-  min-height: 35px;
-  margin: auto;
+.review {
+  width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+.review .w-60 {
+  width: 60%;
+}
+.review h3 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+.review .review-content {
+  height: 150px;
+  width: 100%;
+}
+.review .save-button {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.review-form .form-info {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+.review-form .form-info .m-l-10:nth-child(3) {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+.review-form .form-info .m-l-10:nth-child(3):hover {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
+
+.border {
+  border: 2px solid black;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.review-header {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-#header .bind a {
-  color: var(--baseColor);
-}
-#header .bind a .tit {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-#header .bind .form {
-  display: flex;
-}
-#header .bind .form #search .search-input {
-  padding: 5px 0;
-  border-bottom: 1px solid var(--baseColor);
-}
-#header .bind .form #search > * {
-  font-size: 1rem;
-}
-#header .bind .form #search .search-button {
-  padding: 5px 10px;
-  border: 1px solid var(--baseColor);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  transition: all 1s ease;
-}
-#header .bind .form #search .search-button:hover {
-  background-color: var(--baseColor);
-  color: var(--bgColor);
-}
-#header .bind .form #nav {
-  margin-left: 15px;
-}
-#header .bind .form #nav .menu i {
-  display: none;
-}
-#header .bind .form #nav .menu .sign-btn {
-  display: flex;
-  align-items: flex-end;
-}
-#header .bind .form #nav .menu .sign-btn li {
-  margin-right: 5px;
-}
-#header .bind .form #nav .menu .sign-btn li > a,
-#header .bind .form #nav .menu .sign-btn li button {
-  width: 90px;
-  min-height: 30px;
-  padding: 6px 10px;
-  display: block;
-  border: 1px solid var(--baseColor);
-  border-radius: 5px;
-  font-size: 0.9rem;
-  text-align: center;
-  transition: all 1s;
-  cursor: pointer;
-}
-#header .bind .form #nav .menu .sign-btn li .login {
-  background-color: var(--bgColor);
-  color: var(--baseColor);
-}
-#header .bind .form #nav .menu .sign-btn li .login:hover {
-  background-color: var(--baseColor);
-  color: var(--bgColor);
-}
-#header .bind .form #nav .menu .sign-btn li .logout {
-  background-color: var(--baseColor);
-  color: var(--bgColor);
-  display: none;
-}
-#header .bind .form #nav .menu .sign-btn li .logout:hover {
-  background-color: var(--bgColor);
-  color: var(--baseColor);
-}
-#header .bind .form #nav .menu .sign-btn li a {
-  background-color: var(--baseColor);
-  color: var(--bgColor);
-}
-#header .bind .form #nav .menu .sign-btn li a:hover {
-  background-color: var(--bgColor);
-  color: var(--baseColor);
-}
-
-@media (max-width: 1200px) {
-  #header {
-    padding: 0.8rem 0 0.8rem;
-  }
-  #header .bind .tit {
-    font-size: 1.5rem;
-    font-weight: 900;
-    line-height: 1;
-  }
-  #header .bind #search {
-    display: flex;
-    justify-content: end;
-  }
-  #header .bind #search .search-input {
-    width: 70%;
-  }
-  #header .bind #search .search-button {
-    padding: 0 0.5rem;
-  }
-}
-@media (max-width: 600px) {
-  #header {
-    padding: 0.5rem 0 0.5rem;
-  }
-  #header .bind a {
-    padding: 10px;
-  }
-  #header .bind a .tit {
-    font-size: 1.3rem;
-  }
-  #header .bind .form #search .search-button {
-    padding: 0px 8px;
-  }
-  #header .bind .form #nav {
-    margin-left: 8px;
-    margin-top: 3px;
-  }
-  #header .bind .form #nav .menu {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  #header .bind .form #nav .menu i {
-    width: 100%;
-    height: 100%;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #header .bind .form #nav .menu .sign-btn {
-    display: block;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    z-index: 1;
-    padding: 10px;
-    background: var(--bgColor);
-    border-radius: 5px;
-    border: 1px solid var(--baseColor);
-  }
-  #header .bind .form #nav .menu .sign-btn li {
-    margin-bottom: 5px;
-    margin-right: 0;
-  }
-  #header .bind .form #nav .menu .sign-btn li:nth-last-child(1) {
-    margin-bottom: 0;
-  }
-}
-@media (max-width: 400px) {
-  #header .bind .form #nav .menu .sign-btn {
-    top: 37px;
-  }
-}
-#footer {
-  height: auto;
-  padding: 1rem 0 1rem 0;
-  border-top: 1px solid var(--baseColor);
-}
-#footer .bind {
-  width: 95%;
-  margin: auto;
-  display: flex;
-}
-#footer .bind .tit {
-  width: 100%;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: right;
-}
-
-@media (max-width: 1200px) {
-  #footer {
-    padding: 0.8rem 0 0.8rem;
-  }
-  #footer .bind .tit {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 600px) {
-  #footer {
-    padding: 0.5rem 0 0.5rem;
-  }
-  #footer .bind .tit {
-    font-size: 1.3rem;
-  }
-}
-.review-container {
-  background-color: gray;
-  padding: 50px;
-}
-.review-container .review {
-  width: 80%;
-}
-.review-container input {
-  margin: 10px;
-  padding: 5px;
-}
-.review-container button {
-  background-color: red;
-}
-
-.review-form {
-  background-color: green;
+.review-header button {
+  margin-left: 5px;
+  color: gray;
+  font-size: 15px;
 }
 
 .review-list {
   background-color: wheat;
+}
+
+.update-content {
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+@media (max-width: 1200px) {
+  .review {
+    padding: 20px;
+  }
+  .review .w-60 {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .review-form .form-info {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+  }
+  .review-form .form-info .m-l-10 {
+    width: 38%;
+  }
+  .review-form .form-info .m-l-10:nth-child(1) {
+    margin-left: 0;
+  }
+  .review-form .form-info .m-l-10:nth-child(3) {
+    width: 20%;
+  }
 }
 
 /*# sourceMappingURL=review.css.map */
