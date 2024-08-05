@@ -6,7 +6,6 @@ export const createFooter = () => {
   const footerDiv = document.createElement('div');
   const footerTitle = document.createElement('h2');
 
-
   footer.id = 'footer';
 
   footerTitle.classList = 'tit';
@@ -17,4 +16,3 @@ export const createFooter = () => {
   footer.appendChild(footerDiv);
   app.insertAdjacentElement('beforeend', footer);
 };
-

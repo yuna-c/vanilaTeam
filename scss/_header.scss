@@ -65,7 +65,8 @@
           display: flex;
 
           li {
-            display: block;
+            // display: block;
+            visibility: visible;
 
             &:nth-child(odd) {
               margin-left: 15px;
@@ -196,7 +197,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: center;
 
         a {
           .tit {
@@ -205,12 +206,18 @@
 
         .toggle {
           display: block;
+          color: var(--baseColor);
+          i {
+            color: var(--baseColor);
+          }
         }
       }
 
       .nav {
         padding: 0;
-        display: none;
+        // display: none;
+        visibility: hidden;
+
         flex-direction: column-reverse;
         position: absolute;
         top: 3.2rem;
@@ -220,7 +227,8 @@
         background-color: var(--bgColor);
 
         &.on {
-          display: flex;
+          // display: flex;
+          visibility: visible;
         }
 
         #search {

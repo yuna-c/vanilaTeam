@@ -195,7 +195,7 @@ html {
   display: flex;
 }
 #header .bind .nav #menu .sign-btn li {
-  display: block;
+  visibility: visible;
 }
 #header .bind .nav #menu .sign-btn li:nth-child(odd) {
   margin-left: 15px;
@@ -255,14 +255,18 @@ html {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
   }
   #header .bind .gnb .toggle {
     display: block;
+    color: var(--baseColor);
+  }
+  #header .bind .gnb .toggle i {
+    color: var(--baseColor);
   }
   #header .bind .nav {
     padding: 0;
-    display: none;
+    visibility: hidden;
     flex-direction: column-reverse;
     position: absolute;
     top: 3.2rem;
@@ -272,7 +276,7 @@ html {
     background-color: var(--bgColor);
   }
   #header .bind .nav.on {
-    display: flex;
+    visibility: visible;
   }
   #header .bind .nav #search {
     width: 100%;
