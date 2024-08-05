@@ -65,8 +65,7 @@
           display: flex;
 
           li {
-            // display: block;
-            visibility: visible;
+            display: block;
 
             &:nth-child(odd) {
               margin-left: 15px;
@@ -215,8 +214,7 @@
 
       .nav {
         padding: 0;
-        // display: none;
-        visibility: hidden;
+        display: none;
 
         flex-direction: column-reverse;
         position: absolute;
@@ -227,8 +225,7 @@
         background-color: var(--bgColor);
 
         &.on {
-          // display: flex;
-          visibility: visible;
+          display: flex;
         }
 
         #search {

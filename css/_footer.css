@@ -1,0 +1,35 @@
+#footer {
+  height: auto;
+  padding: 1rem 0 1rem 0;
+  border-top: 1px solid var(--baseColor);
+}
+#footer .bind {
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+#footer .bind .tit {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+@media (max-width: 1200px) {
+  #footer {
+    padding: 0.8rem 0 0.8rem;
+  }
+  #footer .bind .tit {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  #footer {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #footer .bind .tit {
+    font-size: 1.3rem;
+  }
+}
+
+/*# sourceMappingURL=_footer.css.map */
