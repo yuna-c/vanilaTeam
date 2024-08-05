@@ -52,12 +52,17 @@
   color: var(--bgColor);
 }
 
-
+#recommended-title{
+  padding-left: 25px;
+  margin-top: 20px;
+  color: var(--bgColor);
+  // opacity: 0.4;
+}
 
 #detail-Recommended-poster{
    display: flex;
   justify-content: left;
-  margin-top: 20px;
+  margin-top: 6px;
   padding-left: 25px;
   flex-wrap: wrap;
   overflow: hidden; 
@@ -68,6 +73,7 @@
   // align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   margin-right: 8px;
+  border-radius: 6px;
 }
 
 // tablet

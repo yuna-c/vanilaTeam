@@ -647,10 +647,16 @@ html {
   color: var(--bgColor);
 }
 
+#recommended-title {
+  padding-left: 25px;
+  margin-top: 20px;
+  color: var(--bgColor);
+}
+
 #detail-Recommended-poster {
   display: flex;
   justify-content: left;
-  margin-top: 20px;
+  margin-top: 6px;
   padding-left: 25px;
   flex-wrap: wrap;
   overflow: hidden;
@@ -659,6 +665,7 @@ html {
 .box {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   margin-right: 8px;
+  border-radius: 6px;
 }
 
 @media (max-width: 600px) {

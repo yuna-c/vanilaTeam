@@ -72,10 +72,9 @@ const createDetailSetcion = (data) => {
   detailDescription.textContent = description;
   search.style = 'display:none';
 
+  const recommededTitle = document.createElement('h5');
+  recommededTitle.id ='recommended-title';
   detailRecommendedPoster.id = 'detail-Recommended-poster';
-
-
-  
 
   //디테일 페이지 추가
   detail.id = 'detail';
@@ -89,7 +88,7 @@ const createDetailSetcion = (data) => {
   detailImgHeader.style.backgroundPosition = 'center';
   detailImgHeader.style.width = '240px'; // 예시 너비
   detailImgHeader.style.height = '350px'; // 예시 높이
-
+  recommededTitle.innerText ='비슷한 영화 추천 ▾';
 
 
   //append
@@ -98,6 +97,7 @@ const createDetailSetcion = (data) => {
   detailInfo.appendChild(detailDescription);
   detail.appendChild(detailImgHeader);
   detail.appendChild(detailInfo);
+  detailInfo.appendChild(recommededTitle);
 
 
 
