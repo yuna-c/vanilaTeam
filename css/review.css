@@ -114,7 +114,7 @@ a {
 :root {
   --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
   --baseColor: #191919;
-  --bgColor: #fdfbf5;
+  --bgColor: #ffffff;
   --baseSize: 1rem;
 }
 
@@ -126,9 +126,16 @@ html body {
   font-size: var(--baseSize);
   font-family: var(--baseFont);
 }
-@media (max-width: 800px) and (orientation: portrait) {
+html body #app {
+  position: relative;
+}
+
+html {
+  font-size: 15px;
+}
+@media (max-width: 600px) {
   html {
-    font-size: 13px;
+    font-size: 15px;
   }
 }
 #header {
@@ -138,6 +145,7 @@ html body {
 }
 #header .bind {
   width: 95%;
+  min-height: 35px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -150,31 +158,82 @@ html body {
   font-size: 1.5rem;
   font-weight: 700;
 }
-#header .bind #search .search-input {
+#header .bind .form {
+  display: flex;
+}
+#header .bind .form #search .search-input {
   padding: 5px 0;
   border-bottom: 1px solid var(--baseColor);
 }
-#header .bind #search > * {
+#header .bind .form #search > * {
   font-size: 1rem;
 }
-#header .bind #search .search-button {
+#header .bind .form #search .search-button {
   padding: 5px 10px;
   border: 1px solid var(--baseColor);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   transition: all 1s ease;
 }
-#header .bind #search .search-button:hover {
+#header .bind .form #search .search-button:hover {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
+#header .bind .form #nav {
+  margin-left: 15px;
+}
+#header .bind .form #nav .menu i {
+  display: none;
+}
+#header .bind .form #nav .menu .sign-btn {
+  display: flex;
+  align-items: flex-end;
+}
+#header .bind .form #nav .menu .sign-btn li {
+  margin-right: 5px;
+}
+#header .bind .form #nav .menu .sign-btn li > a,
+#header .bind .form #nav .menu .sign-btn li button {
+  width: 90px;
+  min-height: 30px;
+  padding: 6px 10px;
+  display: block;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: all 1s;
+  cursor: pointer;
+}
+#header .bind .form #nav .menu .sign-btn li .login {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
+#header .bind .form #nav .menu .sign-btn li .login:hover {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#header .bind .form #nav .menu .sign-btn li .logout {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+  display: none;
+}
+#header .bind .form #nav .menu .sign-btn li .logout:hover {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
+#header .bind .form #nav .menu .sign-btn li a {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#header .bind .form #nav .menu .sign-btn li a:hover {
+  background-color: var(--bgColor);
+  color: var(--baseColor);
+}
 
-@media (max-width: 800px) and (orientation: portrait) {
+@media (max-width: 1200px) {
   #header {
     padding: 0.8rem 0 0.8rem;
-  }
-  #header .bind {
-    align-items: end;
   }
   #header .bind .tit {
     font-size: 1.5rem;
@@ -183,7 +242,7 @@ html body {
   }
   #header .bind #search {
     display: flex;
-    justify-content: center;
+    justify-content: end;
   }
   #header .bind #search .search-input {
     width: 70%;
@@ -192,12 +251,61 @@ html body {
     padding: 0 0.5rem;
   }
 }
-@media (max-width: 400px) and (orientation: portrait) {
+@media (max-width: 600px) {
   #header {
     padding: 0.5rem 0 0.5rem;
   }
+  #header .bind a {
+    padding: 10px;
+  }
   #header .bind a .tit {
     font-size: 1.3rem;
+  }
+  #header .bind .form #search .search-button {
+    padding: 0px 8px;
+  }
+  #header .bind .form #nav {
+    margin-left: 8px;
+    margin-top: 3px;
+  }
+  #header .bind .form #nav .menu {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  #header .bind .form #nav .menu i {
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #header .bind .form #nav .menu .sign-btn {
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: 1;
+    padding: 10px;
+    background: var(--bgColor);
+    border-radius: 5px;
+    border: 1px solid var(--baseColor);
+  }
+  #header .bind .form #nav .menu .sign-btn li {
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+  #header .bind .form #nav .menu .sign-btn li:nth-last-child(1) {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 400px) {
+  #header .bind .form #nav .menu .sign-btn {
+    top: 37px;
   }
 }
 #footer {
@@ -217,7 +325,7 @@ html body {
   text-align: right;
 }
 
-@media (max-width: 800px) and (orientation: portrait) {
+@media (max-width: 1200px) {
   #footer {
     padding: 0.8rem 0 0.8rem;
   }
@@ -225,7 +333,7 @@ html body {
     font-size: 1.5rem;
   }
 }
-@media (max-width: 400px) and (orientation: portrait) {
+@media (max-width: 600px) {
   #footer {
     padding: 0.5rem 0 0.5rem;
   }
@@ -234,63 +342,26 @@ html body {
   }
 }
 .review-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: gray;
   padding: 50px;
 }
-.review-container input {
-  border: 2px solid black;
-}
-.review-container .w-60 {
-  width: 60%;
-}
-.review-container h3 {
-  margin-bottom: 20px;
-}
-.review-container .review-content {
-  height: 100px;
-  width: 100%;
+.review-container .review {
+  width: 80%;
 }
 .review-container input {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
 }
 .review-container button {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  border: 2px solid black;
+  background-color: red;
 }
 
-.review-form .form-info {
-  display: flex;
-  justify-content: right;
+.review-form {
+  background-color: green;
 }
 
-.review-item {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid black;
-  margin-top: 20px;
-  padding: 0 20px;
-  border-radius: 10px;
-  background-color: white;
-}
-.review-item span {
-  margin: 10px 0;
-}
-.review-item span:nth-child(1) {
-  font-weight: bold;
-}
-.review-item span:nth-child(2) {
-  padding: 10px 0;
-}
-
-.review-form .m-l-10 {
-  margin-left: 10px;
+.review-list {
+  background-color: wheat;
 }
 
 /*# sourceMappingURL=review.css.map */

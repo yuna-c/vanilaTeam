@@ -52,6 +52,22 @@
   color: var(--bgColor);
 }
 
+
+
+#detail-Recommended-poster{
+   display: flex;
+  justify-content: left;
+  margin-top: 20px;
+  padding-left: 25px;
+}
+.box {
+   // display: flex;
+  // // justify-content: center;
+  // align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-right: 8px;
+}
+
 // tablet
 @media (max-width: 1200px) {
   #section {
