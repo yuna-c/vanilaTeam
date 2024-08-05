@@ -412,5 +412,126 @@ html {
     margin-right: 0;
   }
 }
+#section {
+  min-height: calc(100vh - 19rem);
+  margin: 5rem auto 5rem;
+}
+#section .bind {
+  width: 95%;
+  min-height: 45vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  cursor: auto;
+}
+#section .bind .history {
+  margin-bottom: 100px;
+}
+#section .bind .history a {
+  height: auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#section .bind .history a:hover i {
+  color: red;
+}
+#section .bind .history a i {
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+#section .bind .history a span {
+  display: inline-block;
+}
+#section .bind .tit {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+#section .bind .my-info {
+  min-height: 600px;
+  display: flex;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+}
+#section .bind .my-info > * {
+  min-height: 600px;
+}
+#section .bind .my-info .my-profile {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-right: 1px dashed var(--baseColor);
+}
+#section .bind .my-info .my-profile a .ico-profile {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--baseColor);
+  background-color: var(--baseColor);
+  border-radius: 50%;
+  overflow: hidden;
+}
+#section .bind .my-info .my-profile a .ico-profile > img {
+  width: 100%;
+  height: 100%;
+}
+#section .bind .my-info .my-profile a .ico-profile i {
+  color: var(--bgColor);
+}
+#section .bind .my-info .my-profile > p {
+  margin-top: 0.5rem;
+}
+#section .bind .my-info .my-profile .our {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6745098039);
+  text-align: center;
+}
+#section .bind .my-info .my-profile #userId {
+  margin-top: 5px;
+  display: block;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--baseColor);
+}
+#section .bind .my-info .my-profile #userPassword {
+  margin-top: 10px;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#section .bind .my-info .my-profile #userPassword:hover {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#section .bind .my-info .my-bookmark {
+  width: 100%;
+  padding: 25px 20px;
+}
+#section .bind .my-info .my-bookmark .tit {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+  #section {
+    min-height: calc(100vh - 13rem);
+    margin: 3rem auto 3rem;
+  }
+}
+@media (max-width: 600px) {
+  #section {
+    min-height: calc(100vh - 13rem);
+  }
+  #section .bind .history {
+    margin-bottom: 50px;
+  }
+}
 
 /*# sourceMappingURL=mypage.css.map */
