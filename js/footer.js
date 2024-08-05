@@ -23,7 +23,7 @@ export const createFooter = () => {
   footerText.style.color = 'var(--bgColor)';
   footerText.style.marginLeft = '10px';
   footerText.style.marginTop = '6px';
-  teamParentDiv.style.marginLeft = '20px';
+  teamParentDiv.style.marginLeft = '30px';
   teamParentDiv.style.display = 'flex';
   teamParentDiv.style.gap = '0px';
 

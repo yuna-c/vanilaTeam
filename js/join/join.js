@@ -36,6 +36,7 @@ export const createJoin = () => {
   joinPasswordStrong.classList = 'join-strong';
   joinButton.classList = 'join-button';
   search.style = 'display:none';
+  search.autofocus = false;
 
   joinTitle.innerText = 'Join Us';
   joinId.type = 'text';
@@ -52,7 +53,7 @@ export const createJoin = () => {
 
   joinButton.innerText = '회원가입하기';
   historyBack.innerHTML = `
-  <a href="./">
+  <a href="./login.html">
     <i class="fa-solid fa-arrow-left fa-1x"></i>
     <span>뒤로가기</span>
   </a>`;
@@ -213,5 +214,5 @@ function JoinInfo(idValue, pswValue) {
 `
   );
 
-  window.location.href = './page/login.html';
+  window.location.href = './login.html';
 }

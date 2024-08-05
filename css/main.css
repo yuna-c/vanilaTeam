@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -77,7 +77,7 @@ button {
   -webkit-appearance: none;
 }
 
-input[type=button],
+input[type='button'],
 button,
 select {
   cursor: pointer;
@@ -112,7 +112,7 @@ a {
 }
 
 :root {
-  --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
+  --baseFont: 'Satoshi', 'Noto Sans KR', 'Nanum Gothic', '맑은 고딕';
   --baseColor: #191919;
   --bgColor: #ffffff;
   --baseSize: 1rem;
@@ -158,44 +158,48 @@ html {
   font-size: 1.5rem;
   font-weight: 700;
 }
-#header .bind .form {
+#header .bind .gnb .toggle {
+  display: none;
+}
+#header .bind .nav {
   display: flex;
 }
-#header .bind .form #search .search-input {
+#header .bind .nav #search {
+  position: relative;
+}
+#header .bind .nav #search .search-input {
+  width: 100%;
   padding: 5px 0;
   border-bottom: 1px solid var(--baseColor);
 }
-#header .bind .form #search > * {
+#header .bind .nav #search > * {
   font-size: 1rem;
 }
-#header .bind .form #search .search-button {
-  padding: 5px 10px;
+#header .bind .nav #search .search-button {
+  padding: 4px 10px 5px;
   border: 1px solid var(--baseColor);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   color: var(--baseColor);
+  color: var(--baseColor);
   transition: all 1s ease;
+  position: absolute;
+  right: 0;
 }
-#header .bind .form #search .search-button:hover {
+#header .bind .nav #search .search-button:hover {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
-#header .bind .form #nav {
+#header .bind .nav #menu .sign-btn {
+  display: flex;
+}
+#header .bind .nav #menu .sign-btn li {
+  display: block;
+}
+#header .bind .nav #menu .sign-btn li:nth-child(odd) {
   margin-left: 15px;
 }
-#header .bind .form #nav .menu i {
-  display: none;
-  color: var(--baseColor);
-}
-#header .bind .form #nav .menu .sign-btn {
-  display: flex;
-  align-items: flex-end;
-}
-#header .bind .form #nav .menu .sign-btn li {
-  margin-right: 5px;
-}
-#header .bind .form #nav .menu .sign-btn li > a,
-#header .bind .form #nav .menu .sign-btn li button {
+#header .bind .nav #menu .sign-btn li > button {
   width: 90px;
   min-height: 30px;
   padding: 5px 10px;
@@ -207,28 +211,28 @@ html {
   transition: all 1s;
   cursor: pointer;
 }
-#header .bind .form #nav .menu .sign-btn li .login {
+#header .bind .nav #menu .sign-btn li .login {
   background-color: var(--bgColor);
   color: var(--baseColor);
 }
-#header .bind .form #nav .menu .sign-btn li .login:hover {
+#header .bind .nav #menu .sign-btn li .login:hover {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
-#header .bind .form #nav .menu .sign-btn li .logout {
+#header .bind .nav #menu .sign-btn li .logout {
   background-color: var(--baseColor);
   color: var(--bgColor);
   display: none;
 }
-#header .bind .form #nav .menu .sign-btn li .logout:hover {
+#header .bind .nav #menu .sign-btn li .logout:hover {
   background-color: var(--bgColor);
   color: var(--baseColor);
 }
-#header .bind .form #nav .menu .sign-btn li a {
+#header .bind .nav #menu .sign-btn li .mypage {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
-#header .bind .form #nav .menu .sign-btn li a:hover {
+#header .bind .nav #menu .sign-btn li .mypage:hover {
   background-color: var(--bgColor);
   color: var(--baseColor);
 }
@@ -237,76 +241,91 @@ html {
   #header {
     padding: 0.8rem 0 0.8rem;
   }
-  #header .bind .tit {
-    font-size: 1.5rem;
-    font-weight: 900;
-    line-height: 1;
+}
+@media (max-width: 800px) {
+  #header {
+    padding: 0.8rem 0 0.8rem;
   }
-  #header .bind #search {
+  #header .bind {
+    flex-direction: column;
+    position: relative;
+  }
+  #header .bind .gnb {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  #header .bind .gnb .toggle {
+    display: block;
+  }
+  #header .bind .nav {
+    padding: 0;
+    display: none;
+    flex-direction: column-reverse;
+    position: absolute;
+    top: 3.2rem;
+    left: -2.5%;
+    right: -2.5%;
+    z-index: 60;
+    background-color: var(--bgColor);
+  }
+  #header .bind .nav.on {
     display: flex;
   }
-  #header .bind #search .search-input {
-    width: 70%;
+  #header .bind .nav #search {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px 0 50px;
+    border-bottom: 1px solid var(--baseColor);
   }
-  #header .bind #search .search-button {
-    padding: 0 0.5rem;
+  #header .bind .nav #search .search-input {
+    width: 90%;
+    position: absolute;
+    left: 15px;
+  }
+  #header .bind .nav #search .search-button {
+    right: 15px;
+  }
+  #header .bind .nav #menu .sign-btn {
+    flex-direction: column;
+  }
+  #header .bind .nav #menu .sign-btn li:nth-child(odd) {
+    margin-left: 0;
+  }
+  #header .bind .nav #menu .sign-btn li:nth-of-type(1) {
+    padding-top: 0;
+  }
+  #header .bind .nav #menu .sign-btn li > button {
+    width: 100%;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 1px solid var(--baseColor);
+    border-radius: 0;
+    background-color: var(--bgColor) !important;
+    color: var(--baseColor) !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  #header .bind .nav #menu .sign-btn li > button:hover {
+    color: red !important;
   }
 }
 @media (max-width: 600px) {
   #header {
     padding: 0.5rem 0 0.5rem;
   }
-  #header .bind a {
-    padding: 10px;
-  }
-  #header .bind a .tit {
-    font-size: 1.3rem;
-  }
-  #header .bind .form #search .search-button {
-    padding: 0px 8px;
-  }
-  #header .bind .form #nav {
-    margin-left: 8px;
-    margin-top: 3px;
-  }
-  #header .bind .form #nav .menu {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  #header .bind .form #nav .menu i {
-    width: 100%;
-    height: 100%;
-    font-size: 1.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #header .bind .form #nav .menu .sign-btn {
-    display: block;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    z-index: 1;
-    padding: 10px;
-    background: var(--bgColor);
-    border-radius: 5px;
-    border: 1px solid var(--baseColor);
-  }
-  #header .bind .form #nav .menu .sign-btn li {
-    margin-bottom: 5px;
-    margin-right: 0;
-  }
-  #header .bind .form #nav .menu .sign-btn li:nth-last-child(1) {
-    margin-bottom: 0;
+  #header .bind .nav {
+    top: 2.9rem;
   }
 }
 @media (max-width: 400px) {
-  #header .bind .form #nav .menu .sign-btn {
-    top: 37px;
+  #header {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #header .bind .nav {
+    top: 2.9rem;
   }
 }
 .content {

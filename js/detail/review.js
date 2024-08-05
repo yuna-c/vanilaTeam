@@ -16,19 +16,46 @@ const movieId = getMovieIdFromUrl();
 const createReviewSection = () => {
   const section = document.createElement('section');
   section.className = 'review';
-  section.innerHTML = `
-  <div class="w-60">
-    <h3>감상평</h3>
-    <form class="review-form">
-      <textarea id="review-content" class="review-content border" type="text" placeholder="감상평을 자유롭게 작성해주세요." required></textarea>
-      <div class="form-info">
-        <input id="user-name" class="m-l-10 border" type="text" placeholder="이름" required>
-        <input id="password" class="m-l-10 border" type="password" placeholder="비밀번호" required>
-        <button class="save-button m-l-10">등록</button>
-      </div>
-    </form>
-  </div>
-  `;
+
+  const div = document.createElement('div');
+  div.className = 'w-60';
+
+  const h3 = document.createElement('h3');
+  h3.textContent = '감상평';
+
+  const form = document.createElement('form');
+  form.className = 'review-form';
+
+  const textarea = document.createElement('textarea');
+  textarea.id = 'review-content';
+  textarea.className = 'review-content border';
+  textarea.placeholder = '감상평을 자유롭게 작성해주세요.';
+  textarea.required = true;
+
+  const formInfoDiv = document.createElement('div');
+  formInfoDiv.className = 'form-info';
+
+  const saveButton = document.createElement('button');
+  saveButton.className = 'save-button m-l-10';
+  saveButton.textContent = '등록';
+
+  // 로그인 안 했으면 등록 버튼 안보이고
+  // textarea 선택했을 때 로그인 페이지로
+  if (localStorage.getItem('isLogin') === null || localStorage.getItem('isLogin') === '0') {
+    saveButton.style.display = 'none';
+
+    textarea.addEventListener('click', () => {
+      alert('로그인 후 작성해주세요.');
+      window.location.href = '../page/login.html';
+    });
+  }
+
+  formInfoDiv.appendChild(saveButton);
+  form.appendChild(textarea);
+  form.appendChild(formInfoDiv);
+  div.appendChild(h3);
+  div.appendChild(form);
+  section.appendChild(div);
 
   return section;
 };
@@ -42,10 +69,15 @@ const saveReview = async (reviewData) => {
   window.location.reload();
 };
 
+/**
+ * 등록 데이터 생성
+ */
 const createReviewData = () => {
   const reviewContent = document.getElementById('review-content').value;
-  const userName = document.getElementById('user-name').value;
-  const password = document.getElementById('password').value;
+
+  // 로컬 스토리지 정보 조회
+  let userName = localStorage.getItem('username');
+  let password = localStorage.getItem('password');
 
   return {
     id: generateUUID(),
@@ -119,7 +151,6 @@ const setupUpdateReviewButtonEventListener = (reviewItem) => {
     saveUpdateButton.addEventListener('click', async () => {
       if (window.confirm('정말로 이 리뷰를 수정하시겠습니까?')) {
         const updatedContent = reviewItem.querySelector('#review-content').value;
-        const updatedUserName = reviewItem.querySelector('#user-name').value;
         const reviewId = reviewItem.getAttribute('data-id');
 
         await updateReviewData(reviewId, updatedContent);
@@ -156,24 +187,54 @@ const createReviewItem = (data) => {
   reviewItem.setAttribute('data-movieId', data.movieId);
   reviewItem.setAttribute('data-id', data.id);
 
-  reviewItem.innerHTML = `
-    <div class="review-header">
-      <span id="user-name">${data.userName}</span>
-      <div>
-        <button class="update-button">수정</button>
-        <button class="delete-button">삭제</button>
-      </div>
-    </div>
-    <span id="review-content">${data.content}</span>
-  `;
+  const reviewHeader = document.createElement('div');
+  reviewHeader.className = 'review-header';
+
+  const userNameSpan = document.createElement('span');
+  userNameSpan.id = 'user-name';
+  userNameSpan.textContent = data.userName;
+
+  const buttonContainer = document.createElement('div');
+
+  const updateButton = document.createElement('button');
+  updateButton.className = 'update-button';
+  updateButton.textContent = '수정';
+
+  const deleteButton = document.createElement('button');
+  deleteButton.className = 'delete-button';
+  deleteButton.textContent = '삭제';
+
+  const username = localStorage.getItem('username');
+  const password = localStorage.getItem('password');
+  const isLogin = localStorage.getItem('isLogin');
+
+  if (!(username === data.userName && password === data.password) || isLogin === '0') {
+    updateButton.style.display = 'none';
+    deleteButton.style.display = 'none';
+  }
+
+  buttonContainer.appendChild(updateButton);
+  buttonContainer.appendChild(deleteButton);
+
+  reviewHeader.appendChild(userNameSpan);
+  reviewHeader.appendChild(buttonContainer);
+
+  const reviewContent = document.createElement('span');
+  reviewContent.id = 'review-content';
+  reviewContent.textContent = data.content;
+
+  reviewItem.appendChild(reviewHeader);
+  reviewItem.appendChild(reviewContent);
 
   setupDeleteReviewEventListener(reviewItem);
-
   setupUpdateReviewButtonEventListener(reviewItem);
 
   return reviewItem;
 };
 
+/**
+ * 리뷰 목록 조회
+ */
 const renderReviews = async () => {
   let docs = await getReviewData(movieId);
   const reviewList = document.createElement('ul');
