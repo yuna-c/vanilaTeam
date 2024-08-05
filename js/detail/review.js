@@ -22,8 +22,6 @@ const createReviewSection = () => {
     <form class="review-form">
       <textarea id="review-content" class="review-content border" type="text" placeholder="감상평을 자유롭게 작성해주세요." required></textarea>
       <div class="form-info">
-        <input id="user-name" class="m-l-10 border" type="text" placeholder="이름" required>
-        <input id="password" class="m-l-10 border" type="password" placeholder="비밀번호" required>
         <button class="save-button m-l-10">등록</button>
       </div>
     </form>
@@ -42,10 +40,16 @@ const saveReview = async (reviewData) => {
   window.location.reload();
 };
 
+/**
+ * 등록 데이터 생성
+ */
 const createReviewData = () => {
   const reviewContent = document.getElementById('review-content').value;
-  const userName = document.getElementById('user-name').value;
-  const password = document.getElementById('password').value;
+
+  // 로컬 스토리지 정보 조회
+  let isLogin = localStorage.getItem('isLogin');
+  let userName = localStorage.getItem('username');
+  let password = localStorage.getItem('password');
 
   return {
     id: generateUUID(),
