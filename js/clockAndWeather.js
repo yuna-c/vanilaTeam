@@ -44,7 +44,6 @@ export const createClockAndWeather = () => {
   // weatherContainer.id = 'weather-container';
   // weatherCity.id = 'weather-city';
   // weatherDescription.id = 'weather-discription';
-
   // weatherContainer.appendChild(weatherCity);
   // weatherContainer.appendChild(weatherDescription);
   // app.appendChild(weatherContainer);

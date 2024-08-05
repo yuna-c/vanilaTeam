@@ -3,6 +3,22 @@
   padding: 1rem 0 1rem 0;
   border-top: 1px solid var(--baseColor);
 
+
+#name-bg{
+  width: 40px;
+  height: 40xp;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  background-color: var(--baseColor);
+  padding: 2px;
+}
+
+
+  #team-name{
+color: var(--bgColor);
+
+  }
+
   .bind {
     width: 95%;
     margin: auto;

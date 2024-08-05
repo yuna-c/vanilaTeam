@@ -6,6 +6,7 @@ const urlParams = new URLSearchParams(window.location.search); // 현재 URL에�
 
 // 'id' 쿼리 스트링 값 가져오기
 movieId = urlParams.get('id');
+
 const options = {
   method: 'GET',
   headers: {
@@ -29,9 +30,26 @@ async function fetchData() {
     return createDetailSetcion(data);
   } catch (err) {
     console.error(err, '중지');
-    alert(err);
+    // alert(">>" + err);
+    window.location.href="/"
   }
 }
+
+// 유사한 영화를 가져오는 함수
+async function fetchSimilarMovies() {
+  try {
+    const SIMILAR_MOVIES_URL = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${API_KEY}&language=ko-KR&page=1`;
+    const res = await fetch(SIMILAR_MOVIES_URL, options);
+    const data = await res.json();
+    return data.results;
+  } catch (err) {
+    console.error('Error fetching similar movies:', err);
+    return [];
+  }
+}
+
+ // 유사한 영화 데이터를 가져와서 박스 생성
+ const similarMovies = await fetchSimilarMovies();
 
 // detail
 const createDetailSetcion = (data) => {
@@ -41,6 +59,9 @@ const createDetailSetcion = (data) => {
   const detail = document.createElement('section');
   const detailImgHeader = document.createElement('div');
   const search = document.querySelector('#search');
+
+  // const detailRecommendedPoster = document.getElementById('container');
+  const detailRecommendedPoster = document.createElement('div');
 
   // detail-info 요소 생성 및 콘텐츠 추가
   const detailInfo = document.createElement('div');
@@ -52,9 +73,14 @@ const createDetailSetcion = (data) => {
   search.style = 'display:none';
   search.autofocus = false;
 
+  const recommededTitle = document.createElement('h5');
+  recommededTitle.id ='recommended-title';
+  detailRecommendedPoster.id = 'detail-Recommended-poster';
+
   //디테일 페이지 추가
   detail.id = 'detail';
   detailImgHeader.id = 'detail-image-block';
+
   // 스타일 설정을 통해 백그라운드 이미지 추가
   detailImgHeader.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}.jpg')`;
 
@@ -63,6 +89,8 @@ const createDetailSetcion = (data) => {
   detailImgHeader.style.backgroundPosition = 'center';
   detailImgHeader.style.width = '240px'; // 예시 너비
   detailImgHeader.style.height = '350px'; // 예시 높이
+  recommededTitle.innerText ='비슷한 영화 추천 ▾';
+
 
   //append
   app.appendChild(detail);
@@ -70,10 +98,29 @@ const createDetailSetcion = (data) => {
   detailInfo.appendChild(detailDescription);
   detail.appendChild(detailImgHeader);
   detail.appendChild(detailInfo);
+  detailInfo.appendChild(recommededTitle);
+
+
+
+
+//4개 박스추가
+for (let i = 0; i < 4; i++) {
+  const box = document.createElement('div');
+  box.classList.add('box');
+  // box.style.backgroundColor = 'teal';
+  box.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${similarMovies[i].poster_path}')`;
+  box.style.backgroundSize = 'contain';
+  box.style.width = '150px';
+  box.style.height = '220px';
+  // box.innerText = `Box ${i + 1}`;
+  detailRecommendedPoster.appendChild(box);
+}
+detailInfo.appendChild(detailRecommendedPoster);
 };
 
+
 //포스터 이미지, 예시 이미지 경로
-const poster_path = '/your-image-path.jpg';
+const poster_path = 'data.poster_path.jpg';
 function setBackgroundImage(poster_path) {
   document.documentElement.style.setProperty('--poster-path', `url('https://image.tmdb.org/t/p/w500${poster_path}')`);
 }
