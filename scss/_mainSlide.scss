@@ -1,39 +1,58 @@
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
 .content {
   position: relative;
-  min-height: 600px;
-
-  .txt {
+  min-height: 480px;
+  .txt_box {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.6rem;
+    width: 80%;
     font-weight: 700;
     text-align: center;
     color: #fff;
     z-index: 10;
+    .txt {
+      font-size: 3rem;
+      line-height: 1.5;
+    }
+    .movie_open {
+      font-size: 1rem;
+    }
   }
-
   .slide_wrap {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     height: 100%;
-
     .slide_box {
       margin: auto;
       position: relative;
       width: 100%;
       height: 100%;
+      .back {
+        position: absolute;
+        top: 100px;
+        width: 100px;
+        height: 100px;
+        z-index: 10;
+        background: #222;
+      }
     }
-
     .slide_list {
       position: relative;
       overflow: hidden;
       min-width: 100%;
       height: 100%;
-
       .slide_item {
         position: absolute;
         top: 0;
@@ -41,55 +60,44 @@
         width: 100%;
         height: 100%;
         transition: all 0.3s;
-
         img {
           object-fit: cover;
           width: 100%;
           height: 100%;
         }
-      }
-    }
-  }
-}
-
-// tablet
-@media (max-width: 1200px) {
-  .content {
-    min-height: 500px;
-
-    .txt {
-    }
-
-    .slide_wrap {
-      .slide_box {
-      }
-
-      .slide_list {
-        .slide_item {
-          img {
-          }
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(
+            to right,
+            rgba(1, 1, 1, 1) 10%,
+            rgba(1, 1, 1, 0.65) 30%,
+            rgba(1, 1, 1, 0.5) 50%,
+            rgba(1, 1, 1, 0.65) 70%,
+            rgba(1, 1, 1, 1) 100%
+          );
+          opacity: 0.7;
         }
       }
-    }
-  }
-}
-
-// mobile
-@media (max-width: 600px) {
-  .content {
-    min-height: 400px;
-
-    .txt {
-      width: 90%;
-    }
-
-    .slide_wrap {
-      .slide_box {
-      }
-
-      .slide_list {
-        .slide_item {
-          img {
+      .slide_pagination {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        display: flex;
+        width: 100%;
+        height: 4px;
+        z-index: 10;
+        li {
+          background: silver;
+          width: 100%;
+          height: 100%;
+          &.active {
+            background: #fff;
           }
         }
       }
