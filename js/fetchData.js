@@ -64,9 +64,9 @@ const options = {
 };
 
 // 3. Creditsdata : https://developer.themoviedb.org/reference/movie-credits
-export const getCreditsData = async (page) => {
+export const getCreditsData = async (movieId) => {
   const API_KEY = config.TMDBKEY;
-  const CREDITS_URL = `https://api.themoviedb.org/3/movie/2/credits?language=ko-KR&api_key=${API_KEY}&page=${page}`;
+  const CREDITS_URL = `https://api.themoviedb.org/3/movie/${movieId}/credits?language=ko-KR&api_key=${API_KEY}`;
 
   const options = {
     method: 'GET',

@@ -1,0 +1,62 @@
+@import 'reset';
+@import 'variables.scss';
+
+#actor {
+  padding: 10px 50px;
+  background-color: gray;
+
+  .slide-wrapper {
+    position: relative;
+    width: 80%; // 가운데있기위해
+    margin: 0 auto; // 가운데 있기 위해
+    height: 300px;
+    overflow: hidden;
+
+    .slides {
+      position: absolute;
+      transition: left 0.5s ease-out;
+
+      // 기존 위치에서 왼쪽 상단에 붙어있기
+      left: 0;
+      top: 0;
+
+      display: flex;
+
+      // li
+      .actor-item {
+        margin-right: 30px;
+
+        img {
+          width: 200px;
+          height: 250px;
+        }
+      }
+    }
+  }
+  .controls {
+    text-align: center;
+
+    span {
+      background-color: red;
+      // top: 50%;
+      margin: 10px;
+    }
+  }
+}
+
+// tablet
+@media (max-width: 1200px) {
+  #section {
+  }
+}
+
+// mobile
+@media (max-width: 600px) {
+  #section {
+  }
+}
+
+@media (max-width: 400px) {
+  #section {
+  }
+}
