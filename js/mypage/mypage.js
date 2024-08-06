@@ -1,13 +1,24 @@
+import { getPopularData } from '../fetchData.js';
+import { createSection, cardList } from '../main.js';
 import { createModal, closeModal, openModal } from '../modal.js';
 // createModal();
+// createSection();
+
+let pageStart = 1;
 
 // mypage
-export const createMypage = () => {
+export const createMypage = async () => {
+  const data = await getPopularData(pageStart);
+  const dataResult = data.total_pages;
+  console.log(data.results);
+  console.log(data.total_pages);
+  const searchCard = cardList(data);
   const app = document.getElementById('app');
   const section = document.createElement('section');
   const bind = document.createElement('div');
   const search = document.querySelector('#search');
   const historyBack = document.createElement('div');
+  // app.innerHTML = searchCard;
 
   const tit = document.createElement('h2');
   const myInfo = document.createElement('article');
@@ -62,7 +73,7 @@ export const createMypage = () => {
   section.append(bind);
   bind.append(historyBack, myInfo);
   myInfo.append(myProfile, myBookMark);
-  // joinButton.addEventListener('click', handleBookmark);
+  // myBookMark.addEventListener('click', handleBookmark);
   handlechagePassword(password);
 };
 
