@@ -1,8 +1,6 @@
-// @import 'reset';
-// @import 'variables.scss';
-
-#actor {
-  margin-top: 20px;
+#images {
+  // background-color: gray;
+  // margin-top: 20px;
   padding: 10px 50px;
   position: relative;
   flex-direction: column;
@@ -15,14 +13,14 @@
     margin-bottom: 20px;
   }
 
-  .slide-wrapper {
+  .slide-image-wrapper {
     position: relative;
-    width: 60%;
+    width: 90%;
     // margin: 0 auto;
     height: 300px;
     overflow: hidden;
 
-    .slides {
+    .image-slides {
       position: absolute;
       transition: left 0.5s ease-out;
 
@@ -33,20 +31,20 @@
       display: flex;
 
       // li
-      .actor-item {
+      .image-item {
         margin-right: 30px;
         text-align: center;
         font-size: large;
         font-weight: 900;
 
         img {
-          width: 200px;
-          height: 250px;
+          width: 500px;
+          height: 300px;
         }
       }
     }
   }
-  .controls {
+  .image-controls {
     text-align: center;
     top: 50%;
 
@@ -61,13 +59,13 @@
       }
     }
 
-    .prev {
-      left: 15%;
+    .image-prev {
+      left: 2%;
       // background-color: green;
     }
 
-    .next {
-      right: 15%;
+    .image-next {
+      right: 2%;
       // background-color: pink;
     }
   }
