@@ -1,0 +1,91 @@
+// @import 'reset';
+// @import 'variables.scss';
+
+#actor {
+  margin-top: 20px;
+  padding: 10px 50px;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+
+  .title {
+    display: flex;
+    width: 60%;
+    margin-bottom: 20px;
+  }
+
+  .slide-wrapper {
+    position: relative;
+    width: 60%;
+    // margin: 0 auto;
+    height: 300px;
+    overflow: hidden;
+
+    .slides {
+      position: absolute;
+      transition: left 0.5s ease-out;
+
+      // 기존 위치에서 왼쪽 상단에 붙어있기
+      left: 0;
+      top: 0;
+
+      display: flex;
+
+      // li
+      .actor-item {
+        margin-right: 30px;
+        text-align: center;
+        font-size: large;
+        font-weight: 900;
+
+        img {
+          width: 200px;
+          height: 250px;
+        }
+      }
+    }
+  }
+  .controls {
+    text-align: center;
+    top: 50%;
+
+    span {
+      position: absolute;
+      top: 50%;
+      // margin: 10px;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .prev {
+      left: 15%;
+      // background-color: green;
+    }
+
+    .next {
+      right: 15%;
+      // background-color: pink;
+    }
+  }
+}
+
+// tablet
+@media (max-width: 1200px) {
+  #section {
+  }
+}
+
+// mobile
+@media (max-width: 600px) {
+  #section {
+  }
+}
+
+@media (max-width: 400px) {
+  #section {
+  }
+}

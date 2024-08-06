@@ -663,6 +663,115 @@ html {
     margin-right: 0;
   }
 }
+#actor {
+  margin-top: 20px;
+  padding: 10px 50px;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+#actor .title {
+  display: flex;
+  width: 60%;
+  margin-bottom: 20px;
+}
+#actor .slide-wrapper {
+  position: relative;
+  width: 60%;
+  height: 300px;
+  overflow: hidden;
+}
+#actor .slide-wrapper .slides {
+  position: absolute;
+  transition: left 0.5s ease-out;
+  left: 0;
+  top: 0;
+  display: flex;
+}
+#actor .slide-wrapper .slides .actor-item {
+  margin-right: 30px;
+  text-align: center;
+  font-size: large;
+  font-weight: 900;
+}
+#actor .slide-wrapper .slides .actor-item img {
+  width: 200px;
+  height: 250px;
+}
+#actor .controls {
+  text-align: center;
+  top: 50%;
+}
+#actor .controls span {
+  position: absolute;
+  top: 50%;
+}
+#actor .controls span img {
+  width: 30px;
+  height: 30px;
+}
+#actor .controls .prev {
+  left: 15%;
+}
+#actor .controls .next {
+  right: 15%;
+}
+
+#images {
+  padding: 10px 50px;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+#images .title {
+  display: flex;
+  width: 60%;
+  margin-bottom: 20px;
+}
+#images .slide-image-wrapper {
+  position: relative;
+  width: 90%;
+  height: 300px;
+  overflow: hidden;
+}
+#images .slide-image-wrapper .image-slides {
+  position: absolute;
+  transition: left 0.5s ease-out;
+  left: 0;
+  top: 0;
+  display: flex;
+}
+#images .slide-image-wrapper .image-slides .image-item {
+  margin-right: 30px;
+  text-align: center;
+  font-size: large;
+  font-weight: 900;
+}
+#images .slide-image-wrapper .image-slides .image-item img {
+  width: 500px;
+  height: 300px;
+}
+#images .image-controls {
+  text-align: center;
+  top: 50%;
+}
+#images .image-controls span {
+  position: absolute;
+  top: 50%;
+}
+#images .image-controls span img {
+  width: 30px;
+  height: 30px;
+}
+#images .image-controls .image-prev {
+  left: 2%;
+}
+#images .image-controls .image-next {
+  right: 2%;
+}
+
 #detail {
   width: 100%;
   height: auto;

@@ -457,6 +457,27 @@ html {
   font-style: italic;
 }
 
+.select_wrap {
+  width: 200px;
+  border: 1px solid #222;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border-radius: 15px;
+}
+.select_wrap button {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 5px 20px;
+  flex: 1;
+}
+.select_wrap button.active {
+  background: skyblue;
+  color: #fff;
+}
+
 #footer {
   height: auto;
   padding: 1rem 0 1rem 0;

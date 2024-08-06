@@ -64,21 +64,42 @@ const options = {
 };
 
 // 3. Creditsdata : https://developer.themoviedb.org/reference/movie-credits
-export const getCreditsData = async (page) => {
+export const getCreditsData = async (movieId) => {
   const API_KEY = config.TMDBKEY;
-  const CREDITS_URL = `https://api.themoviedb.org/3/movie/2/credits?language=ko-KR&api_key=${API_KEY}&page=${page}`;
+  const CREDITS_URL = `https://api.themoviedb.org/3/movie/${movieId}/credits?language=ko-KR&api_key=${API_KEY}`;
 
   const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
       Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzA1ZjVhNjM2ZTU4ZDUxMjk1ZDc3Y2UyZTc2MDZiNyIsIm5iZiI6MTcyMjUzODQ3OC4zNzM0NDksInN1YiI6IjY2YTAwMzBjOTFmZDM0NzM1NTk4ZmM4MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rxzP6HkP6xzB16lqJPoKfQUKC6Fi7X3Ewf2stIZwYzc'
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzA1ZjVhNjM2ZTU4ZDUxMjk1ZDc3Y2UyZTc2MDZiNyIsIm5iZiI6MTcyMjQxMjg2Ni45NDgxMSwic3ViIjoiNjZhMDAzMGM5MWZkMzQ3MzU1OThmYzgxIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.1-skja1tInrXYrGOZ4Pg2NyKdRAyrb3vHH_MzVamAbE'
     }
   };
 
   try {
-    const res = await fetch(CREDITS_URL);
+    const res = await fetch(CREDITS_URL, options);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error + ` credits 데이터를 받아올 수 없습니다.`);
+  }
+};
+
+export const getImages = async (movieId) => {
+  const IMAGES_URL = `https://api.themoviedb.org/3/movie/${movieId}/images`;
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization:
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMzA1ZjVhNjM2ZTU4ZDUxMjk1ZDc3Y2UyZTc2MDZiNyIsIm5iZiI6MTcyMjQxMjg2Ni45NDgxMSwic3ViIjoiNjZhMDAzMGM5MWZkMzQ3MzU1OThmYzgxIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.1-skja1tInrXYrGOZ4Pg2NyKdRAyrb3vHH_MzVamAbE'
+    }
+  };
+
+  try {
+    const res = await fetch(IMAGES_URL, options);
     const data = await res.json();
     return data;
   } catch (error) {
