@@ -1,3 +1,4 @@
+
 #footer {
   height: auto;
   padding: 1rem 0 1rem 0;
@@ -5,13 +6,18 @@
   background-color: var(--baseColor);
 
   .bind {
+    width: 50%;
     width: 95%;
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    }
 
     .tit {
-      width: 100%;
+      width: 50%;
+      // width: 100%;
       font-size: 1.5rem;
       font-weight: 700;
       text-align: left;
@@ -52,7 +58,7 @@
       }
     }
   }
-}
+
 
 // tablet
 @media (max-width: 1200px) {
