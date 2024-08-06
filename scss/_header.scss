@@ -196,7 +196,7 @@
         width: 100%;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: center;
 
         a {
           .tit {
@@ -205,12 +205,17 @@
 
         .toggle {
           display: block;
+          color: var(--baseColor);
+          i {
+            color: var(--baseColor);
+          }
         }
       }
 
       .nav {
         padding: 0;
         display: none;
+
         flex-direction: column-reverse;
         position: absolute;
         top: 3.2rem;

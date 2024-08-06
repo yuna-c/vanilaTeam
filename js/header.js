@@ -37,21 +37,6 @@ export const createHeader = () => {
   loginButton.classList = 'login';
   logoutButton.classList = 'logout';
 
-  // moNav.innerHTML += `
-  // <form id="search" onsubmit="return false">
-  //   <input id="search-input" class="search-input" type="text" autofocus="" placeholder="영화를 검색하세요" required="">
-  //   <button id="search-button" class="search-button" type="button">검색</button>
-  // </form>
-
-  // <div id="menu">
-  //   <ul class="sign-btn">
-  //     <li><button class="login" onclick="location.href='/page/login.html'" style="display: block;">로그인</button></li>
-  //     <li><button class="logout" style="display: none;">로그아웃</button></li>
-  //     <li><a href="/page/mypage.html">마이페이지</a></li>
-  //   </ul>
-  // </div>
-  // `;
-
   header.id = 'header';
   searchForm.id = 'search';
   searchInput.id = 'search-input';
@@ -121,6 +106,7 @@ const handleSearch = async () => {
     mainSlider.style = 'display:none';
     // 검색 API에서 값을 받아와야 하기 때문에 searchInput의 값을 가져온다.
     const data = await getChangeData(searchInput, searchPage, window.scrollTo(0, 0));
+    console.log(data);
     const dataResult = data.total_page;
     const searchCard = cardList(data, searchInput);
     createPagination(dataResult, searchPage);
