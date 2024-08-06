@@ -29,6 +29,14 @@ const createActorInfo = (data) => {
   const actorSection = document.createElement('section');
   actorSection.id = 'actor';
 
+  const titleArea = document.createElement('div');
+  titleArea.className = 'title';
+
+  const title = document.createElement('h3');
+  title.textContent = '출연진';
+
+  titleArea.appendChild(title);
+
   const slideWrapper = document.createElement('div');
   slideWrapper.className = 'slide-wrapper';
 
@@ -45,11 +53,19 @@ const createActorInfo = (data) => {
 
   const prev = document.createElement('span');
   prev.className = 'prev';
-  prev.textContent = '이전';
+  // prev.textContent = '이전';
 
   const next = document.createElement('span');
   next.className = 'next';
-  next.textContent = '다음';
+  // next.textContent = '다음';
+
+  const prevImg = document.createElement('img');
+  prevImg.src = '../assets/img/prev.png';
+  const nextImg = document.createElement('img');
+  nextImg.src = '../assets/img/next.png';
+
+  prev.appendChild(prevImg);
+  next.appendChild(nextImg);
 
   slideControl.appendChild(prev);
   slideControl.appendChild(next);
@@ -57,6 +73,7 @@ const createActorInfo = (data) => {
   slideWrapper.appendChild(actorList);
   // slideWrapper.appendChild(slideControl);
 
+  actorSection.appendChild(titleArea);
   actorSection.appendChild(slideWrapper);
   actorSection.appendChild(slideControl);
   document.getElementById('app').appendChild(actorSection);
