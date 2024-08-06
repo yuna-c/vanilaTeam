@@ -3,7 +3,6 @@
 @import 'header.scss';
 @import 'footer.scss';
 
-// 예시 페이지
 #section {
   min-height: calc(100vh - 19rem);
   margin: 5rem auto 5rem;
@@ -59,10 +58,10 @@
       }
 
       .my-profile {
-        width: 350px;
+        min-width: 300px;
+        padding-top: 110px;
         display: flex;
         align-items: center;
-        justify-content: center;
         flex-direction: column;
         border-right: 1px dashed var(--baseColor);
 
@@ -70,7 +69,6 @@
           .ico-profile {
             width: 100px;
             height: 100px;
-            // position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -86,10 +84,6 @@
 
             i {
               color: var(--bgColor);
-              // position: absolute;
-              // top: 50%;
-              // left: 50%;
-              // transform: translate(-50%, -50%);
             }
           }
         }
@@ -123,13 +117,58 @@
           }
         }
       }
+
       .my-bookmark {
         width: 100%;
         padding: 25px 20px;
 
         .tit {
-          font-size: 1.2rem;
-          font-weight: 500;
+          font-size: 1.5rem;
+          margin-left: 15px;
+          font-weight: 600;
+        }
+
+        .card-list {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+
+          .card-item {
+            width: 212px;
+            margin: 15px;
+            border: 1px solid var(--baseColor);
+            border-radius: 5px;
+            overflow: hidden;
+
+            .card-img {
+              width: 100%;
+              max-height: 350px;
+              margin: 0 auto;
+              position: relative;
+              overflow: hidden;
+
+              img {
+                width: 100%;
+              }
+              .card-delete {
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                top: -1px;
+                right: -1px;
+                background-color: var(--bgColor);
+                border: 1px solid var(--baseColor);
+                border-radius: 5px;
+                font-size: 1rem;
+                z-index: 2;
+              }
+            }
+            .card-tit {
+              padding: 20px 10px;
+              font-size: 1.2rem;
+              font-weight: 500;
+            }
+          }
         }
       }
     }
@@ -149,6 +188,65 @@
           }
 
           span {
+          }
+        }
+      }
+      .tit {
+      }
+
+      .my-info {
+        flex-direction: column;
+
+        > * {
+          min-height: auto;
+        }
+
+        .my-profile {
+          border-right: 0;
+          padding-top: 50px;
+          min-width: 100%;
+
+          a {
+            .ico-profile {
+              > img {
+              }
+
+              i {
+              }
+            }
+          }
+
+          > p {
+          }
+          .our {
+          }
+          #userId {
+          }
+          #userPassword {
+            &:hover {
+            }
+          }
+        }
+
+        .my-bookmark {
+          .tit {
+          }
+
+          .card-list {
+            justify-content: center;
+
+            .card-item {
+              width: 175px;
+
+              .card-img {
+                img {
+                }
+                .card-delete {
+                }
+              }
+              .card-tit {
+              }
+            }
           }
         }
       }
@@ -173,6 +271,67 @@
           }
         }
       }
+
+      .tit {
+      }
+
+      .my-info {
+        flex-direction: column;
+
+        > * {
+          min-height: auto;
+        }
+
+        .my-profile {
+          border-right: 0;
+          padding-top: 50px;
+
+          a {
+            .ico-profile {
+              > img {
+              }
+
+              i {
+              }
+            }
+          }
+
+          > p {
+          }
+          .our {
+          }
+          #userId {
+          }
+          #userPassword {
+            &:hover {
+            }
+          }
+        }
+
+        .my-bookmark {
+          padding: 0;
+          padding-top: 2rem;
+          .tit {
+            margin-bottom: 10px;
+          }
+
+          .card-list {
+            .card-item {
+              width: 45%;
+              margin: 10px;
+
+              .card-img {
+                img {
+                }
+                .card-delete {
+                }
+              }
+              .card-tit {
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -180,6 +339,58 @@
 @media (max-width: 400px) {
   #section {
     .bind {
+      .my-info {
+        flex-direction: column;
+
+        > * {
+          min-height: auto;
+        }
+
+        .my-profile {
+          a {
+            .ico-profile {
+              > img {
+              }
+
+              i {
+              }
+            }
+          }
+
+          > p {
+          }
+          .our {
+          }
+          #userId {
+          }
+          #userPassword {
+            &:hover {
+            }
+          }
+        }
+
+        .my-bookmark {
+          .tit {
+            font-size: 1rem;
+            margin-bottom: 0;
+          }
+
+          .card-list {
+            .card-item {
+              width: 100%;
+
+              .card-img {
+                img {
+                }
+                .card-delete {
+                }
+              }
+              .card-tit {
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -171,6 +171,7 @@ html {
 }
 #header .bind .nav #search .search-input {
   width: 100%;
+  min-width: 250px;
   padding: 5px 0;
   border-bottom: 1px solid var(--baseColor);
 }
@@ -458,10 +459,10 @@ html {
   min-height: 600px;
 }
 #section .bind .my-info .my-profile {
-  width: 350px;
+  min-width: 300px;
+  padding-top: 110px;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   border-right: 1px dashed var(--baseColor);
 }
@@ -515,6 +516,46 @@ html {
   padding: 25px 20px;
 }
 #section .bind .my-info .my-bookmark .tit {
+  font-size: 1.5rem;
+  margin-left: 15px;
+  font-weight: 600;
+}
+#section .bind .my-info .my-bookmark .card-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item {
+  width: 212px;
+  margin: 15px;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  overflow: hidden;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item .card-img {
+  width: 100%;
+  max-height: 350px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item .card-img img {
+  width: 100%;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item .card-img .card-delete {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background-color: var(--bgColor);
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  font-size: 1rem;
+  z-index: 2;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item .card-tit {
+  padding: 20px 10px;
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -524,6 +565,23 @@ html {
     min-height: calc(100vh - 13rem);
     margin: 3rem auto 3rem;
   }
+  #section .bind .my-info {
+    flex-direction: column;
+  }
+  #section .bind .my-info > * {
+    min-height: auto;
+  }
+  #section .bind .my-info .my-profile {
+    border-right: 0;
+    padding-top: 50px;
+    min-width: 100%;
+  }
+  #section .bind .my-info .my-bookmark .card-list {
+    justify-content: center;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item {
+    width: 175px;
+  }
 }
 @media (max-width: 600px) {
   #section {
@@ -531,6 +589,42 @@ html {
   }
   #section .bind .history {
     margin-bottom: 50px;
+  }
+  #section .bind .my-info {
+    flex-direction: column;
+  }
+  #section .bind .my-info > * {
+    min-height: auto;
+  }
+  #section .bind .my-info .my-profile {
+    border-right: 0;
+    padding-top: 50px;
+  }
+  #section .bind .my-info .my-bookmark {
+    padding: 0;
+    padding-top: 2rem;
+  }
+  #section .bind .my-info .my-bookmark .tit {
+    margin-bottom: 10px;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item {
+    width: 45%;
+    margin: 10px;
+  }
+}
+@media (max-width: 400px) {
+  #section .bind .my-info {
+    flex-direction: column;
+  }
+  #section .bind .my-info > * {
+    min-height: auto;
+  }
+  #section .bind .my-info .my-bookmark .tit {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item {
+    width: 100%;
   }
 }
 

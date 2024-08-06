@@ -3,6 +3,5 @@ import { createMypage } from './mypage.js';
 import { createFooter } from '../footer.js';
 
 createHeader();
-createMypage().then(() => {
-  createFooter();
-});
+createMypage();
+createFooter();
