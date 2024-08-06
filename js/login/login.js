@@ -54,11 +54,11 @@ export const createLogin = () => {
   loginButton.addEventListener('click', handleLogin);
 };
 
-// localStorage
+// localStorage 저장 로그인
 const handleLogin = () => {
   let username = document.querySelector('.login-id').value;
   let password = document.querySelector('.login-password').value;
-  console.log(username, password);
+  // console.log(username, password);
 
   let getUsername = localStorage.getItem('username');
   let getPassword = localStorage.getItem('password');
@@ -73,6 +73,7 @@ const handleLogin = () => {
     const logoutHeaderButton = document.querySelector('.logout');
     logoutHeaderButton.style.display = 'block';
 
+    // 메인으로 가기
     goIndex();
   } else {
     alert('아이디 또는 비밀번호가 바르지 않습니다.');

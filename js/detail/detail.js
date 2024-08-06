@@ -33,7 +33,7 @@ async function fetchData() {
   }
 }
 
-// 유사한 영화를 가져오는 함수
+// 유사한 영화 데이터 가져오기
 async function fetchSimilarMovies() {
   try {
     const SIMILAR_MOVIES_URL = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${API_KEY}&language=ko-KR&page=1`;
@@ -46,7 +46,7 @@ async function fetchSimilarMovies() {
   }
 }
 
-// 유사한 영화 데이터를 가져와서 박스 생성
+// 유사한 영화 데이터를 카드 생성
 const similarMovies = await fetchSimilarMovies();
 
 // detail
@@ -54,7 +54,7 @@ const createDetailSetcion = (data) => {
   const title = data.title;
   const description = data.overview;
   const bookInfo = data.poster_path;
-  const bookInfoUrl = `https://image.tmdb.org/t/p/w500/${bookInfo}.jpg`;
+  const bookInfoUrl = `https://image.tmdb.org/t/p/w500/${bookInfo}`;
 
   const app = document.getElementById('app');
   const detail = document.createElement('section');
@@ -81,7 +81,7 @@ const createDetailSetcion = (data) => {
   bookmarkButton.style = 'margin:-5px 0px 0px 10px; line-height:1; font-size:2rem;';
   bookmarkButton.innerHTML = `<i class="fa-regular fa-heart" style="color: #d21e1e;"></i>`;
 
-  // 북마크 로컬 스토리지 toggle
+  // 북마크 로컬 스토리지 toggle 기능
   bookmarkButton.addEventListener('click', () => {
     const movieArr = { title: `${title}`, img: `${bookInfoUrl}` };
     const getBookmark = JSON.parse(localStorage.getItem(`bookmark-${title}`));
@@ -115,16 +115,13 @@ const createDetailSetcion = (data) => {
   //디테일 페이지 추가
   detail.id = 'detail';
   detailImgHeader.id = 'detail-image-block';
-  // style
   detailImgHeader.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}.jpg')`;
-  // detail style
   detailImgHeader.style.backgroundSize = 'cover';
   detailImgHeader.style.backgroundPosition = 'center';
   detailImgHeader.style.width = '240px'; // 예시 너비
   detailImgHeader.style.height = '350px'; // 예시 높이
   recommededTitle.innerText = '비슷한 영화 추천 ▾';
 
-  //append
   app.appendChild(detail);
   detailInfo.appendChild(detailTitle);
   detailInfo.appendChild(detailDescription);
@@ -133,7 +130,7 @@ const createDetailSetcion = (data) => {
   detail.appendChild(detailInfo);
   detailInfo.appendChild(recommededTitle);
 
-  //4개 박스추가
+  // 상세정보 관련 영화 박스 추가
   for (let i = 0; i < 4; i++) {
     const box = document.createElement('div');
     box.classList.add('box');
@@ -153,7 +150,7 @@ const nonload = (e) => {
 };
 document.addEventListener('keydown', nonload);
 
-//포스터 이미지, 예시 이미지 경로
+// 포스터, 이미지 예시 경로
 const poster_path = 'data.poster_path.jpg';
 function setBackgroundImage(poster_path) {
   document.documentElement.style.setProperty('--poster-path', `url('https://image.tmdb.org/t/p/w500${poster_path}')`);

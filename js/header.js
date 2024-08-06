@@ -69,9 +69,9 @@ export const createHeader = () => {
   headerHref.append(headerTitle);
   nav.append(searchForm, menu);
   menu.append(userInfo);
-
   createNav();
   searchForm.append(searchInput, searchButton);
+
   searchForm.addEventListener('submit', () => {
     handleSearch();
   });
@@ -79,22 +79,21 @@ export const createHeader = () => {
   toggleButton.addEventListener('click', handleToggle);
 };
 
-// toggle nav
+// 네비게이션 토글 기능(mo)
 const handleToggle = () => {
   const nav = document.querySelector('.nav');
   nav.classList.toggle('on');
 };
 
-// search
+// search : 페이지를 가져와 검색 값이 있을 때와 없을 때로 분기 처리를 해준다. data에 검색한 이름과, active된 페이지의 값을 다 가져와 준다음, 전체페이지 갯수에서 입력 값을 가져와 처리한다.
 const handleSearch = async () => {
-  // e.preventDefault;
   const mainSlider = document.querySelector('.content');
   const movieUl = document.querySelector('#movie-list');
+  // const movieli = movieUl.querySelectorAll('.movie-item');
   // document.querySelectorAll로 가져오면 1개 이상의 dom 객체가 존재할 경우, 노드의 콜렉션으로 리턴
   // NodeList는 .map, .reduce, .filter 함수 사용이 불가능, 이 경우에는 NodeList를 Array 로 변환 후 작업
-  const movieli = movieUl.querySelectorAll('.movie-item');
   const pagination = document.getElementById('pagination-list');
-  let searchInput = document.querySelector('.search-input').value; // Assignment(할당) to constant variable. let으로 값 재할당하기
+  let searchInput = document.querySelector('.search-input').value;
   const searchPage = document.querySelector('.on').innerHTML;
   const historyBack = document.createElement('li');
   historyBack.setAttribute('class', 'nonData');
@@ -106,7 +105,7 @@ const handleSearch = async () => {
     mainSlider.style = 'display:none';
     // 검색 API에서 값을 받아와야 하기 때문에 searchInput의 값을 가져온다.
     const data = await getChangeData(searchInput, searchPage, window.scrollTo(0, 0));
-    console.log(data);
+    // console.log(data);
     const dataResult = data.total_page;
     const searchCard = cardList(data, searchInput);
     createPagination(dataResult, searchPage);
@@ -125,11 +124,9 @@ const handleSearch = async () => {
 
     if (searchCard === '') {
       pagination.style = 'display:none;';
-      // movieUl.removeEventListener('click', handleClick); // 이벤트 삭제
       movieUl.appendChild(historyBack);
     } else {
       pagination.style = 'display:flex;';
-      // movieUl.addEventListener('click', handleClick); // 이벤트 재사용
     }
   }
 };

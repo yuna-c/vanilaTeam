@@ -1,31 +1,19 @@
-import { getPopularData } from '../fetchData.js';
-import { createSection, cardList } from '../main.js';
-import { createModal, closeModal, openModal } from '../modal.js';
-// createModal();
-// createSection();
-
-let pageStart = 1;
+// import { createModal, closeModal, openModal } from '../modal.js';
+import { checkPwd } from '../join/join.js';
 
 // mypage
-export const createMypage = async () => {
-  const data = await getPopularData(pageStart);
-  const dataResult = data.total_pages;
-  console.log(data.results);
-  console.log(data.total_pages);
-  const searchCard = cardList(data);
+export const createMypage = () => {
   const app = document.getElementById('app');
   const section = document.createElement('section');
   const bind = document.createElement('div');
   const search = document.querySelector('#search');
   const historyBack = document.createElement('div');
-  // app.innerHTML = searchCard;
 
   const tit = document.createElement('h2');
   const myInfo = document.createElement('article');
   const myProfile = document.createElement('div');
   const myBookMark = document.createElement('div');
   const userPassword = document.createElement('p');
-
   let username = localStorage.getItem('username');
   let password = localStorage.getItem('password');
 
@@ -62,48 +50,96 @@ export const createMypage = async () => {
   `;
 
   myBookMark.innerHTML += `
-  <div class="user-bookMark">
+  <div class="bookmark-list">
     <p class='tit'>북마크한 영화</p>
     <div class="card-list"></div>
   </div>
   `;
 
-  console.log(username, userPassword);
+  // console.log(username, userPassword);
   app.appendChild(section);
   section.append(bind);
   bind.append(historyBack, myInfo);
   myInfo.append(myProfile, myBookMark);
-  // myBookMark.addEventListener('click', handleBookmark);
+
   handlechagePassword(password);
+  window.addEventListener('load', handleBookmark);
+  document.addEventListener('click', handleDeleteBookmark);
 };
 
-// Join
-const handleBookmark = () => {};
+// 북마크 영화 가져오기
+const handleBookmark = () => {
+  const myCardlist = document.querySelector('.card-list');
+  myCardlist.innerHTML = '';
 
-// changePassword
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    // console.log(`1 :`, key);
+
+    // bookmark라는 글자로 시작되면 로컬스토리지에서 영화 데이터 값을 가지고 온다
+    if (key.startsWith('bookmark-')) {
+      const movieData = JSON.parse(localStorage.getItem(key));
+      const title = movieData.title;
+      const imgUrl = movieData.img;
+      // console.log(`로컬 스토리지 키값과 제목, 이미지URL 가져오기 :`, key, title, imgUrl);
+
+      const card = document.createElement('div');
+      const cardBind = document.createElement('div');
+      const cardImg = document.createElement('img');
+      const cardTitle = document.createElement('p');
+      const cardDelete = document.createElement('button');
+
+      card.classList.add('card-item');
+      cardBind.classList.add('card-img');
+      cardTitle.classList.add('card-tit');
+      cardDelete.classList.add('card-delete');
+
+      cardTitle.textContent = title;
+      cardDelete.innerHTML = `<i class="fa-solid fa-trash" style="color: #000000;"></i>`;
+      cardImg.src = `https://image.tmdb.org/t/p/w500${imgUrl}`;
+
+      card.append(cardBind, cardTitle);
+      cardBind.append(cardImg, cardDelete);
+      myCardlist.append(card);
+    }
+  }
+};
+
+// 북마크 영화 삭제하기
+const handleDeleteBookmark = (e) => {
+  const targetDelete = e.target.closest('.card-delete');
+  if (targetDelete) {
+    const card = e.target.closest('.card-list');
+    const titleEle = card.querySelector('.card-tit');
+    const cardTitle = titleEle.textContent;
+    localStorage.removeItem(`bookmark-${cardTitle}`);
+
+    handleBookmark();
+  }
+};
+
+// 비밀번호 변경
 const handlechagePassword = () => {
-  // let password = localStorage.getItem('password');
   let userPassword = document.getElementById('userPassword');
-  console.log(userPassword.length);
 
   if (userPassword) {
     let userPassword = document.getElementById('userPassword');
-    userPassword.innerText = `비밀번호변경`; //password
+    userPassword.innerText = `비밀번호변경`;
   }
-  userPassword.addEventListener('click', (password) => {
+  userPassword.addEventListener('click', () => {
     let newPassword = prompt('새로운 비밀번호 입력하세요!');
     let currentPassword = localStorage.getItem('password');
 
     if (newPassword === currentPassword) {
       alert('현재 비밀번호와 동일합니다. 다른 비밀번호를를 입력해주세요.');
-    } else if (String(newPassword.length) >= 8) {
+    } else if (String(newPassword.length) >= 8 && checkPwd(newPassword)) {
       localStorage.setItem('password', newPassword);
 
       let userPassword = document.getElementById('userPassword');
-      userPassword.innerText = `비밀번호변경`; //newPassword
+      userPassword.innerText = `비밀번호변경`;
       alert(`비밀번호가 ${newPassword}로 변경 완료되었습니다.`);
     } else {
-      alert('비밀번호는 최소 8글자 이상이어야 합니다.');
+      alert('비밀번호는 최소 8글자 이상이어야하며, 영문+숫자 조합 5~20자로 입력해 주세요.');
     }
   });
 };
