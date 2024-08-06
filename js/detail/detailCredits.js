@@ -94,8 +94,7 @@ const setEvent = () => {
   let nextBtn = document.querySelector('.next');
 
   // 여러개씩 슬라이드가 되는 것들은
-  // 항상 width 와 height 를 지정해야한다.
-  // 이것이 계산되어야 가로 배열이 칼같이 되니까
+  // 항상 width 와 margin 를 지정해야한다.
   let slideWidth = 200;
   let slideMargin = 30;
 
@@ -119,9 +118,6 @@ const setEvent = () => {
     if (currentIdx > 0) {
       moveSlide(currentIdx - 1);
     }
-    // else {
-    //   moveSlide(slideCount - 1);
-    // }
   });
 };
 

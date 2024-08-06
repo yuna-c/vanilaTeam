@@ -1,27 +1,23 @@
-// @import 'reset';
-// @import 'variables.scss';
-
 #actor {
-  margin-top: 20px;
-  padding: 10px 50px;
+  margin-bottom: 50px;
   position: relative;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   align-items: center;
 
+  // h3
   .title {
-    display: flex;
-    width: 60%;
     margin-bottom: 20px;
+    font-size: 1.8rem;
   }
 
   .slide-wrapper {
     position: relative;
-    width: 60%;
-    // margin: 0 auto;
+    width: 90%;
     height: 300px;
     overflow: hidden;
 
+    // ul
     .slides {
       position: absolute;
       transition: left 0.5s ease-out;
@@ -31,13 +27,15 @@
       top: 0;
 
       display: flex;
+      justify-content: center;
+      align-items: center;
 
-      // li
+      // li (출연진 사진)
       .actor-item {
         margin-right: 30px;
         text-align: center;
         font-size: large;
-        font-weight: 900;
+        font-weight: 600;
 
         img {
           width: 200px;
@@ -47,13 +45,12 @@
     }
   }
   .controls {
-    text-align: center;
-    top: 50%;
+    // text-align: center;
+    // top: 50%;
 
     span {
       position: absolute;
       top: 50%;
-      // margin: 10px;
 
       img {
         width: 30px;
@@ -62,13 +59,11 @@
     }
 
     .prev {
-      left: 15%;
-      // background-color: green;
+      left: 2%;
     }
 
     .next {
-      right: 15%;
-      // background-color: pink;
+      right: 2%;
     }
   }
 }
