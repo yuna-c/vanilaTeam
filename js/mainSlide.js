@@ -5,29 +5,25 @@ export const creatSlideBox = async () => {
 
   const app = document.getElementById('app');
   const contentBox = document.createElement('section');
-  const text = document.createElement('p');
   const slideWrap = document.createElement('div');
   const slideBox = document.createElement('div');
   const slideList = document.createElement('ul');
-  const slideItem = creatSlideItem(data);
+  const slidePage = document.createElement('ul');
 
   contentBox.classList = 'content';
   slideWrap.classList = 'slide_wrap';
   slideBox.classList = 'slide_box';
   slideList.classList = 'slide_list';
-  text.classList = 'txt';
+  slidePage.classList = 'slide_pagination';
 
-  text.innerHTML = `영화 리뷰 페이지<br>리뷰, 줄거리, 평점까지 한번에 다<br>여기서 확인하세요`;
+  console.log('mainbanner');
 
-  // console.log('mainbanner');
-  // console.log(slideItem);
-
-  app.appendChild(contentBox).appendChild(text);
+  app.appendChild(contentBox);
   contentBox.appendChild(slideWrap).appendChild(slideBox).appendChild(slideList);
   slideList.innerHTML += creatSlideItem(data);
-  const arrSlideList = slideWrap.querySelectorAll('.slide_item');
+  slideList.appendChild(slidePage);
 
-  sliding(arrSlideList);
+  sliding(data, slideWrap, slidePage);
 };
 
 const creatSlideItem = (data) => {
@@ -36,7 +32,10 @@ const creatSlideItem = (data) => {
     .map((item) => {
       return `
         <li class="slide_item">
-            <img src="https://image.tmdb.org/t/p/w1280${item.backdrop_path}" alt="${item.title}">
+            <img src="https://image.tmdb.org/t/p/original${item.backdrop_path}" alt="${item.title}">
+            <div class="txt_box"><p class="txt">"${item.original_title.toUpperCase()}"</p><span class="movie_open">${
+        item.release_date
+      }</span></div>
         </li>
         `;
     })
@@ -44,15 +43,50 @@ const creatSlideItem = (data) => {
   return slidItem;
 };
 
-const sliding = (arrSlideList) => {
+const sliding = (data, slideWrap, slidePage) => {
+  const pageData = data.results.slice(0, 10); // 데이터 갯수 제한
+
+  // pagination
+  pageData.forEach((item) => {
+    slidePage.innerHTML += `<li class="pagination_item"><span class="blind">${item.title}</span></li>`;
+  });
+  let arrSlideList = slideWrap.querySelectorAll('.slide_item');
+  let pageItem = slideWrap.querySelectorAll('.pagination_item'); // Error DOM 생성 후 찾기
   let currentIndex = 0; // 현재 보이는 이미지
   let sliderCount = arrSlideList.length; // 이미지 갯수
-  let sliderInterval = 3000; // 이미지 변경 간격 시간
+  let sliderInterval = 4000; // 이미지 변경 간격 시간
 
-  setInterval(() => {
-    let nextIndex = (currentIndex + 1) % sliderCount;
-    arrSlideList[currentIndex].style.opacity = '0';
+  const activePagination = () => {
+    pageItem.forEach((item) => item.classList.remove('active'));
+    pageItem[currentIndex].classList.add('active');
+  };
+
+  const activeSllide = (nextIndex) => {
+    arrSlideList.forEach((item) => (item.style.opacity = '0'));
     arrSlideList[nextIndex].style.opacity = '1';
+  };
+
+  const loop = () => {
+    let nextIndex = (currentIndex + 1) % sliderCount;
+    for (let i = 0; i < sliderCount; i++) {
+      // 각 페이지네이션마다 클릭 이벤트 추가
+      pageItem[i].addEventListener('click', () => {
+        currentIndex = i;
+        nextIndex = i;
+        // 슬라이드 이동 시 현재 활성화된 pagination 슬라이드 변경
+        pageItem.forEach((i) => i.classList.remove('active'));
+        pageItem[currentIndex].classList.add('active');
+        arrSlideList.forEach((i) => {
+          i.style.opacity = '0';
+        });
+        arrSlideList[currentIndex].style.opacity = '1';
+      });
+    }
+    activeSllide(currentIndex);
+    activePagination();
     currentIndex = nextIndex;
-  }, sliderInterval);
+  };
+  loop(); // setInerval 최초 실행 위해 추가
+
+  setInterval(loop, sliderInterval);
 };
