@@ -126,6 +126,7 @@
           font-size: 1.5rem;
           margin-left: 15px;
           font-weight: 600;
+          display: none;
         }
 
         .card-list {
@@ -138,7 +139,7 @@
             width: calc(20% - 30px);
             margin: 15px;
             border: 1px solid var(--baseColor);
-            border-radius: 5px;
+            border-radius: 3px;
             overflow: hidden;
 
             .card-img {
@@ -165,8 +166,8 @@
               }
             }
             .card-tit {
-              padding: 20px 10px;
-              font-size: 1.2rem;
+              padding: 10px;
+              font-size: 1rem;
               font-weight: 500;
             }
           }
@@ -234,9 +235,8 @@
           }
 
           .card-list {
-            justify-content: center;
-
             .card-item {
+              width: calc(33% - 28px);
               .card-img {
                 img {
                 }
@@ -376,15 +376,19 @@
 
           .card-list {
             .card-item {
-              width: 100%;
+              width: calc(50% - 16px);
+              margin: 8px;
 
               .card-img {
+                max-height: 190px;
                 img {
                 }
                 .card-delete {
                 }
               }
               .card-tit {
+                padding: 10px 10px;
+                font-size: 0.9rem;
               }
             }
           }

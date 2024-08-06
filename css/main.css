@@ -554,7 +554,6 @@ html {
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
 }
 #section #movie-list li {
@@ -713,6 +712,7 @@ html {
   }
   #section #movie-list {
     gap: 0;
+    justify-content: center;
   }
   #section #movie-list li {
     width: 28%;

@@ -456,7 +456,7 @@ html {
   min-height: 600px;
   display: flex;
   border: 1px solid var(--baseColor);
-  border-radius: 5px;
+  border-radius: 3px;
 }
 #section .bind .my-info > * {
   min-height: 600px;
@@ -522,6 +522,7 @@ html {
   font-size: 1.5rem;
   margin-left: 15px;
   font-weight: 600;
+  display: none;
 }
 #section .bind .my-info .my-bookmark .card-list {
   width: 100%;
@@ -532,7 +533,7 @@ html {
   width: calc(20% - 30px);
   margin: 15px;
   border: 1px solid var(--baseColor);
-  border-radius: 5px;
+  border-radius: 3px;
   overflow: hidden;
 }
 #section .bind .my-info .my-bookmark .card-list .card-item .card-img {
@@ -553,13 +554,13 @@ html {
   right: -1px;
   background-color: var(--bgColor);
   border: 1px solid var(--baseColor);
-  border-radius: 5px;
+  border-radius: 3px;
   font-size: 1rem;
   z-index: 2;
 }
 #section .bind .my-info .my-bookmark .card-list .card-item .card-tit {
-  padding: 20px 10px;
-  font-size: 1.2rem;
+  padding: 10px;
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -579,11 +580,8 @@ html {
     padding-top: 50px;
     min-width: 100%;
   }
-  #section .bind .my-info .my-bookmark .card-list {
-    justify-content: center;
-  }
   #section .bind .my-info .my-bookmark .card-list .card-item {
-    width: 175px;
+    width: calc(33% - 28px);
   }
 }
 @media (max-width: 600px) {
@@ -611,7 +609,7 @@ html {
     margin-bottom: 10px;
   }
   #section .bind .my-info .my-bookmark .card-list .card-item {
-    width: 45%;
+    width: calc(50% - 30px);
     margin: 10px;
   }
 }
@@ -627,7 +625,15 @@ html {
     margin-bottom: 0;
   }
   #section .bind .my-info .my-bookmark .card-list .card-item {
-    width: 100%;
+    width: calc(50% - 16px);
+    margin: 8px;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item .card-img {
+    max-height: 190px;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item .card-tit {
+    padding: 10px 10px;
+    font-size: 0.9rem;
   }
 }
 
