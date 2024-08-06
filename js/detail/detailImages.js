@@ -8,7 +8,7 @@ const getMovieIdFromUrl = () => {
 
 const movieId = getMovieIdFromUrl();
 
-const createMovieImg = (image) => {
+const createMovieImage = (image) => {
   const imageCard = document.createElement('li');
   imageCard.className = 'image-item';
 
@@ -22,31 +22,33 @@ const createMovieImg = (image) => {
 };
 
 const createImageInfo = (data) => {
-  const actorSection = document.createElement('section');
-  actorSection.id = 'images';
+  // 이미지 전체 영역
+  const imageSection = document.createElement('section');
+  imageSection.id = 'images';
 
-  const titleArea = document.createElement('div');
-  titleArea.className = 'title';
-
-  const title = document.createElement('h3');
+  // '포토' 영역
+  const titleArea = document.createElement('div'); // 타이틀 들어가는 영역
+  titleArea.className = 'images-title';
+  const title = document.createElement('h3'); // 타이틀 쓰여지는 영역
   title.textContent = '포토';
-
   titleArea.appendChild(title);
 
+  // 슬라이드 영역
   const slideWrapper = document.createElement('div');
   slideWrapper.className = 'slide-image-wrapper ';
 
-  const actorList = document.createElement('ul');
-  actorList.className = 'image-slides';
+  const slideList = document.createElement('ul');
+  slideList.className = 'image-slide';
 
   /**
-   * 여기
+   * 여기에서 슬라이드 영역에 이미지들 넣어줌
    */
   data.backdrops.forEach((credit) => {
-    const actorCard = createMovieImg(credit);
-    actorList.appendChild(actorCard);
+    const imageCard = createMovieImage(credit);
+    slideList.appendChild(imageCard);
   });
 
+  // 왼쪽 오른쪽 버튼
   const slideControl = document.createElement('div');
   slideControl.className = 'image-controls';
 
@@ -67,28 +69,35 @@ const createImageInfo = (data) => {
   slideControl.appendChild(prev);
   slideControl.appendChild(next);
 
-  slideWrapper.appendChild(actorList);
+  slideWrapper.appendChild(slideList);
 
-  actorSection.appendChild(titleArea);
-  actorSection.appendChild(slideWrapper);
-  actorSection.appendChild(slideControl);
-  document.getElementById('app').appendChild(actorSection);
+  imageSection.appendChild(titleArea);
+  imageSection.appendChild(slideWrapper);
+  imageSection.appendChild(slideControl);
+  document.getElementById('app').appendChild(imageSection);
 };
 
 const setEvent = () => {
-  let slides = document.querySelector('.image-slides');
+  // ul 을 가져온다.
+  let slides = document.querySelector('.image-slide');
 
+  // li 를 가져온다.
   let slide = document.querySelectorAll('.image-item');
 
+  // 현재 이미지의 위치 인덱스
   let currentImageIdx = 0;
+
+  // 총 이미지 갯수
   let slideCount = slide.length;
 
   let prevImageBtn = document.querySelector('.image-prev');
   let nextImageBtn = document.querySelector('.image-next');
 
+  // 이미지 넓이
   let slideWidth = 500;
   let slideMargin = 30;
 
+  // 슬라이드 총 넓이
   slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
 
   const moveImageSlide = (num) => {
