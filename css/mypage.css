@@ -342,24 +342,27 @@ html {
   background-color: var(--baseColor);
 }
 #footer .bind {
+  width: 50%;
   width: 95%;
   margin: auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-#footer .bind .tit {
-  width: 100%;
+#footer .tit {
+  width: 50%;
   font-size: 1.5rem;
   font-weight: 700;
   text-align: left;
 }
-#footer .bind h2 {
+#footer h2 {
   font-family: var(--pointFont);
   font-size: 3rem;
   font-weight: 500;
   color: var(--bgColor);
 }
-#footer .bind p {
+#footer p {
   padding: 0 0 10px 0;
   display: block;
   font-size: 1rem;
@@ -367,12 +370,12 @@ html {
   word-break: keep-all;
   color: var(--bgColor);
 }
-#footer .bind p span {
+#footer p span {
   font-family: var(--pointFont);
   font-size: 2rem;
   color: var(--bgColor);
 }
-#footer .bind .team-parent > button {
+#footer .team-parent > button {
   min-width: 70px;
   padding: 5px 5px;
   margin-right: 10px;
@@ -526,7 +529,7 @@ html {
   flex-wrap: wrap;
 }
 #section .bind .my-info .my-bookmark .card-list .card-item {
-  width: 212px;
+  width: calc(20% - 30px);
   margin: 15px;
   border: 1px solid var(--baseColor);
   border-radius: 5px;
@@ -534,7 +537,7 @@ html {
 }
 #section .bind .my-info .my-bookmark .card-list .card-item .card-img {
   width: 100%;
-  max-height: 350px;
+  max-height: 370px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;

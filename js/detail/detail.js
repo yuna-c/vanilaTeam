@@ -85,32 +85,23 @@ const createDetailSetcion = (data) => {
   bookmarkButton.addEventListener('click', () => {
     const movieArr = { title: `${title}`, img: `${bookInfoUrl}` };
     const getBookmark = JSON.parse(localStorage.getItem(`bookmark-${title}`));
+    let isMark = localStorage.getItem('isMark');
 
     if (getBookmark) {
       bookmarkButton.innerHTML = `<i class="fa-regular fa-heart" style="color: #d21e1e;"></i>`;
       bookmarkButton.classList.remove('pick');
+      localStorage.setItem('isMark', '0');
       localStorage.removeItem(`bookmark-${title}`);
       alert('북마크가 해제 되었습니다.');
     } else {
       bookmarkButton.innerHTML = `<i class="fa-solid fa-heart" style="color: #d21e1e;"></i>`;
       bookmarkButton.classList.add('pick');
+      localStorage.setItem('isMark', '1');
       localStorage.setItem(`bookmark-${title}`, JSON.stringify(movieArr));
+
       alert('북마크 되었습니다.');
     }
   });
-
-  // 페이지 로드시 북마크 상태 확인(X)
-  // window.onload = () => {
-  //   const bookmarkButton = document.getElementById('bookmark');
-  //   console.log(`1 :`, bookmarkButton);
-  //   const isBookmark = localStorage.getItem(`bookmark-${title}`, JSON.parse(movieArr));
-  //   console.log(isBookmark);
-
-  //   if (isBookmark === `bookmark-${title}`) {
-  //     bookmarkButton.innerHTML = `<i class="fa-regular fa-heart" style="color: #d21e1e;"></i>`;
-  //     bookmarkButton.classList.add('pick');
-  //   }
-  // };
 
   //디테일 페이지 추가
   detail.id = 'detail';
@@ -139,11 +130,24 @@ const createDetailSetcion = (data) => {
   }
 
   detailInfo.appendChild(detailRecommendedPoster);
+
+  // 로드시 pick 유지
+  window.addEventListener('load', () => {
+    let isMark = localStorage.getItem('isMark');
+
+    if (isMark === 1) {
+      bookmarkButton.classList.add('pick');
+      bookmarkButton.innerHTML = `<i class="fa-solid fa-heart" style="color: #d21e1e;"></i>`;
+    } else {
+      bookmarkButton.classList.remove('pick');
+      bookmarkButton.innerHTML = `<i class="fa-regular fa-heart" style="color: #d21e1e;"></i>`;
+    }
+  });
 };
 
 // reload 방지
 const nonload = (e) => {
-  if ((e.ctrlKey && e.keyCode === 82) || event.keyCode === 116) {
+  if ((e.ctrlKey && e.keyCode === 82) || e.keyCode === 116) {
     e.preventDefault();
     e.stopPropagation();
   }

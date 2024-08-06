@@ -15,6 +15,7 @@ export const creatSortBox = async () => {
 
   btnBest.innerHTML = '인기순';
   btnRecent.innerHTML = '최신순';
+  btnBest.classList.add('active');
 
   section.prepend(selectBox);
   selectBox.append(btnBest, btnRecent);
