@@ -2,17 +2,51 @@
   height: auto;
   padding: 1rem 0 1rem 0;
   border-top: 1px solid var(--baseColor);
+  background-color: var(--baseColor);
 }
 #footer .bind {
+  width: 50%;
   width: 95%;
   margin: auto;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-#footer .bind .tit {
-  width: 100%;
+#footer .tit {
+  width: 50%;
   font-size: 1.5rem;
   font-weight: 700;
   text-align: left;
+}
+#footer h2 {
+  font-family: var(--pointFont);
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--bgColor);
+}
+#footer p {
+  padding: 0 0 10px 0;
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  word-break: keep-all;
+  color: var(--bgColor);
+}
+#footer p span {
+  font-family: var(--pointFont);
+  font-size: 2rem;
+  color: var(--bgColor);
+}
+#footer .team-parent > button {
+  min-width: 70px;
+  padding: 5px 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--bgColor);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: var(--bgColor);
 }
 
 @media (max-width: 1200px) {
@@ -29,6 +63,20 @@
   }
   #footer .bind .tit {
     font-size: 1.3rem;
+  }
+}
+@media (max-width: 400px) {
+  #footer {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #footer .bind .team-parent {
+    margin-top: 10px;
+  }
+  #footer .bind .team-parent > button {
+    min-width: 48%;
+  }
+  #footer .bind .team-parent > button:nth-child(even) {
+    margin-right: 0;
   }
 }
 
