@@ -31,8 +31,8 @@ export const saveReviewData = async (doc) => {
 export const getReviewData = async (movieId) => {
   const getReviewsByMovieId = query(
     collection(db, 'reviews'),
-    where('movieId', '==', movieId)
-    // orderBy('date', 'desc')
+    where('movieId', '==', movieId),
+    orderBy('date', 'desc')
   );
   return await getDocs(getReviewsByMovieId);
 };
