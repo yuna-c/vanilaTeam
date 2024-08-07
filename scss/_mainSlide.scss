@@ -9,7 +9,7 @@
 
 .content {
   position: relative;
-  min-height: 480px;
+  min-height: 720px;
   .txt_box {
     position: absolute;
     left: 50%;
@@ -90,14 +90,14 @@
         transform: translateX(-50%);
         display: flex;
         width: 100%;
-        height: 4px;
+        height: 10px;
         z-index: 10;
         li {
-          background: silver;
+          background: var(--baseColor);
           width: 100%;
           height: 100%;
           &.active {
-            background: #fff;
+            background: var(--bgColor);
           }
         }
       }
@@ -105,23 +105,24 @@
   }
 }
 
+@media (max-width: 800px) {
+  .content{
+    min-height: 580px;
+  }
+}
+
+@media (max-width: 600px) {
+  .content{
+    min-height: 520px;
+  }
+}
+
 @media (max-width: 400px) {
   .content {
     min-height: 300px;
-
-    .txt {
-      font-size: 1.3rem;
-    }
-
-    .slide_wrap {
-      .slide_box {
-      }
-
-      .slide_list {
-        .slide_item {
-          img {
-          }
-        }
+    .txt_box{
+      .txt {
+        font-size: 1.3rem;
       }
     }
   }
