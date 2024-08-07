@@ -346,48 +346,36 @@ html {
   align-items: center;
   background-color: var(--baseColor);
 }
-#footer .bind {
-  width: 50%;
-  width: 95%;
-  margin: auto;
+#footer .div-left {
+  height: auto;
+  width: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  margin-left: 40px;
+  background-color: var(--baseColor);
 }
-#footer .tit {
-  width: 50%;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: left;
-}
-#footer h2 {
-  font-family: var(--pointFont);
-  font-size: 3rem;
-  font-weight: 500;
+#footer .div-left #footer-title {
   color: var(--bgColor);
   margin-left: 10px;
 }
-#footer p {
-  padding: 0 0 10px 0;
-  display: block;
-  font-size: 1rem;
-  font-weight: 500;
-  word-break: keep-all;
+#footer .div-left #footer-text {
   color: var(--bgColor);
   margin-left: 10px;
   margin-top: 3px;
 }
-#footer p span {
-  font-family: var(--pointFont);
-  font-size: 2rem;
-  color: var(--bgColor);
+#footer .div-left .team-parent-div {
+  display: flex;
+  height: auto;
+  background-color: "var(--baseColor)";
+  margin-top: 10px;
+  margin-left: 10px;
 }
-#footer .team-parent > button {
-  min-width: 70px;
-  padding: 5px 5px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+#footer .div-left #team-people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bgColor);
+  background-color: var(--baseColor);
   border: 1px solid var(--bgColor);
   margin-right: 12px;
   border-radius: 5px;
