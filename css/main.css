@@ -346,7 +346,7 @@ html {
 
 .content {
   position: relative;
-  min-height: 480px;
+  min-height: 720px;
 }
 .content .txt_box {
   position: absolute;
@@ -423,23 +423,33 @@ html {
   transform: translateX(-50%);
   display: flex;
   width: 100%;
-  height: 4px;
+  height: 10px;
   z-index: 10;
 }
 .content .slide_wrap .slide_list .slide_pagination li {
-  background: silver;
+  background: var(--baseColor);
   width: 100%;
   height: 100%;
 }
 .content .slide_wrap .slide_list .slide_pagination li.active {
-  background: #fff;
+  background: var(--bgColor);
 }
 
+@media (max-width: 800px) {
+  .content {
+    min-height: 580px;
+  }
+}
+@media (max-width: 600px) {
+  .content {
+    min-height: 520px;
+  }
+}
 @media (max-width: 400px) {
   .content {
     min-height: 300px;
   }
-  .content .txt {
+  .content .txt_box .txt {
     font-size: 1.3rem;
   }
 }
