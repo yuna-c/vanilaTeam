@@ -11,3 +11,4 @@ createDetail()
   .then(() => createDetailCredits())
   .then(() => createReview())
   .then(() => createFooter());
+

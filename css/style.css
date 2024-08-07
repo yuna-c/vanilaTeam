@@ -339,6 +339,65 @@ html {
   height: auto;
   padding: 1rem 0 1rem 0;
   border-top: 1px solid var(--baseColor);
+<<<<<<< HEAD
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--baseColor);
+}
+#footer .div-left {
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  background-color: var(--baseColor);
+}
+#footer .div-left #footer-title {
+  color: var(--bgColor);
+  margin-left: 10px;
+}
+#footer .div-left #footer-text {
+  color: var(--bgColor);
+  margin-left: 10px;
+  margin-top: 3px;
+}
+#footer .div-left .team-parent-div {
+  display: flex;
+  height: auto;
+  background-color: "var(--baseColor)";
+  margin-top: 10px;
+  margin-left: 10px;
+}
+#footer .div-left #team-people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bgColor);
+  background-color: var(--baseColor);
+  border: 1px solid var(--bgColor);
+  margin-right: 12px;
+  border-radius: 5px;
+  width: 83px;
+  height: 30px;
+}
+#footer .div-right {
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-right: 40px;
+  background-color: var(--baseColor);
+}
+#footer .div-right .footer-clock {
+  color: var(--bgColor);
+}
+#footer .div-right .footer-weather {
+  color: var(--bgColor);
+  display: flex;
+  flex-direction: column;
+=======
   background-color: var(--baseColor);
 }
 #footer .bind {
@@ -384,6 +443,7 @@ html {
   border-radius: 5px;
   font-size: 0.9rem;
   color: var(--bgColor);
+>>>>>>> 7d7d314fd714c6077327743cc8edc17f4d237724
 }
 
 @media (max-width: 1200px) {

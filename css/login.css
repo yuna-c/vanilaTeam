@@ -341,6 +341,9 @@ html {
   height: auto;
   padding: 1rem 0 1rem 0;
   border-top: 1px solid var(--baseColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--baseColor);
 }
 #footer .bind {
@@ -363,6 +366,7 @@ html {
   font-size: 3rem;
   font-weight: 500;
   color: var(--bgColor);
+  margin-left: 10px;
 }
 #footer p {
   padding: 0 0 10px 0;
@@ -371,6 +375,8 @@ html {
   font-weight: 500;
   word-break: keep-all;
   color: var(--bgColor);
+  margin-left: 10px;
+  margin-top: 3px;
 }
 #footer p span {
   font-family: var(--pointFont);
@@ -383,9 +389,27 @@ html {
   margin-right: 10px;
   margin-bottom: 10px;
   border: 1px solid var(--bgColor);
+  margin-right: 12px;
   border-radius: 5px;
-  font-size: 0.9rem;
+  width: 83px;
+  height: 30px;
+}
+#footer .div-right {
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-right: 40px;
+  background-color: var(--baseColor);
+}
+#footer .div-right .footer-clock {
   color: var(--bgColor);
+}
+#footer .div-right .footer-weather {
+  color: var(--bgColor);
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 1200px) {
