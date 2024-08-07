@@ -91,7 +91,7 @@ const WHEATHER_API_KEY = '7ac5dfc70abe627b5afa653a690ff111';
   function onGeoOk(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WHEATHER_API_KEY}&units=metric&lang=kr`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WHEATHER_API_KEY}&lang=kr&units=metric`;
     footerWeather.innerText = url;
 
     fetch(url)
