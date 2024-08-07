@@ -1,37 +1,4 @@
 export const createNav = () => {
-  const form = document.querySelector('.form');
-  const nav = document.createElement('nav');
-  const menuButton = document.createElement('button');
-  const userInfo = document.createElement('ul');
-  const loginButton = document.createElement('button');
-  const logoutButton = document.createElement('button');
-
-  nav.id = 'nav';
-  userInfo.classList = 'sign-btn';
-  loginButton.classList = 'login';
-  logoutButton.classList = 'logout';
-  menuButton.classList = 'menu';
-
-  // 순서 지키기
-  // Cannot read properties of null (reading 'style') .style.background
-  // loginHeaderButton.style.backgroundColor = 'red';
-
-  userInfo.innerHTML += `
-  <li><button class="login" onClick="location.href='./page/login.html'">로그인</button></li>
-  <li><button class="logout">로그아웃</button></li>
-  <li><a href="./page/mypage.html">마이페이지</a></li>
-  `;
-  menuButton.innerHTML += `<i class="fa-solid fa-bars fa-2x"></i>`;
-
-  form.append(nav);
-  nav.append(menuButton);
-  menuButton.append(userInfo);
-
-  // const loginHeaderButton = document.querySelector('.login');
-  // const logoutHeaderButton = document.querySelector('.logout');
-  // loginHeaderButton.style.backgroundColor = 'red';
-  // loginHeaderButton.style = 'display:block';
-
   isLoginValue();
 };
 
@@ -46,30 +13,47 @@ const isLoginValue = () => {
   }
 };
 
+// 로그인 상태일 때
 const showLogoutButton = () => {
   const loginHeaderButton = document.querySelector('.login');
   const logoutHeaderButton = document.querySelector('.logout');
+  const myPageHeader = document.querySelector('.mypage');
+
   loginHeaderButton.style = 'display:none';
   logoutHeaderButton.style = 'display:block';
+  myPageHeader.style = 'display:block';
   // createNav에 이벤트를 달면, showLogoutButton에 포함 되어있는 함수가 먼저 실행 되기 때문에 이곳에서 실행
   logoutHeaderButton.addEventListener('click', handleLogout);
 };
 
+// 로그아웃 상태일 때
 const showLoginButton = () => {
   const loginHeaderButton = document.querySelector('.login');
   const logoutHeaderButton = document.querySelector('.logout');
+  const myPageHeader = document.querySelector('.mypage');
+
   loginHeaderButton.style = 'display:block';
   logoutHeaderButton.style = 'display:none';
+  myPageHeader.style = 'display:none';
 };
 
 // 로그아웃 처리
 const handleLogout = () => {
-  alert('로그아웃 되었습니다');
+  if (confirm('로그아웃 하시겠습니까?')) {
+    alert('로그아웃 하셨습니다.');
 
-  const loginHeaderButton = document.querySelector('.login');
-  const logoutHeaderButton = document.querySelector('.logout');
-  loginHeaderButton.style = 'display:block';
-  logoutHeaderButton.style = 'display:none';
+    const loginHeaderButton = document.querySelector('.login');
+    const logoutHeaderButton = document.querySelector('.logout');
+    const myPageHeader = document.querySelector('.mypage');
 
-  localStorage.setItem('isLogin', '0');
+    loginHeaderButton.style = 'display:block';
+    logoutHeaderButton.style = 'display:none';
+    myPageHeader.style = 'display:block';
+
+    // 스토리지의 값을 0으로 설정해서 로그아웃을 표시
+    localStorage.setItem('isLogin', '0');
+    window.location.reload();
+  } else {
+    alert('로그아웃을 취소하셨습니다.');
+  }
 };

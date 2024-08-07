@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Nanum+Gothic:wght@400;700&family=Syne:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Noto+Sans+KR:wght@100..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -113,6 +114,7 @@ a {
 
 :root {
   --baseFont: "Satoshi", "Noto Sans KR", "Nanum Gothic", "맑은 고딕";
+  --pointFont: "East Sea Dokdo", "Noto Sans KR";
   --baseColor: #191919;
   --bgColor: #ffffff;
   --baseSize: 1rem;
@@ -158,44 +160,49 @@ html {
   font-size: 1.5rem;
   font-weight: 700;
 }
-#header .bind .form {
+#header .bind .gnb .toggle {
+  display: none;
+}
+#header .bind .nav {
   display: flex;
 }
-#header .bind .form #search .search-input {
+#header .bind .nav #search {
+  position: relative;
+}
+#header .bind .nav #search .search-input {
+  width: 100%;
+  min-width: 250px;
   padding: 5px 0;
   border-bottom: 1px solid var(--baseColor);
 }
-#header .bind .form #search > * {
+#header .bind .nav #search > * {
   font-size: 1rem;
 }
-#header .bind .form #search .search-button {
-  padding: 5px 10px;
+#header .bind .nav #search .search-button {
+  padding: 4px 10px 5px;
   border: 1px solid var(--baseColor);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   color: var(--baseColor);
+  color: var(--baseColor);
   transition: all 1s ease;
+  position: absolute;
+  right: 0;
 }
-#header .bind .form #search .search-button:hover {
+#header .bind .nav #search .search-button:hover {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
-#header .bind .form #nav {
+#header .bind .nav #menu .sign-btn {
+  display: flex;
+}
+#header .bind .nav #menu .sign-btn li {
+  display: block;
+}
+#header .bind .nav #menu .sign-btn li:nth-child(odd) {
   margin-left: 15px;
 }
-#header .bind .form #nav .menu i {
-  display: none;
-  color: var(--baseColor);
-}
-#header .bind .form #nav .menu .sign-btn {
-  display: flex;
-  align-items: flex-end;
-}
-#header .bind .form #nav .menu .sign-btn li {
-  margin-right: 5px;
-}
-#header .bind .form #nav .menu .sign-btn li > a,
-#header .bind .form #nav .menu .sign-btn li button {
+#header .bind .nav #menu .sign-btn li > button {
   width: 90px;
   min-height: 30px;
   padding: 5px 10px;
@@ -207,28 +214,28 @@ html {
   transition: all 1s;
   cursor: pointer;
 }
-#header .bind .form #nav .menu .sign-btn li .login {
+#header .bind .nav #menu .sign-btn li .login {
   background-color: var(--bgColor);
   color: var(--baseColor);
 }
-#header .bind .form #nav .menu .sign-btn li .login:hover {
+#header .bind .nav #menu .sign-btn li .login:hover {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
-#header .bind .form #nav .menu .sign-btn li .logout {
+#header .bind .nav #menu .sign-btn li .logout {
   background-color: var(--baseColor);
   color: var(--bgColor);
   display: none;
 }
-#header .bind .form #nav .menu .sign-btn li .logout:hover {
+#header .bind .nav #menu .sign-btn li .logout:hover {
   background-color: var(--bgColor);
   color: var(--baseColor);
 }
-#header .bind .form #nav .menu .sign-btn li a {
+#header .bind .nav #menu .sign-btn li .mypage {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
-#header .bind .form #nav .menu .sign-btn li a:hover {
+#header .bind .nav #menu .sign-btn li .mypage:hover {
   background-color: var(--bgColor);
   color: var(--baseColor);
 }
@@ -237,93 +244,146 @@ html {
   #header {
     padding: 0.8rem 0 0.8rem;
   }
-  #header .bind .tit {
-    font-size: 1.5rem;
-    font-weight: 900;
-    line-height: 1;
+}
+@media (max-width: 800px) {
+  #header {
+    padding: 0.8rem 0 0.8rem;
   }
-  #header .bind #search {
+  #header .bind {
+    flex-direction: column;
+    position: relative;
+  }
+  #header .bind .gnb {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #header .bind .gnb .toggle {
+    display: block;
+    color: var(--baseColor);
+  }
+  #header .bind .gnb .toggle i {
+    color: var(--baseColor);
+  }
+  #header .bind .nav {
+    padding: 0;
+    display: none;
+    flex-direction: column-reverse;
+    position: absolute;
+    top: 3.2rem;
+    left: -2.5%;
+    right: -2.5%;
+    z-index: 60;
+    background-color: var(--bgColor);
+  }
+  #header .bind .nav.on {
     display: flex;
   }
-  #header .bind #search .search-input {
-    width: 70%;
+  #header .bind .nav #search {
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px 0 50px;
+    border-bottom: 1px solid var(--baseColor);
   }
-  #header .bind #search .search-button {
-    padding: 0 0.5rem;
+  #header .bind .nav #search .search-input {
+    width: 90%;
+    position: absolute;
+    left: 15px;
+  }
+  #header .bind .nav #search .search-button {
+    right: 15px;
+  }
+  #header .bind .nav #menu .sign-btn {
+    flex-direction: column;
+  }
+  #header .bind .nav #menu .sign-btn li:nth-child(odd) {
+    margin-left: 0;
+  }
+  #header .bind .nav #menu .sign-btn li:nth-of-type(1) {
+    padding-top: 0;
+  }
+  #header .bind .nav #menu .sign-btn li > button {
+    width: 100%;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 1px solid var(--baseColor);
+    border-radius: 0;
+    background-color: var(--bgColor) !important;
+    color: var(--baseColor) !important;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  #header .bind .nav #menu .sign-btn li > button:hover {
+    color: red !important;
   }
 }
 @media (max-width: 600px) {
   #header {
     padding: 0.5rem 0 0.5rem;
   }
-  #header .bind a {
-    padding: 10px;
-  }
-  #header .bind a .tit {
-    font-size: 1.3rem;
-  }
-  #header .bind .form #search .search-button {
-    padding: 0px 8px;
-  }
-  #header .bind .form #nav {
-    margin-left: 8px;
-    margin-top: 3px;
-  }
-  #header .bind .form #nav .menu {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  #header .bind .form #nav .menu i {
-    width: 100%;
-    height: 100%;
-    font-size: 1.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  #header .bind .form #nav .menu .sign-btn {
-    display: block;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    z-index: 1;
-    padding: 10px;
-    background: var(--bgColor);
-    border-radius: 5px;
-    border: 1px solid var(--baseColor);
-  }
-  #header .bind .form #nav .menu .sign-btn li {
-    margin-bottom: 5px;
-    margin-right: 0;
-  }
-  #header .bind .form #nav .menu .sign-btn li:nth-last-child(1) {
-    margin-bottom: 0;
+  #header .bind .nav {
+    top: 2.9rem;
   }
 }
 @media (max-width: 400px) {
-  #header .bind .form #nav .menu .sign-btn {
-    top: 37px;
+  #header {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #header .bind .nav {
+    top: 2.9rem;
   }
 }
 #footer {
   height: auto;
   padding: 1rem 0 1rem 0;
   border-top: 1px solid var(--baseColor);
+  background-color: var(--baseColor);
 }
 #footer .bind {
+  width: 50%;
   width: 95%;
   margin: auto;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-#footer .bind .tit {
-  width: 100%;
+#footer .tit {
+  width: 50%;
   font-size: 1.5rem;
   font-weight: 700;
-  text-align: right;
+  text-align: left;
+}
+#footer h2 {
+  font-family: var(--pointFont);
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--bgColor);
+}
+#footer p {
+  padding: 0 0 10px 0;
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  word-break: keep-all;
+  color: var(--bgColor);
+}
+#footer p span {
+  font-family: var(--pointFont);
+  font-size: 2rem;
+  color: var(--bgColor);
+}
+#footer .team-parent > button {
+  min-width: 70px;
+  padding: 5px 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--bgColor);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: var(--bgColor);
 }
 
 @media (max-width: 1200px) {
@@ -340,6 +400,240 @@ html {
   }
   #footer .bind .tit {
     font-size: 1.3rem;
+  }
+}
+@media (max-width: 400px) {
+  #footer {
+    padding: 0.5rem 0 0.5rem;
+  }
+  #footer .bind .team-parent {
+    margin-top: 10px;
+  }
+  #footer .bind .team-parent > button {
+    min-width: 48%;
+  }
+  #footer .bind .team-parent > button:nth-child(even) {
+    margin-right: 0;
+  }
+}
+#section {
+  min-height: calc(100vh - 19rem);
+  margin: 5rem auto 5rem;
+}
+#section .bind {
+  width: 95%;
+  min-height: 45vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  cursor: auto;
+}
+#section .bind .history {
+  margin-bottom: 100px;
+}
+#section .bind .history a {
+  height: auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#section .bind .history a:hover i {
+  color: red;
+}
+#section .bind .history a i {
+  font-size: 1.5rem;
+  margin-right: 15px;
+}
+#section .bind .history a span {
+  display: inline-block;
+}
+#section .bind .tit {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+#section .bind .my-info {
+  min-height: 600px;
+  display: flex;
+  border: 1px solid var(--baseColor);
+  border-radius: 3px;
+}
+#section .bind .my-info > * {
+  min-height: 600px;
+}
+#section .bind .my-info .my-profile {
+  min-width: 300px;
+  padding-top: 110px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-right: 1px dashed var(--baseColor);
+}
+#section .bind .my-info .my-profile a .ico-profile {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--baseColor);
+  background-color: var(--baseColor);
+  border-radius: 50%;
+  overflow: hidden;
+}
+#section .bind .my-info .my-profile a .ico-profile > img {
+  width: 100%;
+  height: 100%;
+}
+#section .bind .my-info .my-profile a .ico-profile i {
+  color: var(--bgColor);
+}
+#section .bind .my-info .my-profile > p {
+  margin-top: 0.5rem;
+}
+#section .bind .my-info .my-profile .our {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.6745098039);
+  text-align: center;
+}
+#section .bind .my-info .my-profile #userId {
+  margin-top: 5px;
+  display: block;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--baseColor);
+}
+#section .bind .my-info .my-profile #userPassword {
+  margin-top: 10px;
+  border: 1px solid var(--baseColor);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#section .bind .my-info .my-profile #userPassword:hover {
+  background-color: var(--baseColor);
+  color: var(--bgColor);
+}
+#section .bind .my-info .my-bookmark {
+  width: 100%;
+  padding: 25px 20px;
+}
+#section .bind .my-info .my-bookmark .tit {
+  font-size: 1.5rem;
+  margin-left: 15px;
+  font-weight: 600;
+  display: none;
+}
+#section .bind .my-info .my-bookmark .card-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item {
+  width: calc(20% - 30px);
+  margin: 15px;
+  border: 1px solid var(--baseColor);
+  border-radius: 3px;
+  overflow: hidden;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item .card-img {
+  width: 100%;
+  max-height: 370px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item .card-img img {
+  width: 100%;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item .card-img .card-delete {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background-color: var(--bgColor);
+  border: 1px solid var(--baseColor);
+  border-radius: 3px;
+  font-size: 1rem;
+  z-index: 2;
+}
+#section .bind .my-info .my-bookmark .card-list .card-item .card-tit {
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 1200px) {
+  #section {
+    min-height: calc(100vh - 13rem);
+    margin: 3rem auto 3rem;
+  }
+  #section .bind .my-info {
+    flex-direction: column;
+  }
+  #section .bind .my-info > * {
+    min-height: auto;
+  }
+  #section .bind .my-info .my-profile {
+    border-right: 0;
+    padding-top: 50px;
+    min-width: 100%;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item {
+    width: calc(33% - 28px);
+  }
+}
+@media (max-width: 600px) {
+  #section {
+    min-height: calc(100vh - 13rem);
+  }
+  #section .bind .history {
+    margin-bottom: 50px;
+  }
+  #section .bind .my-info {
+    flex-direction: column;
+  }
+  #section .bind .my-info > * {
+    min-height: auto;
+  }
+  #section .bind .my-info .my-profile {
+    border-right: 0;
+    padding-top: 50px;
+  }
+  #section .bind .my-info .my-bookmark {
+    padding: 0;
+    padding-top: 2rem;
+  }
+  #section .bind .my-info .my-bookmark .tit {
+    margin-bottom: 10px;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item {
+    width: calc(50% - 30px);
+    margin: 10px;
+  }
+}
+@media (max-width: 400px) {
+  #section .bind .my-info {
+    flex-direction: column;
+  }
+  #section .bind .my-info > * {
+    min-height: auto;
+  }
+  #section .bind .my-info .my-bookmark .tit {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item {
+    width: calc(50% - 16px);
+    margin: 8px;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item .card-img {
+    max-height: 190px;
+  }
+  #section .bind .my-info .my-bookmark .card-list .card-item .card-tit {
+    padding: 10px 10px;
+    font-size: 0.9rem;
   }
 }
 

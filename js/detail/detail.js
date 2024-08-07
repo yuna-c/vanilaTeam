@@ -6,6 +6,7 @@ const urlParams = new URLSearchParams(window.location.search); // 현재 URL에�
 
 // 'id' 쿼리 스트링 값 가져오기
 movieId = urlParams.get('id');
+
 const options = {
   method: 'GET',
   headers: {
@@ -28,51 +29,133 @@ async function fetchData() {
     const data = await res.json();
     return createDetailSetcion(data);
   } catch (err) {
-    console.error(err, '중지');
-    alert(err);
+    window.location.href = '/'; // index.html으로 가기
   }
 }
+
+// 유사한 영화 데이터 가져오기
+async function fetchSimilarMovies() {
+  try {
+    const SIMILAR_MOVIES_URL = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${API_KEY}&language=ko-KR&page=1`;
+    const res = await fetch(SIMILAR_MOVIES_URL, options);
+    const data = await res.json();
+    return data.results;
+  } catch (err) {
+    console.error('Error fetching similar movies:', err);
+    return [];
+  }
+}
+
+// 유사한 영화 데이터를 카드 생성
+const similarMovies = await fetchSimilarMovies();
 
 // detail
 const createDetailSetcion = (data) => {
   const title = data.title;
   const description = data.overview;
+  const bookInfo = data.poster_path;
+  const bookInfoUrl = `https://image.tmdb.org/t/p/w500/${bookInfo}`;
+
   const app = document.getElementById('app');
   const detail = document.createElement('section');
-  const detailImgHeader = document.createElement('div');
   const search = document.querySelector('#search');
+  const detailImgHeader = document.createElement('div');
+  const detailRecommendedPoster = document.createElement('div');
 
   // detail-info 요소 생성 및 콘텐츠 추가
   const detailInfo = document.createElement('div');
-  detailInfo.id = 'detail-info';
   const detailTitle = document.createElement('h1');
-  detailTitle.textContent = title;
   const detailDescription = document.createElement('p');
+  const recommededTitle = document.createElement('h5');
+  detailInfo.id = 'detail-info';
+  detailTitle.textContent = title;
   detailDescription.textContent = description;
   search.style = 'display:none';
+  recommededTitle.id = 'recommended-title';
+  detailRecommendedPoster.id = 'detail-Recommended-poster';
+
+  // 북마크 버튼
+  const bookmarkButton = document.createElement('button');
+  bookmarkButton.id = 'bookmark';
+  bookmarkButton.classList.add('bookmarkButton');
+  bookmarkButton.style = 'margin:-5px 0px 0px 10px; line-height:1; font-size:2rem;';
+  bookmarkButton.innerHTML = `<i class="fa-regular fa-heart" style="color: #d21e1e;"></i>`;
+
+  // 북마크 로컬 스토리지 toggle 기능
+  bookmarkButton.addEventListener('click', () => {
+    const movieArr = { title: `${title}`, img: `${bookInfoUrl}` };
+    const getBookmark = JSON.parse(localStorage.getItem(`bookmark-${title}`));
+    let isMark = localStorage.getItem('isMark');
+
+    if (getBookmark) {
+      bookmarkButton.innerHTML = `<i class="fa-regular fa-heart" style="color: #d21e1e;"></i>`;
+      bookmarkButton.classList.remove('pick');
+      localStorage.setItem('isMark', '0');
+      localStorage.removeItem(`bookmark-${title}`);
+      alert('북마크가 해제 되었습니다.');
+    } else {
+      bookmarkButton.innerHTML = `<i class="fa-solid fa-heart" style="color: #d21e1e;"></i>`;
+      bookmarkButton.classList.add('pick');
+      localStorage.setItem('isMark', '1');
+      localStorage.setItem(`bookmark-${title}`, JSON.stringify(movieArr));
+
+      alert('북마크 되었습니다.');
+    }
+  });
 
   //디테일 페이지 추가
   detail.id = 'detail';
   detailImgHeader.id = 'detail-image-block';
-  // 스타일 설정을 통해 백그라운드 이미지 추가
   detailImgHeader.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${data.poster_path}.jpg')`;
-
-  // 추가적인 스타일 설정
   detailImgHeader.style.backgroundSize = 'cover';
   detailImgHeader.style.backgroundPosition = 'center';
   detailImgHeader.style.width = '240px'; // 예시 너비
   detailImgHeader.style.height = '350px'; // 예시 높이
+  recommededTitle.innerText = '비슷한 영화 추천 ▾';
 
-  //append
   app.appendChild(detail);
   detailInfo.appendChild(detailTitle);
   detailInfo.appendChild(detailDescription);
+  detailTitle.append(bookmarkButton);
   detail.appendChild(detailImgHeader);
   detail.appendChild(detailInfo);
+  detailInfo.appendChild(recommededTitle);
+
+  // 상세정보 관련 영화 박스 추가
+  for (let i = 0; i < 4; i++) {
+    const box = document.createElement('div');
+    box.classList.add('box');
+    box.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${similarMovies[i].poster_path}')`;
+    detailRecommendedPoster.appendChild(box);
+  }
+
+  detailInfo.appendChild(detailRecommendedPoster);
+
+  // 로드시 pick 유지
+  window.addEventListener('load', () => {
+    let isMark = localStorage.getItem('isMark');
+
+    if (isMark === 1) {
+      bookmarkButton.classList.add('pick');
+      bookmarkButton.innerHTML = `<i class="fa-solid fa-heart" style="color: #d21e1e;"></i>`;
+    } else {
+      bookmarkButton.classList.remove('pick');
+      bookmarkButton.innerHTML = `<i class="fa-regular fa-heart" style="color: #d21e1e;"></i>`;
+    }
+  });
 };
 
-//포스터 이미지, 예시 이미지 경로
-const poster_path = '/your-image-path.jpg';
+// reload 방지
+const nonload = (e) => {
+  if ((e.ctrlKey && e.keyCode === 82) || e.keyCode === 116) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+};
+document.addEventListener('keydown', nonload);
+
+// 포스터, 이미지 예시 경로
+const poster_path = 'data.poster_path.jpg';
 function setBackgroundImage(poster_path) {
   document.documentElement.style.setProperty('--poster-path', `url('https://image.tmdb.org/t/p/w500${poster_path}')`);
 }

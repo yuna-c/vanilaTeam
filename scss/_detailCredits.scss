@@ -1,0 +1,86 @@
+#actor {
+  margin-bottom: 50px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // h3
+  .title {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+  }
+
+  .slide-wrapper {
+    position: relative;
+    width: 90%;
+    height: 300px;
+    overflow: hidden;
+
+    // ul
+    .slides {
+      position: absolute;
+      transition: left 0.5s ease-out;
+
+      // 기존 위치에서 왼쪽 상단에 붙어있기
+      left: 0;
+      top: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // li (출연진 사진)
+      .actor-item {
+        margin-right: 30px;
+        text-align: center;
+        font-size: large;
+        font-weight: 600;
+
+        img {
+          width: 200px;
+          height: 250px;
+        }
+      }
+    }
+  }
+  .controls {
+    // text-align: center;
+    // top: 50%;
+
+    span {
+      position: absolute;
+      top: 50%;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .prev {
+      left: 2%;
+    }
+
+    .next {
+      right: 2%;
+    }
+  }
+}
+
+// tablet
+@media (max-width: 1200px) {
+  #section {
+  }
+}
+
+// mobile
+@media (max-width: 600px) {
+  #section {
+  }
+}
+
+@media (max-width: 400px) {
+  #section {
+  }
+}

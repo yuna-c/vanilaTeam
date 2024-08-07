@@ -1,100 +1,136 @@
 @import 'reset';
 @import 'variables.scss';
 
+// TODO 스타일 중복제거
+
 .review {
-  width: 100%;
+  // width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  // background-color: gray;
-  padding: 50px;
+  // padding: 50px;
+  margin-bottom: 50px;
 
-  .w-60 {
-    width: 60%;
+  // 리뷰 작성폼, 리뷰 목록 둘 다 적용
+  .w-70 {
+    width: 70%;
   }
 
-  input {
-    border: 2px solid black;
-  }
-
+  // 감상평
   h3 {
+    text-align: center;
     margin-bottom: 20px;
     font-size: 1.8rem;
   }
 
-  .review-content {
-    height: 100px;
-    width: 100%;
-  }
-
-  // 리뷰 중복제거
-  input {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  button {
-    // background-color: gray;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    border: 2px solid black;
-  }
-}
-
-// 리뷰 작성 form
-.review-form {
-  // background-color: green;
-
-  .form-info {
-    width: 100%;
-    display: flex;
-    justify-content: right;
-
+  // 리뷰 작성 폼
+  .review-form {
     .m-l-10 {
-      &:nth-child(3) {
-        background-color: var(--baseColor);
-        color: var(--bgColor);
+      margin-left: 10px;
+    }
 
-        &:hover {
-          background-color: var(--bgColor);
-          color: var(--baseColor);
+    // 리뷰 작성 영역
+    .review-content {
+      height: 150px;
+      width: 100%;
+      padding: 30px;
+      font-size: 20px;
+    }
+
+    // 등록 버튼(TODO 클래스명 변경 필요)
+    .form-info {
+      width: 100%;
+      display: flex;
+      justify-content: right;
+
+      .save-button {
+        margin: 10px 0;
+        padding: 10px 20px;
+        border-radius: 5px;
+        // border: 2px solid black;
+        color: white;
+        font-weight: 500;
+        font-size: 15px;
+        background-color: var(--baseColor);
+      }
+
+      .m-l-10 {
+        &:nth-child(3) {
+          background-color: var(--baseColor);
+          color: var(--bgColor);
+
+          &:hover {
+            background-color: var(--bgColor);
+            color: var(--baseColor);
+          }
         }
       }
     }
   }
+
+  .review-list {
+    // 리뷰 목록에 이름 나오는 곳
+    .review-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        margin-left: 5px;
+        color: gray;
+        font-size: 15px;
+      }
+    }
+    .review-item {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid black;
+      margin-top: 20px;
+      padding: 0 20px;
+      border-radius: 10px;
+      background-color: white;
+
+      // 글 내용
+      span {
+        margin: 10px 0;
+      }
+
+      span:nth-child(1) {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 15px;
+      }
+
+      span:nth-child(2) {
+        padding: 10px 0 20px 0;
+        font-size: 20px;
+      }
+    }
+
+    .update-content {
+      height: 100px;
+      width: 100%;
+      // padding: 30px;
+      font-size: 20px;
+    }
+  }
 }
 
-// 리뷰 목록
-.review-list {
-  // background-color: wheat;
-}
-
-.review-item {
-  display: flex;
-  flex-direction: column;
+.border {
   border: 2px solid black;
-  margin-top: 20px;
-  padding: 0 20px;
-  border-radius: 10px;
-  background-color: white;
-
-  span {
-    margin: 10px 0;
-  }
-
-  span:nth-child(1) {
-    font-weight: bold;
-  }
-
-  span:nth-child(2) {
-    padding: 10px 0;
-  }
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-.review-form .m-l-10 {
-  margin-left: 10px;
+// .review-form .m-l-10 {
+//   margin-left: 10px;
+// }
+
+.update-content {
+  margin: 10px 0;
+  padding: 10px 0;
 }
 
 // tablet

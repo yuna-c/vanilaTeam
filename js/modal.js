@@ -12,7 +12,7 @@ export const createModal = (display) => {
     const newModal = btn.closest('.modal');
     newModal.remove(); // 엘리먼트 리무브 해야 사라진다
   });
-  console.log(btn);
+  // console.log(btn);
 };
 
 export function openModal() {

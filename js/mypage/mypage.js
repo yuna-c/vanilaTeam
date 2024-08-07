@@ -1,217 +1,145 @@
-import { createModal, closeModal, openModal } from '../modal.js';
-// createModal();
+// import { createModal, closeModal, openModal } from '../modal.js';
+import { checkPwd } from '../join/join.js';
 
-// join
-export const createJoin = () => {
+// mypage
+export const createMypage = () => {
   const app = document.getElementById('app');
   const section = document.createElement('section');
   const bind = document.createElement('div');
-  const joinForm = document.createElement('form');
-  const joinTitle = document.createElement('h2');
-  const fieldsetId = document.createElement('fieldset');
-  const fieldsetPsw = document.createElement('fieldset');
-  const fieldsetStrong = document.createElement('fieldset');
-  const joinId = document.createElement('input');
-  const joinPassword = document.createElement('input');
-  const joinPasswordStrong = document.createElement('input');
-  const joinButton = document.createElement('button');
-  const idError = document.createElement('p');
-  const passwordError = document.createElement('p');
-  const passwordStrongError = document.createElement('p');
-  const historyBack = document.createElement('div');
   const search = document.querySelector('#search');
+  const historyBack = document.createElement('div');
+
+  const tit = document.createElement('h2');
+  const myInfo = document.createElement('article');
+  const myProfile = document.createElement('div');
+  const myBookMark = document.createElement('div');
+  const userPassword = document.createElement('p');
+  let username = localStorage.getItem('username');
+  let password = localStorage.getItem('password');
 
   historyBack.setAttribute('class', 'history');
-  idError.setAttribute('class', 'error-id');
-  passwordError.setAttribute('class', 'error-password');
-  passwordStrongError.setAttribute('class', 'error-strong');
+
   search.style = 'display:none';
+  search.autofocus = false;
 
   section.id = 'section';
-  joinForm.id = 'join';
+  userPassword.id = 'userPassword';
 
-  bind.classList = 'bind';
-  joinTitle.classList = 'tit';
-  joinId.classList = 'join-id';
-  joinPassword.classList = 'join-password';
-  joinPasswordStrong.classList = 'join-strong';
-  joinButton.classList = 'join-button';
+  bind.classList.add('bind');
+  tit.classList.add('tit');
+  myInfo.classList.add('my-info');
+  myProfile.classList.add('my-profile');
+  myBookMark.classList.add('my-bookmark');
 
-  joinTitle.innerText = 'Join Us';
-  joinId.type = 'text';
-  joinId.placeholder = '아이디를 입력하세요.';
-  joinPassword.type = 'password';
-  joinPassword.placeholder = '비밀번호를 입력하세요.';
-  joinPasswordStrong.type = 'password';
-  joinPasswordStrong.placeholder = '비밀번호를 확인하세요.';
-
-  idError.innerText = '* 영문+숫자 조합 5~20자로 입력해 주세요.';
-  passwordError.innerText = '* 비밀번호는 영어/숫자/특수문자를 포함한 8자 이상 입력해 주세요.';
-  passwordStrongError.innerText = '* 확인 비밀번호를 입력해 주세요.';
-  joinButton.type = 'button';
-
-  joinButton.innerText = '회원가입하기';
   historyBack.innerHTML = `
-  <a href="./">
+  <a href="/index.html" >
     <i class="fa-solid fa-arrow-left fa-1x"></i>
     <span>뒤로가기</span>
   </a>`;
 
-  // const bbb = document.createElement('button');
-  // bbb.id = 'bbb';
-  // bbb.innerText = '회원가입하기';
+  myProfile.innerHTML += `  
+  <a href= '/' title="이미지 등록하고 싶어요. ( ܸ ⩌⩊⩌ ܸ )">
+    <div class="ico-profile">
+      <!--<img src="http://via.placeholder.com/200x200" alt="user" />-->
+      <i class="fa-solid fa-user fa-4x"></i>
+    </div>
+  </a>
+  <p class="our">&lt;팔풍당당&gt;</p>
+  <p id="userId">ID : ${username}</p>
+  <p id="${'userPassword'}">비밀번호 변경</p>
+  `;
 
+  myBookMark.innerHTML += `
+  <div class="bookmark-list">
+    <p class='tit'>북마크한 영화</p>
+    <div class="card-list"></div>
+  </div>
+  `;
+
+  // console.log(username, userPassword);
   app.appendChild(section);
   section.append(bind);
-  bind.append(historyBack, joinForm);
-  joinForm.append(joinTitle, fieldsetId, fieldsetPsw, fieldsetStrong, joinButton);
-  fieldsetId.append(joinId, idError);
-  fieldsetPsw.append(joinPassword, passwordError);
-  fieldsetStrong.append(joinPasswordStrong, passwordStrongError);
-  joinButton.addEventListener('click', handleJoin);
-  // const modal = document.getElementById('modal');
+  bind.append(historyBack, myInfo);
+  myInfo.append(myProfile, myBookMark);
 
-  // bbb.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   openModal();
-  // });
-  // const target = document.querySelector('#bbb');
-  // console.log(modal, target);
+  handlechagePassword(password);
+  window.addEventListener('load', handleBookmark);
+  document.addEventListener('click', handleDeleteBookmark);
 };
 
-// Join
-const handleJoin = () => {
-  // const idKey = 'USER-ID';
-  const joinId = document.querySelector('.join-id');
-  const joinPassword = document.querySelector('.join-password');
-  const joinPasswordStrong = document.querySelector('.join-strong');
-  const idError = document.querySelector('.error-id');
-  const passwordError = document.querySelector('.error-password');
-  const passwordStrongError = document.querySelector('.error-strong');
+// 북마크 영화 가져오기
+const handleBookmark = () => {
+  const myCardlist = document.querySelector('.card-list');
+  myCardlist.innerHTML = '';
 
-  let joinIdValue = joinId.value;
-  let joinPasswordValue = joinPassword.value;
-  let joinPasswordStrongValue = joinPasswordStrong.value;
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    // console.log(`1 :`, key);
 
-  // 1. 입력값 여부 확인
-  if (checkNullInput(joinId) && checkNullInput(joinPassword) && checkNullInput(joinPasswordStrong)) {
-    // 입력 했을 때 console.log(`${joinIdValue}, ${joinPasswordValue}, ${joinPasswordStrongValue} 입력은 함`);
+    // bookmark라는 글자로 시작되면 로컬스토리지에서 영화 데이터 값을 가지고 온다
+    if (key.startsWith('bookmark-')) {
+      const movieData = JSON.parse(localStorage.getItem(key));
+      const title = movieData.title;
+      const imgUrl = movieData.img;
+      // console.log(`로컬 스토리지 키값과 제목, 이미지URL 가져오기 :`, key, title, imgUrl);
 
-    // 유효성 검사
-    if (checkId(joinIdValue)) {
-      console.log(`${joinIdValue} 아이디 유효성 정상`);
-      idError.style = 'display:none';
-    } else {
-      console.log(`${joinIdValue} 아이디 유효성 비정상`);
-      idError.style = 'display:block';
-      return;
-    }
-    if (checkPwd(joinPasswordValue)) {
-      console.log(`${joinPasswordValue} 비밀번호 유효성 정상`);
-      passwordError.style = 'display:none';
-    } else {
-      console.log(`${joinPasswordValue} 비밀번호 유효성 비정상`);
-      passwordError.style = 'display:block';
-      return;
-    }
-    if (checkPwd(joinPasswordStrongValue)) {
-      console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 정상`);
-      passwordStrongError.style = 'display:none';
-    } else {
-      console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 비정상`);
-      passwordStrongError.style = 'display:block';
-      return;
-    }
+      const card = document.createElement('div');
+      const cardBind = document.createElement('div');
+      const cardImg = document.createElement('img');
+      const cardTitle = document.createElement('p');
+      const cardDelete = document.createElement('button');
 
-    if (isMatch(joinPasswordValue, joinPasswordStrongValue)) {
-      console.log(`${joinPasswordValue} 비밀번호 두개 같을 때 `);
+      card.classList.add('card-item');
+      cardBind.classList.add('card-img');
+      cardTitle.classList.add('card-tit');
+      cardDelete.classList.add('card-delete');
 
-      if (checkPwd(joinPasswordStrongValue)) {
-        console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 정상`);
-        passwordStrongError.style = 'display:none';
-      } else {
-        console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 비정상`);
-        passwordStrongError.style = 'display:block';
-        return;
-      }
-    } else {
-      console.log(`${joinPasswordValue} 비밀번호 두개 다름 `);
-      passwordStrongError.textContent = '* 두 비밀번호가 다릅니다.';
-      passwordStrongError.style = 'display:block';
-      return;
-    }
-  } else {
-    // 입력 안했을 때 비어있는 곳으로 포커스.
-    if (checkNullInput(joinId) == false) {
-      // 세개 모두 false인 경우(세개 모두 미입력된 경우), 또는 아이디가 false를 반환한 경우(아이디 미입력 경우)
-      joinId.focus();
-      idError.style = 'display:block';
-      return false;
-    } else if (checkNullInput(joinPassword) == false) {
-      // 비밀번호 미입력한 경우
-      joinPassword.focus();
-      passwordError.style = 'display:block';
-      return false;
-    } else {
-      // 비밀번호 확인을 안 한 경우
-      joinPasswordStrong.focus();
-      passwordStrongError.textContent = '* 확인 비밀번호를 정확하게 입력해 주세요.';
-      passwordStrongError.style = 'display:block';
-      return false;
+      cardTitle.textContent = title;
+      cardDelete.innerHTML = `<i class="fa-solid fa-trash" style="color: #000000;"></i>`;
+      cardImg.src = `https://image.tmdb.org/t/p/w500${imgUrl}`;
+
+      card.append(cardBind, cardTitle);
+      cardBind.append(cardImg, cardDelete);
+      myCardlist.append(card);
     }
   }
-
-  JoinInfo(joinIdValue, joinPasswordValue);
 };
 
-// 인풋 입력 여부 확인 함수
-const checkNullInput = (input) => {
-  if (input.value == '') {
-    console.log('회원가입 정보 미입력');
-    return false;
-  } else {
-    console.log('회원가입 정보 입력');
-    return true;
+// 북마크 영화 삭제하기
+const handleDeleteBookmark = (e) => {
+  const targetDelete = e.target.closest('.card-delete');
+  if (targetDelete) {
+    const card = e.target.closest('.card-list');
+    const titleEle = card.querySelector('.card-tit');
+    const cardTitle = titleEle.textContent;
+    localStorage.removeItem(`bookmark-${cardTitle}`);
+
+    handleBookmark();
   }
 };
 
-//아이디 정규식 체크 함수 : 영문자로 시작해야하는(숫자가 앞으로 올 수 없음) 영문+숫자 조합 5~20자로 입력
-const checkId = (strId) => {
-  const regId = /^[a-z]+[a-z0-9]{4,19}$/g;
-  //정규식과 매치되면 true, 매치되지않으면 false 반환.
-  return regId.test(strId);
-};
+// 비밀번호 변경
+const handlechagePassword = () => {
+  let userPassword = document.getElementById('userPassword');
 
-//비밀번호 정규식 체크 함수 : 영어/숫자/특수문자를 포함한 8자 이상 입력
-const checkPwd = (strPw) => {
-  const regPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-  //정규식과 매치되면 true, 매치되지않으면 false 반환.
-  return regPw.test(strPw);
-};
-
-// 비밀번호와 비밀번호 확인 일치
-function isMatch(pwd1, pwd2) {
-  return pwd1 === pwd2;
-}
-
-// 회원가입 저장(localstorage)
-function JoinInfo(idValue, pswValue) {
-  let getUsername = localStorage.getItem('username');
-  console.log(getUsername);
-
-  if (getUsername === idValue) {
-    alert('이미 계정이 존재합니다.');
-    return;
+  if (userPassword) {
+    let userPassword = document.getElementById('userPassword');
+    userPassword.innerText = `비밀번호변경`;
   }
+  userPassword.addEventListener('click', () => {
+    let newPassword = prompt('새로운 비밀번호 입력하세요!');
+    let currentPassword = localStorage.getItem('password');
 
-  localStorage.setItem('username', idValue);
-  localStorage.setItem('password', pswValue);
-  alert(
-    `회원가입을 완료 하였습니다.
-귀하의 아이디는 ${idValue},
-비밀번호는 ${pswValue} 입니다.
-`
-  );
+    if (newPassword === currentPassword) {
+      alert('현재 비밀번호와 동일합니다. 다른 비밀번호를를 입력해주세요.');
+    } else if (String(newPassword.length) >= 8 && checkPwd(newPassword)) {
+      localStorage.setItem('password', newPassword);
 
-  window.location.href = './page/login.html';
-}
+      let userPassword = document.getElementById('userPassword');
+      userPassword.innerText = `비밀번호변경`;
+      alert(`비밀번호가 ${newPassword}로 변경 완료되었습니다.`);
+    } else {
+      alert('비밀번호는 최소 8글자 이상이어야하며, 영문+숫자 조합 5~20자로 입력해 주세요.');
+    }
+  });
+};

@@ -1,0 +1,99 @@
+// section
+#images {
+  // padding: 10px 50px;
+  margin: 50px 0 50px 0;
+  position: relative;
+
+  // 얘로 인해 밑에 title 도 가운데로 감
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+
+  // h3
+  .images-title {
+    margin: 20px 0 20px 0;
+    font-size: 1.8rem;
+  }
+
+  // ul 감싸고 있는 div
+  .slide-image-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    // 얘네 둘은 꼭 있어야함. 없으면 슬라이드 이미지가 안보임
+    width: 90%; // 너비 고민
+    height: 300px;
+
+    // ul
+    .image-slide {
+      position: absolute;
+      transition: left 0.5s ease-out;
+
+      // 기존 위치에서 왼쪽 상단에 붙어있기
+      left: 0;
+      top: 0;
+
+      /**
+      아래 두 개의 속성으로 인해 li 가 가운데 정렬된다.
+      */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      // li
+      .image-item:not(:last-child) {
+        // 이미지 간격
+        margin-right: 30px;
+
+        // 이미지 크기 (500 x 280)
+        img {
+        }
+      }
+    }
+  }
+
+  .image-controls {
+    span {
+      position: absolute;
+      top: 50%;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+
+      // 이거 이 안에 있으면 적용이 안되네
+      // .image-prev {
+      //   left: 2%;
+      // }
+
+      // .image-next {
+      //   right: 2%;
+      // }
+    }
+    .image-prev {
+      left: 2%;
+    }
+
+    .image-next {
+      right: 2%;
+    }
+  }
+}
+
+// tablet
+@media (max-width: 1200px) {
+  #section {
+  }
+}
+
+// mobile
+@media (max-width: 600px) {
+  #section {
+  }
+}
+
+@media (max-width: 400px) {
+  #section {
+  }
+}

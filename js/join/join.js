@@ -1,6 +1,3 @@
-import { createModal, closeModal, openModal } from '../modal.js';
-// createModal();
-
 // join
 export const createJoin = () => {
   const app = document.getElementById('app');
@@ -36,6 +33,7 @@ export const createJoin = () => {
   joinPasswordStrong.classList = 'join-strong';
   joinButton.classList = 'join-button';
   search.style = 'display:none';
+  search.autofocus = false;
 
   joinTitle.innerText = 'Join Us';
   joinId.type = 'text';
@@ -52,14 +50,10 @@ export const createJoin = () => {
 
   joinButton.innerText = '회원가입하기';
   historyBack.innerHTML = `
-  <a href="./">
+  <a href="./login.html">
     <i class="fa-solid fa-arrow-left fa-1x"></i>
     <span>뒤로가기</span>
   </a>`;
-
-  // const bbb = document.createElement('button');
-  // bbb.id = 'bbb';
-  // bbb.innerText = '회원가입하기';
 
   app.appendChild(section);
   section.append(bind);
@@ -69,19 +63,10 @@ export const createJoin = () => {
   fieldsetPsw.append(joinPassword, passwordError);
   fieldsetStrong.append(joinPasswordStrong, passwordStrongError);
   joinButton.addEventListener('click', handleJoin);
-  // const modal = document.getElementById('modal');
-
-  // bbb.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   openModal();
-  // });
-  // const target = document.querySelector('#bbb');
-  // console.log(modal, target);
 };
 
-// Join
+// 유효성 검사
 const handleJoin = () => {
-  // const idKey = 'USER-ID';
   const joinId = document.querySelector('.join-id');
   const joinPassword = document.querySelector('.join-password');
   const joinPasswordStrong = document.querySelector('.join-strong');
@@ -89,6 +74,7 @@ const handleJoin = () => {
   const passwordError = document.querySelector('.error-password');
   const passwordStrongError = document.querySelector('.error-strong');
 
+  // input value
   let joinIdValue = joinId.value;
   let joinPasswordValue = joinPassword.value;
   let joinPasswordStrongValue = joinPasswordStrong.value;
@@ -99,43 +85,43 @@ const handleJoin = () => {
 
     // 유효성 검사
     if (checkId(joinIdValue)) {
-      console.log(`${joinIdValue} 아이디 유효성 정상`);
+      // console.log(`${joinIdValue} 아이디 유효성 정상`);
       idError.style = 'display:none';
     } else {
-      console.log(`${joinIdValue} 아이디 유효성 비정상`);
+      // console.log(`${joinIdValue} 아이디 유효성 비정상`);
       idError.style = 'display:block';
       return;
     }
     if (checkPwd(joinPasswordValue)) {
-      console.log(`${joinPasswordValue} 비밀번호 유효성 정상`);
+      // console.log(`${joinPasswordValue} 비밀번호 유효성 정상`);
       passwordError.style = 'display:none';
     } else {
-      console.log(`${joinPasswordValue} 비밀번호 유효성 비정상`);
+      // console.log(`${joinPasswordValue} 비밀번호 유효성 비정상`);
       passwordError.style = 'display:block';
       return;
     }
     if (checkPwd(joinPasswordStrongValue)) {
-      console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 정상`);
+      // console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 정상`);
       passwordStrongError.style = 'display:none';
     } else {
-      console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 비정상`);
+      // console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 비정상`);
       passwordStrongError.style = 'display:block';
       return;
     }
 
     if (isMatch(joinPasswordValue, joinPasswordStrongValue)) {
-      console.log(`${joinPasswordValue} 비밀번호 두개 같을 때 `);
+      // console.log(`${joinPasswordValue} 비밀번호 두개 같을 때 `);
 
       if (checkPwd(joinPasswordStrongValue)) {
-        console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 정상`);
+        // console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 정상`);
         passwordStrongError.style = 'display:none';
       } else {
-        console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 비정상`);
+        // console.log(`${joinPasswordStrongValue} 비밀번호 확인 유효성 비정상`);
         passwordStrongError.style = 'display:block';
         return;
       }
     } else {
-      console.log(`${joinPasswordValue} 비밀번호 두개 다름 `);
+      // console.log(`${joinPasswordValue} 비밀번호 두개 다름 `);
       passwordStrongError.textContent = '* 두 비밀번호가 다릅니다.';
       passwordStrongError.style = 'display:block';
       return;
@@ -161,16 +147,17 @@ const handleJoin = () => {
     }
   }
 
+  // 인자로 로컬스토리지에 저장하는 변수를 처리해주고 handleJoin의 값으로 대체한다.
   JoinInfo(joinIdValue, joinPasswordValue);
 };
 
 // 인풋 입력 여부 확인 함수
 const checkNullInput = (input) => {
   if (input.value == '') {
-    console.log('회원가입 정보 미입력');
+    // console.log('회원가입 정보 미입력');
     return false;
   } else {
-    console.log('회원가입 정보 입력');
+    // console.log('회원가입 정보 입력');
     return true;
   }
 };
@@ -183,7 +170,7 @@ const checkId = (strId) => {
 };
 
 //비밀번호 정규식 체크 함수 : 영어/숫자/특수문자를 포함한 8자 이상 입력
-const checkPwd = (strPw) => {
+export const checkPwd = (strPw) => {
   const regPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
   //정규식과 매치되면 true, 매치되지않으면 false 반환.
   return regPw.test(strPw);
@@ -213,5 +200,5 @@ function JoinInfo(idValue, pswValue) {
 `
   );
 
-  window.location.href = './page/login.html';
+  window.location.href = './login.html';
 }

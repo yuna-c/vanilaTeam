@@ -33,7 +33,9 @@ const creatSlideItem = (data) => {
       return `
         <li class="slide_item">
             <img src="https://image.tmdb.org/t/p/original${item.backdrop_path}" alt="${item.title}">
-            <div class="txt_box"><p class="txt">"${item.original_title.toUpperCase()}"</p><span class="movie_open">${item.release_date}</span></div>
+            <div class="txt_box"><p class="txt">"${item.original_title.toUpperCase()}"</p><span class="movie_open">${
+        item.release_date
+      }</span></div>
         </li>
         `;
     })
