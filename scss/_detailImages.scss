@@ -1,26 +1,31 @@
+// section
 #images {
-  // background-color: gray;
-  // margin-top: 20px;
-  padding: 10px 50px;
+  // padding: 10px 50px;
+  margin: 50px 0 50px 0;
   position: relative;
+
+  // 얘로 인해 밑에 title 도 가운데로 감
   flex-direction: column;
   display: flex;
   align-items: center;
 
-  .title {
-    display: flex;
-    width: 60%;
-    margin-bottom: 20px;
+  // h3
+  .images-title {
+    margin: 20px 0 20px 0;
+    font-size: 1.8rem;
   }
 
+  // ul 감싸고 있는 div
   .slide-image-wrapper {
     position: relative;
-    width: 90%;
-    // margin: 0 auto;
-    height: 300px;
     overflow: hidden;
 
-    .image-slides {
+    // 얘네 둘은 꼭 있어야함. 없으면 슬라이드 이미지가 안보임
+    width: 90%; // 너비 고민
+    height: 300px;
+
+    // ul
+    .image-slide {
       position: absolute;
       transition: left 0.5s ease-out;
 
@@ -28,45 +33,50 @@
       left: 0;
       top: 0;
 
+      /**
+      아래 두 개의 속성으로 인해 li 가 가운데 정렬된다.
+      */
       display: flex;
+      justify-content: center;
+      align-items: center;
 
       // li
-      .image-item {
+      .image-item:not(:last-child) {
+        // 이미지 간격
         margin-right: 30px;
-        text-align: center;
-        font-size: large;
-        font-weight: 900;
 
+        // 이미지 크기 (500 x 280)
         img {
-          width: 500px;
-          height: 300px;
         }
       }
     }
   }
-  .image-controls {
-    text-align: center;
-    top: 50%;
 
+  .image-controls {
     span {
       position: absolute;
       top: 50%;
-      // margin: 10px;
 
       img {
         width: 30px;
         height: 30px;
       }
-    }
 
+      // 이거 이 안에 있으면 적용이 안되네
+      // .image-prev {
+      //   left: 2%;
+      // }
+
+      // .image-next {
+      //   right: 2%;
+      // }
+    }
     .image-prev {
       left: 2%;
-      // background-color: green;
     }
 
     .image-next {
       right: 2%;
-      // background-color: pink;
     }
   }
 }

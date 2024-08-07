@@ -18,7 +18,7 @@ const createReviewSection = () => {
   section.className = 'review';
 
   const div = document.createElement('div');
-  div.className = 'w-60';
+  div.className = 'w-70';
 
   const h3 = document.createElement('h3');
   h3.textContent = '감상평';
@@ -141,8 +141,12 @@ const setupUpdateReviewButtonEventListener = (reviewItem) => {
           <button class="cancel-update-button">취소</button>
         </div>
       </div>
-      <textarea id="review-content" class="review-content">${reviewContent}</textarea>
+      <textarea id="review-content" class="update-content">${reviewContent}</textarea>
     `;
+
+    let textarea = document.querySelector('.update-content');
+    textarea.focus();
+    textarea.setSelectionRange(textarea.value.length, textarea.value.length);
 
     const saveUpdateButton = reviewItem.querySelector('.save-update-button');
     const cancelUpdateButton = reviewItem.querySelector('.cancel-update-button');
@@ -247,7 +251,7 @@ const renderReviews = async () => {
   });
 
   const reviewContainer = document.createElement('div');
-  reviewContainer.className = 'w-60';
+  reviewContainer.className = 'w-70';
   reviewContainer.appendChild(reviewList);
 
   document.querySelector('.review').appendChild(reviewContainer);

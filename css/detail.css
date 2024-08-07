@@ -477,64 +477,62 @@ html {
   }
 }
 .review {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  margin-bottom: 50px;
 }
-.review .w-60 {
-  width: 60%;
+.review .w-70 {
+  width: 70%;
 }
 .review h3 {
+  text-align: center;
   margin-bottom: 20px;
   font-size: 1.8rem;
 }
-.review .review-content {
+.review .review-form .m-l-10 {
+  margin-left: 10px;
+}
+.review .review-form .review-content {
   height: 150px;
   width: 100%;
+  padding: 30px;
+  font-size: 20px;
 }
-.review .save-button {
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-  border: 2px solid black;
-}
-
-.review-form .form-info {
+.review .review-form .form-info {
   width: 100%;
   display: flex;
   justify-content: right;
 }
-.review-form .form-info .m-l-10:nth-child(3) {
+.review .review-form .form-info .save-button {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  background-color: var(--baseColor);
+}
+.review .review-form .form-info .m-l-10:nth-child(3) {
   background-color: var(--baseColor);
   color: var(--bgColor);
 }
-.review-form .form-info .m-l-10:nth-child(3):hover {
+.review .review-form .form-info .m-l-10:nth-child(3):hover {
   background-color: var(--bgColor);
   color: var(--baseColor);
 }
-
-.border {
-  border: 2px solid black;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.review-header {
+.review .review-list .review-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.review-header button {
+.review .review-list .review-header button {
   margin-left: 5px;
   color: gray;
   font-size: 15px;
 }
-
-.review-item {
+.review .review-list .review-item {
   display: flex;
   flex-direction: column;
   border: 2px solid black;
@@ -543,18 +541,29 @@ html {
   border-radius: 10px;
   background-color: white;
 }
-.review-item span {
+.review .review-list .review-item span {
   margin: 10px 0;
 }
-.review-item span:nth-child(1) {
+.review .review-list .review-item span:nth-child(1) {
+  margin-top: 20px;
   font-weight: bold;
+  font-size: 15px;
 }
-.review-item span:nth-child(2) {
-  padding: 10px 0;
+.review .review-list .review-item span:nth-child(2) {
+  padding: 10px 0 20px 0;
+  font-size: 20px;
+}
+.review .review-list .update-content {
+  height: 100px;
+  width: 100%;
+  font-size: 20px;
 }
 
-.review-form .m-l-10 {
-  margin-left: 10px;
+.border {
+  border: 2px solid black;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .update-content {
@@ -595,36 +604,48 @@ html {
   align-items: center;
   background-color: var(--baseColor);
 }
-#footer .div-left {
-  height: auto;
-  width: auto;
+#footer .bind {
+  width: 50%;
+  width: 95%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
-  background-color: var(--baseColor);
+  justify-content: space-between;
+  align-items: center;
 }
-#footer .div-left #footer-title {
+#footer .tit {
+  width: 50%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+#footer h2 {
+  font-family: var(--pointFont);
+  font-size: 3rem;
+  font-weight: 500;
   color: var(--bgColor);
   margin-left: 10px;
 }
-#footer .div-left #footer-text {
+#footer p {
+  padding: 0 0 10px 0;
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  word-break: keep-all;
   color: var(--bgColor);
   margin-left: 10px;
   margin-top: 3px;
 }
-#footer .div-left .team-parent-div {
-  display: flex;
-  height: auto;
-  background-color: "var(--baseColor)";
-  margin-top: 10px;
-  margin-left: 10px;
-}
-#footer .div-left #team-people {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#footer p span {
+  font-family: var(--pointFont);
+  font-size: 2rem;
   color: var(--bgColor);
-  background-color: var(--baseColor);
+}
+#footer .team-parent > button {
+  min-width: 70px;
+  padding: 5px 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   border: 1px solid var(--bgColor);
   margin-right: 12px;
   border-radius: 5px;
@@ -680,21 +701,19 @@ html {
   }
 }
 #actor {
-  margin-top: 20px;
-  padding: 10px 50px;
+  margin-bottom: 50px;
   position: relative;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 #actor .title {
-  display: flex;
-  width: 60%;
   margin-bottom: 20px;
+  font-size: 1.8rem;
 }
 #actor .slide-wrapper {
   position: relative;
-  width: 60%;
+  width: 90%;
   height: 300px;
   overflow: hidden;
 }
@@ -704,20 +723,18 @@ html {
   left: 0;
   top: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #actor .slide-wrapper .slides .actor-item {
   margin-right: 30px;
   text-align: center;
   font-size: large;
-  font-weight: 900;
+  font-weight: 600;
 }
 #actor .slide-wrapper .slides .actor-item img {
   width: 200px;
   height: 250px;
-}
-#actor .controls {
-  text-align: center;
-  top: 50%;
 }
 #actor .controls span {
   position: absolute;
@@ -728,50 +745,43 @@ html {
   height: 30px;
 }
 #actor .controls .prev {
-  left: 15%;
+  left: 2%;
 }
 #actor .controls .next {
-  right: 15%;
+  right: 2%;
 }
 
 #images {
-  padding: 10px 50px;
+  margin: 50px 0 50px 0;
   position: relative;
   flex-direction: column;
   display: flex;
   align-items: center;
 }
-#images .title {
-  display: flex;
-  width: 60%;
-  margin-bottom: 20px;
+#images .images-title {
+  margin: 20px 0 20px 0;
+  font-size: 1.8rem;
 }
 #images .slide-image-wrapper {
   position: relative;
+  overflow: hidden;
   width: 90%;
   height: 300px;
-  overflow: hidden;
 }
-#images .slide-image-wrapper .image-slides {
+#images .slide-image-wrapper .image-slide {
   position: absolute;
   transition: left 0.5s ease-out;
   left: 0;
   top: 0;
+  /**
+  아래 두 개의 속성으로 인해 li 가 가운데 정렬된다.
+  */
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#images .slide-image-wrapper .image-slides .image-item {
+#images .slide-image-wrapper .image-slide .image-item:not(:last-child) {
   margin-right: 30px;
-  text-align: center;
-  font-size: large;
-  font-weight: 900;
-}
-#images .slide-image-wrapper .image-slides .image-item img {
-  width: 500px;
-  height: 300px;
-}
-#images .image-controls {
-  text-align: center;
-  top: 50%;
 }
 #images .image-controls span {
   position: absolute;
