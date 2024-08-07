@@ -63,12 +63,12 @@ export const cardList = (data) => {
 
 // pagination active : 페이지의 숫자를 다 가져와 각 페이지를 활성화 시키기 위해 forEach로 배열을 돌려 page: start에서 n 페이지 번째 페이지를 활성화 시켜주고 아니면 지워줌 (page : pageStart)
 const activePagenation = (page) => {
-  const pageGroupNum = document.querySelectorAll('.pager');
+  const pageGroupNum = document.querySelectorAll('.page-num');
+  console.log(pageGroupNum);
   pageGroupNum.forEach((idx) => {
     idx.innerHTML === page ? idx.classList.add('on') : idx.classList.remove('on');
   });
 };
-
 // movie change : 페이지의 숫자를 누르면 화면이 변하는 함수 설정, 화면이 바뀌어야 하기 때문에 searchAPI의 값을 변경할 필요가 있기 때문에 무비리스트 전체를 가지고 오고, 누른 페이지 숫자 data가 search(page)의 값과 같으면, searchInput(누른 데이터 값의 page)를 가져와 페이지를 표시하여 카드data를 카드 리스트에 담아서 출력해 준다.
 export const onChangePage = async (pageNumber) => {
   // search의 값을 받는 API를 사용하였기 때문에 변수 선언을 위해 input값을 받아온다
