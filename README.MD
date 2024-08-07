@@ -18,7 +18,7 @@ JS로 페이지를 통으로 구현해 보는 연습
 
 ## 개발기간
 
-2024.0731~ 2024.08.07
+2024.07.31~ 2024.08.07
 <br>
 
 ## 활용 기술
@@ -45,6 +45,29 @@ JS로 페이지를 통으로 구현해 보는 연습
 8. 최신순/ 인기순 데이터 가공 소팅기능
 9. 하단 푸터의 날씨API를 사용한 지역,온도,날씨 출력
    <br>
+
+## 팀원
+
+<table>
+   <tr>
+    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Frontend</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://avatars.githubusercontent.com/kyulipark" width="100px" /></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/Limgife" width="100px" /></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/jungminji0215" width="100px" /></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/yuna-c" width="100px" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b><a href="https://github.com/kyulipark">박규리</a></b></td>
+    <td align="center"><b><a href="https://github.com/LGC1010">임기철</a></b></td>
+    <td align="center"><b><a href="https://github.com/jungminji0215">정민지</a></b></td>
+    <td align="center"><b><a href="https://github.com/yuna-c">최유나</a></b></td>
+  </tr>
+</table>
 
 ## 개인별 담당
 
@@ -74,7 +97,6 @@ JS로 페이지를 통으로 구현해 보는 연습
 @vanilaMovie                                           //
 └─vanilaMovie                                          //
    ├─ index.html                                       //
-   ├─ public                                           //
    ├─ page                                             //
    │  ├─ Provider                                      //
    │  │  ├─ detail.html                                //
@@ -129,14 +151,13 @@ JS로 페이지를 통으로 구현해 보는 연습
    │  ├─ main.scss                                     //
    │  ├─ modal.scss                                    //
    │  ├─ mypage.scss                                   //
-   │  ├─ _footer.scss                                  //
    │  └─ style.scss                                    //
    ├─  assets                                          //
    │  ├─ fontawesome.html                              //
    │  └─ img                                           //
-         ├─ favicon.png                                //
-         ├─ next.png                                   //
-         └─ prev.png                                   //
+   │     ├─ favicon.png                                //
+   │     ├─ next.png                                   //
+   │     └─ prev.png                                   //
    ├─ .prettierrc                                      //
    └─ .gitignore                                       //
 ```
@@ -147,5 +168,5 @@ JS로 페이지를 통으로 구현해 보는 연습
 ![스크린샷 2024-08-07 오후 5 41 27](https://github.com/user-attachments/assets/e19a6253-3b88-4ce0-b105-3861b87ecad4)
 
 ## 세부 페이지
-![스크린샷 2024-08-07 오후 5 41 31](https://github.com/user-attachments/assets/afd8bcd1-ff8e-499a-9733-20d0887f22a1)
 
+![스크린샷 2024-08-07 오후 5 41 31](https://github.com/user-attachments/assets/afd8bcd1-ff8e-499a-9733-20d0887f22a1)
