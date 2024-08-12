@@ -54,12 +54,16 @@ export const deleteReviewData = async (reviewId) => {
  * 리뷰 수정
  */
 export const updateReviewData = async (reviewId, updatedData) => {
-  // 리뷰 ID에 해당하는 문서를 쿼리해서 조화
-  const getReviewByReviewId = query(collection(db, 'reviews'), where('id', '==', reviewId));
-  const reviewDocs = await getDocs(getReviewByReviewId);
-  // 각 문서를 순회하며 업데이트
-  for (const document of reviewDocs.docs) {
-    const docRef = doc(db, 'reviews', document.id);
-    await updateDoc(docRef, { content: updatedData });
-  }
+  const reviewDocs = await getDocs(query(collection(db, 'reviews'), where('id', '==', reviewId)));
+
+  /**
+   * 조건에 맞는 문서가 하나만 있을 것으로 예상하는 경우에도
+   * Firestore의 쿼리(query)는 기본적으로 조건에 맞는 모든 문서를 반환함
+   * Firestore는 데이터베이스에서 특정 조건을 만족하는 모든 문서를 찾도록 설계되어 있기 때문에,
+   * 쿼리 결과가 배열 형태로 반환됨,
+   * 그래서 맞는 조건이 하나가 확실한 경우에 reviewDocs.docs[0]; 이렇게 써도됨
+   */
+  const document = reviewDocs.docs[0];
+  const docRef = doc(db, 'reviews', document.id);
+  await updateDoc(docRef, { content: updatedData });
 };

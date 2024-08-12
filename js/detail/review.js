@@ -66,7 +66,9 @@ const renderReviewForm = () => {
 
 const saveReview = async (reviewData) => {
   await saveReviewData(reviewData);
-  window.location.reload();
+  const newReviewItem = createReviewItem(reviewData);
+  const reviewList = document.querySelector('.review-list');
+  reviewList.prepend(newReviewItem);
 };
 
 /**
@@ -158,8 +160,21 @@ const setupUpdateReviewButtonEventListener = (reviewItem) => {
         const reviewId = reviewItem.getAttribute('data-id');
 
         await updateReviewData(reviewId, updatedContent);
+        // DOM을 직접 수정하여 변경 사항 반영
+        reviewItem.innerHTML = `
+        <div class="review-header">
+          <span id="user-name">${userName}</span>
+          <div>
+            <button class="update-button">수정</button>
+            <button class="delete-button">삭제</button>
+          </div>
+        </div>
+        <span id="review-content">${updatedContent}</span>
+    `;
 
-        window.location.reload();
+        // 수정, 삭제 이벤트 리스너 다시 설정
+        setupDeleteReviewEventListener(reviewItem);
+        setupUpdateReviewButtonEventListener(reviewItem);
         window.alert('수정이 완료되었습니다.');
       }
     });
