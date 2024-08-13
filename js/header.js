@@ -105,13 +105,11 @@ const handleSearch = async () => {
     mainSlider.style = 'display:none';
     // 검색 API에서 값을 받아와야 하기 때문에 searchInput의 값을 가져온다.
     const data = await getChangeData(searchInput, searchPage, window.scrollTo(0, 0));
-    // console.log(data);
     const dataResult = data.total_page;
     const searchCard = cardList(data, searchInput);
     createPagination(dataResult, searchPage);
     handlePagination(dataResult);
     movieUl.innerHTML = searchCard;
-    // location.href = '/';
     historyBack.innerHTML += `
     <a href="/index.html">
       <i class="fa-solid fa-arrow-left fa-1x"></i>
@@ -130,5 +128,3 @@ const handleSearch = async () => {
     }
   }
 };
-
-// export default createHeader;

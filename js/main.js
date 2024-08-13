@@ -14,8 +14,6 @@ export const createSection = async () => {
   // ex) const pagination = await createPagination(); //await
   // ex) section.prepend(pagination); 이렇게 할당 하지 않을 시 undefined
   const pageTotal = data.total_pages;
-  // console.log(data);
-  // console.log(data.results, data.total_pages);
 
   section.id = 'section';
   movieUl.id = 'movie-list';

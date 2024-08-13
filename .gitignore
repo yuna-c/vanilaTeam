@@ -1,4 +1,2 @@
-.env
-./js/config.js
-.DS_Store
-.package-lock.json
+./js/config.js 
+# 나중에 react에서 쓰는 .env의 예시 버전입니다. 

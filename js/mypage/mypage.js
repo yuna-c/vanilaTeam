@@ -56,7 +56,6 @@ export const createMypage = () => {
   </div>
   `;
 
-  // console.log(username, userPassword);
   app.appendChild(section);
   section.append(bind);
   bind.append(historyBack, myInfo);
@@ -74,7 +73,6 @@ const handleBookmark = () => {
 
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    // console.log(`1 :`, key);
 
     // bookmark라는 글자로 시작되면 로컬스토리지에서 영화 데이터 값을 가지고 온다
     if (key.startsWith('bookmark-')) {

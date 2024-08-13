@@ -85,10 +85,8 @@ const handleJoin = () => {
 
     // 유효성 검사
     if (checkId(joinIdValue)) {
-      // console.log(`${joinIdValue} 아이디 유효성 정상`);
       idError.style = 'display:none';
     } else {
-      // console.log(`${joinIdValue} 아이디 유효성 비정상`);
       idError.style = 'display:block';
       return;
     }

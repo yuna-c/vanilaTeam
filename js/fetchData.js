@@ -21,9 +21,6 @@ export const getPopularData = async (page) => {
   try {
     const res = await fetch(BASE_URL, options);
     const data = await res.json();
-    // console.log(res);
-    // console.log(BASE_URL);
-    // console.log(data);
     return data;
   } catch (error) {
     console.log(error + ` popular 데이터를 받아올 수 없습니다.`);
@@ -38,7 +35,6 @@ export const getChangeData = async (search, page) => {
   try {
     const res = await fetch(SEARCH_URL);
     const data = await res.json();
-    // console.log(data);
     return data;
   } catch (error) {
     console.log(error + ` search 데이터를 받아올 수 없습니다.`);

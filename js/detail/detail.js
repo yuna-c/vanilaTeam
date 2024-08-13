@@ -29,7 +29,7 @@ async function fetchData() {
     const data = await res.json();
     return createDetailSetcion(data);
   } catch (err) {
-    window.location.href = '/'; // index.html으로 가기
+    window.location.href = '/';
   }
 }
 

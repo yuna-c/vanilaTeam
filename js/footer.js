@@ -1,6 +1,5 @@
 // footer
 export const createFooter = () => {
-  // const app = document.getElementById('app');
   const footer = document.createElement('footer');
   const footerTitle = document.createElement('h2');
   const footerText = document.createElement('p');
@@ -22,7 +21,6 @@ export const createFooter = () => {
   footerWeather.classList = 'footer-weather';
   footerTitle.id = 'footer-title';
   footerText.id = 'footer-text';
-  // weatherIcon.id = 'icon-size';
 
   //팀소개
   footerTitle.innerText = '팔풍당당';
@@ -32,13 +30,6 @@ export const createFooter = () => {
   function createTeamDiv(name, url) {
     const teamPeople = document.createElement('button');
     teamPeople.id = 'team-people';
-    //  if (name === '유나') {
-    //   teamPeople.style.marginLeft = '50px';
-    // } else {
-    //   teamPeople.style.marginLeft = '10px';
-    // }
-
-    // teamPeople.style.marginBottom = '25px';
     teamPeople.innerText = name;
     teamPeople.addEventListener('click', () => {
       window.location.href = url;
@@ -95,7 +86,6 @@ export const createFooter = () => {
         const wIcon = data.weather[0].icon;
         const weatherIcon = `https://openweathermap.org/img/wn/10d@2x.png`;
         footerWeather.innerText = `${name}, ${temp}°C`;
-        // footerWeather.innerHTML = `<img src="${weatherIcon}" alt="WeatherIcon"> ${name}, ${temp}°C`;
       });
   }
   function onGeoError() {

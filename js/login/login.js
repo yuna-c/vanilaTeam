@@ -58,7 +58,6 @@ export const createLogin = () => {
 const handleLogin = () => {
   let username = document.querySelector('.login-id').value;
   let password = document.querySelector('.login-password').value;
-  // console.log(username, password);
 
   let getUsername = localStorage.getItem('username');
   let getPassword = localStorage.getItem('password');
