@@ -1,5 +1,6 @@
 // footer
 export const createFooter = () => {
+  const app = document.getElementById('app');
   const footer = document.createElement('footer');
   const footerTitle = document.createElement('h2');
   const footerText = document.createElement('p');
@@ -86,10 +87,12 @@ export const createFooter = () => {
         const wIcon = data.weather[0].icon;
         const weatherIcon = `https://openweathermap.org/img/wn/10d@2x.png`;
         footerWeather.innerText = `${name}, ${temp}°C`;
+        // footerWeather.innerHTML = `<img src="${weatherIcon}" alt="WeatherIcon"> ${name}, ${temp}°C`;
       });
   }
   function onGeoError() {
     alert('위치를 찾을수 없습니다.');
+    return;
   }
   navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 
