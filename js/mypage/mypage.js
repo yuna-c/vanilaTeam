@@ -1,5 +1,5 @@
 // import { createModal, closeModal, openModal } from '../modal.js';
-import { checkPwd } from '../join/join.js';
+import { checkPwd } from '../join/validation.js';
 
 // mypage
 export const createMypage = () => {
